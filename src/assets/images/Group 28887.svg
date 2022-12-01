@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="194.505" height="54.952" viewBox="0 0 194.505 54.952">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.94" x2="0.5" y2="-0.113" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed2123"/>
+      <stop offset="1" stop-color="#890103"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0" x2="0.5" y2="1" xlink:href="#linear-gradient"/>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="11.081" gradientTransform="translate(0.465) scale(0.07 1)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff8f97"/>
+      <stop offset="1"/>
+    </radialGradient>
+  </defs>
+  <g id="Group_28887" data-name="Group 28887" transform="translate(-72 -640.846)">
+    <g id="Group_28030" data-name="Group 28030" transform="translate(72 640.846)">
+      <path id="Path_1227" data-name="Path 1227" d="M508.225,66.488A65.6,65.6,0,0,1,502,58.8c-1.345-1.837-2.735-3.737-4.216-5.514-6.379-7.657-12.965-10.64-23.491-10.64H354.915c-10.524,0-17.11,2.983-23.49,10.64-1.481,1.777-2.872,3.678-4.217,5.516a65.644,65.644,0,0,1-6.222,7.691l-3.632,3.631,3.632,3.629a65.552,65.552,0,0,1,6.222,7.69c1.346,1.837,2.737,3.738,4.217,5.515,6.38,7.657,12.965,10.641,23.491,10.641H474.3c10.526,0,17.112-2.984,23.491-10.64,1.481-1.777,2.872-3.678,4.216-5.515a65.567,65.567,0,0,1,6.223-7.69l3.633-3.63Z" transform="translate(-317.353 -42.642)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Path_1228" data-name="Path 1228" d="M507.24,71.986c-4.057-4.055-7.192-9.275-10.755-13.551-5.589-6.709-10.882-8.794-19.547-8.794H357.557c-8.664,0-13.957,2.084-19.547,8.794-3.563,4.276-6.7,9.5-10.755,13.551,4.057,4.054,7.192,9.275,10.755,13.55,5.59,6.71,10.883,8.794,19.547,8.794H476.938c8.665,0,13.958-2.084,19.547-8.794,3.563-4.276,6.7-9.5,10.755-13.55Z" transform="translate(-320.255 -44.641)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+      <path id="Path_1229" data-name="Path 1229" d="M344.174,60.831c5.064-6.079,9.6-7.8,17.43-7.8H480.985c7.829,0,12.366,1.723,17.43,7.8.6.721,1.183,1.455,1.751,2.2-.743-1.017-1.5-2.024-2.3-3.009-5.042-6.237-9.562-8-17.357-8H362.079c-7.8,0-12.314,1.768-17.357,8-.8.985-1.555,1.992-2.3,3.009.569-.742,1.149-1.476,1.751-2.2Z" transform="translate(-324.042 -45.143)" fill-rule="evenodd" fill="url(#radial-gradient)" style="mix-blend-mode: screen;isolation: isolate"/>
+    </g>
+    <text id="Sign_up" data-name="Sign up" transform="translate(136 677.846)" fill="#fff" font-size="22" font-family="Oswald-Regular, Oswald"><tspan x="0" y="0">SIGN UP</tspan></text>
+  </g>
+</svg>
