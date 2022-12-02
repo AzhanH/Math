@@ -5,4 +5,6 @@ export const colors = {
   green: '#23AF5B',
   lightGray: '#F5F5F5',
   gray: '#707070',
+  peach: '#FF9D61',
+  gray: '#808080',
 };

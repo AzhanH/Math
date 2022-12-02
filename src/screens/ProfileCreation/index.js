@@ -1,17 +1,15 @@
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity, StatusBar} from 'react-native';
-import buttonRed from '../../assets/svgs/buttonRed';
+import {TouchableOpacity, StatusBar} from 'react-native';
 import {
   BackgroundWrapper,
+  Button,
   Header,
-  Icons,
   InputField,
   Text,
 } from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import styles from './styles';
-import {vh} from '../../utils/units';
 
 const ProfileCreation = () => {
   useEffect(() => {
@@ -39,10 +37,8 @@ const ProfileCreation = () => {
         <InputField placeholder="Zip Code" />
         <InputField placeholder="Choose your gender" />
         <InputField placeholder="mm/dd/yyyy" />
-        <TouchableOpacity style={styles.buttonView} onPress={() => {}}>
-          <Icons name={buttonRed({})} />
-          <Text style={styles.buttonText} text={'CREATE PROFILE'} />
-        </TouchableOpacity>
+        <Button btnText={'CREATE PROFILE'} onPress={() => {}} />
+
         <TouchableOpacity>
           <Text style={styles.skipText} text={'Skip Now'} />
         </TouchableOpacity>

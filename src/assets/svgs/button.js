@@ -1,17 +1,17 @@
-export default Button = () => {
+export default Button = data => {
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159.59" height="45.088" viewBox="0 0 159.59 45.088">
     <defs>
       <linearGradient id="linear-gradient" x1="0.5" y1="0.94" x2="0.5" y2="-0.113" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="#ed2123"/>
-        <stop offset="1" stop-color="#890103"/>
+        <stop offset="0" stop-color="${data?.isRed ? '#890103' : '#3e3e3e'}"/>
+        <stop offset="1" stop-color="${data?.isRed ? '#890103' : '#3e3e3e'}"/>
       </linearGradient>
       <linearGradient id="linear-gradient-2" x1="0.5" y1="0.94" x2="0.5" y2="-0.113" gradientUnits="objectBoundingBox">
-        <stop offset="1" stop-color="#ed2123"/>
-        <stop offset="0" stop-color="#890103"/>
+        <stop offset="1" stop-color=${data?.isRed ? '#ed2123' : '#3e3e3e'}/>
+        <stop offset="0" stop-color=${data?.isRed ? '#ed2123' : '#3e3e3e'}/>
       </linearGradient>
       <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="11.081" gradientTransform="translate(0.465) scale(0.07 1)" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="#ff8f97"/>
-        <stop offset="1" stop-color="#ff8f97"/>
+        <stop offset="0" stop-color=${data?.isRed ? '#ff8f97' : '#bebebe'}/>
+        <stop offset="1" stop-color=${data?.isRed ? '#ff8f97' : '#bebebe'}/>
       </radialGradient>
     </defs>
     <g id="Group_29639" data-name="Group 29639" transform="translate(-72 -640.739)">

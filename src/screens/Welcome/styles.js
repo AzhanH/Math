@@ -2,9 +2,6 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
   mainView: {
     flex: 1,
     backgroundColor: colors.white,

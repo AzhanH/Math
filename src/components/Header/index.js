@@ -3,14 +3,14 @@ import styles from './styles';
 import {Icons, Text} from '../index';
 import icons from '../../assets/svgs';
 import {View, TouchableOpacity} from 'react-native';
-const Header = ({heading}) => {
+const Header = ({heading, nav}) => {
   return (
     <View style={styles.mainView}>
-      <TouchableOpacity style={styles.iconPadding}>
+      <TouchableOpacity onPress={() => nav.goBack()} style={styles.iconPadding}>
         <Icons name={icons.backArrow} />
       </TouchableOpacity>
       <View style={styles.headingView}>
-        <Text style={styles.headingText} text={heading} />
+        <Text style={styles.headingText} text={heading.toUpperCase()} />
       </View>
     </View>
   );

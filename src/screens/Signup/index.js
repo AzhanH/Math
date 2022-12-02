@@ -1,19 +1,17 @@
 import React, {useEffect} from 'react';
 import {View, TouchableOpacity, StatusBar} from 'react-native';
-import buttonRed from '../../assets/svgs/buttonRed';
 import {
   BackgroundWrapper,
+  Button,
   Header,
-  Icons,
   InputField,
   Text,
 } from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import styles from './styles';
-import {vh} from '../../utils/units';
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   useEffect(() => {
     AndroidKeyboardAdjust.setAdjustPan();
   }, []);
@@ -24,22 +22,30 @@ const Signup = () => {
         translucent
         backgroundColor={'transparent'}
       />
-      <Header heading={'SIGN UP'} />
+      <Header nav={navigation} heading={'SIGN UP'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid>
         <View style={styles.mainView}>
-          <InputField placeholder="First Name" />
-          <InputField placeholder="Last Name" />
-          <InputField placeholder="Email Address" />
-          <InputField placeholder="Select" />
-          <InputField placeholder="Password" />
-          <InputField placeholder="Confirm Password" />
-          <TouchableOpacity style={styles.buttonView} onPress={() => {}}>
-            <Icons name={buttonRed({})} />
-            <Text style={styles.buttonText} text={'REGISTER'} />
-          </TouchableOpacity>
-          <TouchableOpacity>
+          <InputField returnKeyType="next" placeholder="First Name" />
+          <InputField returnKeyType="next" placeholder="Last Name" />
+          <InputField returnKeyType="next" placeholder="Email Address" />
+          <InputField returnKeyType="next" placeholder="Select" />
+          <InputField
+            secureTextEntry
+            returnKeyType="next"
+            placeholder="Password"
+          />
+          <InputField
+            secureTextEntry
+            returnKeyType="send"
+            placeholder="Confirm Password"
+          />
+          <Button
+            btnText={'SIGNUP'}
+            onPress={() => navigation.navigate('Payment')}
+          />
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.backText} text={'Back To Login'} />
           </TouchableOpacity>
         </View>

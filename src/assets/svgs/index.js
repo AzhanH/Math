@@ -1,6 +1,8 @@
-import buttonRed from './buttonRed.js';
+import btnSvg from './button.js';
 import backArrow from './backArrow.js';
+import rectangle from './rectangle.js';
 export default {
-  buttonRed,
+  btnSvg,
   backArrow,
+  rectangle,
 };

@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import images from '../../assets/images';
-import buttonRed from '../../assets/svgs/buttonRed';
-import {BackgroundWrapper, Header, Icons, Text} from '../../components';
+import {BackgroundWrapper, Button, Header, Icons, Text} from '../../components';
 import {fontSizes} from '../../utils/units';
 import {SinglePlanType} from './components';
 import styles from './styles';
@@ -113,10 +112,8 @@ const SubscriptionPlans = () => {
             }
           />
         </View>
-        <TouchableOpacity style={styles.buttonView} onPress={() => {}}>
-          <Icons name={buttonRed({})} />
-          <Text style={styles.buttonText} text={'GET IT'} />
-        </TouchableOpacity>
+
+        <Button btnText={'GET IT'} />
       </View>
     </BackgroundWrapper>
   );

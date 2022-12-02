@@ -23,11 +23,22 @@ const styles = StyleSheet.create({
     bottom: vh * 5,
   },
   backText: {
-    fontFamily: 'Renner_ 400 Book',
-    fontSize: fontSizes.f12,
     textAlign: 'center',
     textDecorationLine: 'underline',
     color: colors.purple,
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: vh,
+  },
+  infoImage: {
+    marginLeft: vw,
+    marginTop: vh,
+  },
+  warningText: {
+    marginLeft: vw,
+    fontFamily: 'Oswald-Light',
+    fontSize: fontSizes.f12,
   },
 });
 export default styles;
