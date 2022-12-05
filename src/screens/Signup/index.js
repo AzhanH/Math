@@ -6,6 +6,7 @@ import {
   Header,
   InputField,
   Text,
+  ValuePicker,
 } from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
@@ -30,7 +31,7 @@ const Signup = ({navigation}) => {
           <InputField returnKeyType="next" placeholder="First Name" />
           <InputField returnKeyType="next" placeholder="Last Name" />
           <InputField returnKeyType="next" placeholder="Email Address" />
-          <InputField returnKeyType="next" placeholder="Select" />
+          <ValuePicker placeholder={'Select'} />
           <InputField
             secureTextEntry
             returnKeyType="next"
@@ -43,7 +44,7 @@ const Signup = ({navigation}) => {
           />
           <Button
             btnText={'SIGNUP'}
-            onPress={() => navigation.navigate('Payment')}
+            onPress={() => navigation.navigate('SubscriptionPlans')}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.backText} text={'Back To Login'} />

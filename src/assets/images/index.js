@@ -11,6 +11,7 @@ import paymentSuccess from './paymentSuccess.png';
 import info from './info.png';
 import success from './success.png';
 import inviteAccepted from './inviteAccepted.png';
+import dropDown from './dropDown.png';
 
 export default {
   intro,
@@ -26,4 +27,5 @@ export default {
   info,
   success,
   inviteAccepted,
+  dropDown,
 };

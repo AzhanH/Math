@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import images from '../../assets/images';
-import {BackgroundWrapper, Button, Header, Icons, Text} from '../../components';
+import {BackgroundWrapper, Button, Header, Text} from '../../components';
 import {fontSizes} from '../../utils/units';
 import {SinglePlanType} from './components';
 import styles from './styles';
-const SubscriptionPlans = () => {
+const SubscriptionPlans = ({navigation}) => {
   const plans = [
     {id: 1, name: 'Standard'},
     {id: 2, name: 'Pro Plan'},
@@ -35,7 +35,7 @@ const SubscriptionPlans = () => {
         translucent
         backgroundColor={'transparent'}
       />
-      <Header heading={'SUBSCRIPTION PLANS'} />
+      <Header nav={navigation} heading={'SUBSCRIPTION PLANS'} />
       <View style={styles.contentContainer}>
         <FlatList renderItem={renderPlanType} numColumns={3} data={plans} />
         <ImageBackground
@@ -113,7 +113,7 @@ const SubscriptionPlans = () => {
           />
         </View>
 
-        <Button btnText={'GET IT'} />
+        <Button black btnText={'GET IT'} />
       </View>
     </BackgroundWrapper>
   );
