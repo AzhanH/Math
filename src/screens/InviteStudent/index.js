@@ -3,9 +3,8 @@ import {View, TouchableOpacity, StatusBar, Image} from 'react-native';
 import {
   BackgroundWrapper,
   Header,
-  Icons,
   InputField,
-  SuccessModal,
+  CustomModal,
   Text,
 } from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -54,11 +53,11 @@ const InviteStudent = () => {
             <Text style={styles.buttonText} text={'SEND INVITE'} />
           </TouchableOpacity> */}
         </View>
-        <SuccessModal
+        <CustomModal
+          ref={inviteSuccessRef}
           image={images.success}
           heading={'success'}
           subHeading={'The invite has been sent to the student. '}
-          ref={inviteSuccessRef}
         />
       </KeyboardAwareScrollView>
     </BackgroundWrapper>

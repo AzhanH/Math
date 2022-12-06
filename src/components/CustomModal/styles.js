@@ -31,22 +31,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Renner_ 400 Book',
   },
-  buttonView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: vh * 3,
-  },
-  buttonText: {
-    fontSize: fontSizes.f20,
-    color: colors.white,
-    fontFamily: 'Oswald-Regular',
-    bottom: vh * 5,
-  },
   success: {
     marginTop: vh * 2,
     height: vh * 12,
     width: vw * 30,
     resizeMode: 'contain',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  marginLeft: {
+    marginLeft: vw * 3,
   },
 });
 

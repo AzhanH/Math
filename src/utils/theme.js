@@ -6,5 +6,11 @@ export const colors = {
   lightGray: '#F5F5F5',
   gray: '#707070',
   peach: '#FF9D61',
+  darkPeach: '#FF914D',
+  yellow: '#FFE451',
+  green: '#23AF5B',
   gray: '#808080',
+  red: '#B00E10',
+  maroon: '#ED2123',
+  sky: '#5383F5',
 };

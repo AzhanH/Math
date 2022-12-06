@@ -12,6 +12,20 @@ import info from './info.png';
 import success from './success.png';
 import inviteAccepted from './inviteAccepted.png';
 import dropDown from './dropDown.png';
+import home from './home.png';
+import team from './team.png';
+import classes from './classes.png';
+import scoreboard from './scoreboard.png';
+import contest from './contest.png';
+import homeBackground from './homeBackground.png';
+import ball from './ball.png';
+import drawer from './drawer.png';
+import childImage1 from './childImage1.png';
+import childImage2 from './childImage2.png';
+import childImage3 from './childImage3.png';
+import childImage4 from './childImage4.png';
+import trash from './trash.png';
+import danger from './danger.png';
 
 export default {
   intro,
@@ -28,4 +42,18 @@ export default {
   success,
   inviteAccepted,
   dropDown,
+  home,
+  team,
+  classes,
+  scoreboard,
+  contest,
+  homeBackground,
+  ball,
+  drawer,
+  childImage1,
+  childImage2,
+  childImage3,
+  childImage4,
+  trash,
+  danger,
 };

@@ -1,5 +1,9 @@
 export default Button = data => {
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159.59" height="45.088" viewBox="0 0 159.59 45.088">
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width=${
+    data?.reducedSize ? '110' : data?.expand ? '220' : '159.59'
+  } height=${
+    data?.reducedSize ? '30' : data?.expand ? '55' : '45.088'
+  } viewBox="0 0 159.59 45.088">
     <defs>
       <linearGradient id="linear-gradient" x1="0.5" y1="0.94" x2="0.5" y2="-0.113" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="${data?.isRed ? '#890103' : '#3e3e3e'}"/>

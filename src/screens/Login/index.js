@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity, StatusBar} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {
   BackgroundWrapper,
   Header,
@@ -17,12 +17,7 @@ const Login = ({navigation}) => {
   }, []);
   return (
     <BackgroundWrapper>
-      <StatusBar
-        barStyle={'dark-content'}
-        translucent
-        backgroundColor={'transparent'}
-      />
-      <Header heading={'LOGIN'} />
+      <Header nav={navigation} heading={'LOGIN'} />
       <KeyboardAwareScrollView style={styles.contentContainer}>
         <View style={styles.mainView}>
           <InputField
@@ -40,7 +35,10 @@ const Login = ({navigation}) => {
             style={styles.forgotView}>
             <Text style={styles.forgotText} text="Forgot Password?" />
           </TouchableOpacity>
-          <Button btnText={'LOGIN'} onPress={() => {}} />
+          <Button
+            btnText={'LOGIN'}
+            onPress={() => navigation.navigate('BottomTabs')}
+          />
           <View style={styles.row}>
             <Text style={styles.dontText} text={"Don't Have An Account"} />
             <TouchableOpacity

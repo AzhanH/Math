@@ -43,8 +43,8 @@ const Signup = ({navigation}) => {
             placeholder="Confirm Password"
           />
           <Button
-            btnText={'SIGNUP'}
-            onPress={() => navigation.navigate('SubscriptionPlans')}
+            btnText={'REGISTER'}
+            onPress={() => navigation.navigate('ProfileCreation')}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={styles.backText} text={'Back To Login'} />

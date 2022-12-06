@@ -3,10 +3,16 @@ import {colors} from '../../utils/theme';
 import {fontSizes, vh} from '../../utils/units';
 
 const styles = StyleSheet.create({
+  cont: {
+    // flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: vh * 2,
+  },
   mainView: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: vh * 3,
   },
   text: {
     fontSize: fontSizes.f20,

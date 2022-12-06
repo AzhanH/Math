@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
     color: colors.purple,
-    marginBottom: vh * 2,
   },
 });
 export default styles;

@@ -11,7 +11,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import styles from './styles';
 
-const ProfileCreation = () => {
+const ProfileCreation = ({navigation}) => {
   useEffect(() => {
     AndroidKeyboardAdjust.setAdjustPan();
   }, []);
@@ -22,7 +22,7 @@ const ProfileCreation = () => {
         translucent
         backgroundColor={'transparent'}
       />
-      <Header heading={'PROFILE CREATION'} />
+      <Header nav={navigation} heading={'PROFILE CREATION'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid
@@ -37,7 +37,10 @@ const ProfileCreation = () => {
         <InputField placeholder="Zip Code" />
         <InputField placeholder="Choose your gender" />
         <InputField placeholder="mm/dd/yyyy" />
-        <Button btnText={'CREATE PROFILE'} onPress={() => {}} />
+        <Button
+          btnText={'CREATE PROFILE'}
+          onPress={() => navigation.navigate('SubscriptionPlans')}
+        />
 
         <TouchableOpacity>
           <Text style={styles.skipText} text={'Skip Now'} />

@@ -5,7 +5,7 @@ import {
   Header,
   Icons,
   InputField,
-  SuccessModal,
+  CustomModal,
   Text,
 } from '../../components';
 import {Image, StatusBar, View} from 'react-native';
@@ -13,7 +13,7 @@ import icons from '../../assets/svgs';
 import images from '../../assets/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
-const PaymentScreen = () => {
+const PaymentScreen = ({navigation}) => {
   const paymentModalRef = useRef(null);
   return (
     <BackgroundWrapper>
@@ -22,7 +22,7 @@ const PaymentScreen = () => {
         translucent
         backgroundColor={'transparent'}
       />
-      <Header heading={'Payment Screen'} />
+      <Header nav={navigation} heading={'Payment Screen'} />
 
       <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>
         <View style={styles.rectangle}>
@@ -46,7 +46,7 @@ const PaymentScreen = () => {
             btnText={'PAY NOW'}
           />
         </View>
-        <SuccessModal
+        <CustomModal
           image={images.paymentSuccess}
           ref={paymentModalRef}
           subHeading={
