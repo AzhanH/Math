@@ -4,7 +4,6 @@ import {fontSizes, vh} from '../../utils/units';
 
 const styles = StyleSheet.create({
   cont: {
-    // flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

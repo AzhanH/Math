@@ -3,7 +3,6 @@ import {View} from 'react-native';
 import {Icons, Text} from '../../../components';
 import icons from '../../../assets/svgs';
 import styles from '../styles';
-import {vh} from '../../../utils/units';
 const SingleLogView = ({color}) => {
   return (
     <View style={styles.rectangleView}>

@@ -26,6 +26,11 @@ import childImage3 from './childImage3.png';
 import childImage4 from './childImage4.png';
 import trash from './trash.png';
 import danger from './danger.png';
+import search from './search.png';
+import filter from './filter.png';
+import contestPlayer from './contestPlayer.png';
+import calendarWhite from './calendarWhite.png';
+import time from './time.png';
 
 export default {
   intro,
@@ -56,4 +61,9 @@ export default {
   childImage4,
   trash,
   danger,
+  search,
+  filter,
+  contestPlayer,
+  calendarWhite,
+  time,
 };

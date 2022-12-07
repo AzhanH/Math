@@ -9,3 +9,4 @@ export {default as Button} from './Button';
 export {default as ValuePicker} from './ValuePicker';
 export {default as SingleClassView} from './SingleClassView';
 export {default as DatePicker} from './DatePicker';
+export {default as SearchBar} from './SearchBar';

@@ -50,3 +50,34 @@ export const subscriptionLogs = [
     color: 'blue',
   },
 ];
+export const contests = [
+  {
+    id: 1,
+    color: 'orange',
+    name: 'ABC Contest',
+    date: 'May 5 ,2022',
+    time: '5:00PM',
+  },
+  {
+    id: 2,
+    color: 'red',
+    name: 'ABC Contest',
+    date: 'May 5 ,2022',
+    time: '5:00PM',
+  },
+  {
+    id: 3,
+    color: 'blue',
+    name: 'ABC Contest',
+    date: 'May 5 ,2022',
+    time: '5:00PM',
+  },
+
+  {
+    id: 4,
+    color: 'green',
+    name: 'ABC Contest',
+    date: 'May 5 ,2022',
+    time: '5:00PM',
+  },
+];
