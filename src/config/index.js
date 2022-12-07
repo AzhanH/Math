@@ -35,3 +35,18 @@ export const classes = [
     color: colors.sky,
   },
 ];
+
+export const subscriptionLogs = [
+  {
+    id: 1,
+    purchaseDate: '29 Sept,2021',
+    expiryDate: '29 Sept,2021',
+    color: 'peach',
+  },
+  {
+    id: 2,
+    purchaseDate: '29 Sept,2021',
+    expiryDate: '29 Sept,2021',
+    color: 'blue',
+  },
+];
