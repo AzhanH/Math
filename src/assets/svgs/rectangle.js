@@ -15,7 +15,7 @@ export default Rectangle = data => {
   <g id="Group_29640" data-name="Group 29640" transform="translate(10010.5 564.24)">
     <g transform="matrix(1, 0, 0, 1, -10010.5, -564.24)" filter="url(#Rectangle_10128)">
       <g id="Rectangle_10128-2" data-name="Rectangle 10128" transform="translate(9 43.24)" fill="${
-        data?.color === 'blue' ? '#9cbaff' : '#ff9d61'
+        data?.fill ? data?.fill : '#ff9d61'
       }" stroke="rgba(255,255,255,0.8)" stroke-width="1" stroke-dasharray="8">
         <rect width="335" height="135" rx="15" stroke="none"/>
         <rect x="0.5" y="0.5" width="334" height="134" rx="14.5" fill="none"/>
@@ -23,13 +23,13 @@ export default Rectangle = data => {
     </g>
     <g id="Group_29639" data-name="Group 29639" transform="translate(-9843.999 -662)" clip-path="url(#clip-path)">
       <g id="Ellipse_913" data-name="Ellipse 913" transform="translate(-217 215)" fill="none" stroke=${
-        data?.color === 'blue' ? '#2051c6' : '#9e4f0a'
+        data?.stroke ? data?.stroke : '#9e4f0a'
       } stroke-width="16" opacity="0.28">
         <circle cx="52.5" cy="52.5" r="52.5" stroke="none"/>
         <circle cx="52.5" cy="52.5" r="44.5" fill="none"/>
       </g>
       <g id="Ellipse_914" data-name="Ellipse 914" transform="translate(123.499 149)" fill="none" stroke=${
-        data?.color === 'blue' ? '#2051c6' : '#9e4f0a'
+        data?.stroke ? data?.stroke : '#9e4f0a'
       } stroke-width="16" opacity="0.28">
         <circle cx="37" cy="37" r="37" stroke="none"/>
         <circle cx="37" cy="37" r="29" fill="none"/>

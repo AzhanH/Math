@@ -4,9 +4,9 @@ import images from '../../assets/images';
 import {colors} from '../../utils/theme';
 import styles from './styles';
 
-const SearchBar = ({inputstyle}) => {
+const SearchBar = ({style, inputstyle}) => {
   return (
-    <View style={styles.mainView}>
+    <View style={[styles.mainView, style]}>
       <Image style={styles.icon} source={images.search} />
       <TextInput
         placeholder="Search here..."

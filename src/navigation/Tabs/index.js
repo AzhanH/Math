@@ -7,7 +7,7 @@ import {Text} from '../../components';
 import styles from './styles';
 import Home from '../../screens/Home';
 import MyClass from '../../screens/MyClass';
-import Contets from '../../screens/Contest';
+import ContestStack from '../ContestStack';
 
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -62,7 +62,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="CONTEST"
-        component={Contets}
+        component={ContestStack}
       />
       <Tab.Screen
         options={{

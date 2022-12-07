@@ -41,7 +41,7 @@ export const subscriptionLogs = [
     id: 1,
     purchaseDate: '29 Sept,2021',
     expiryDate: '29 Sept,2021',
-    color: 'peach',
+    color: 'orange',
   },
   {
     id: 2,
@@ -57,6 +57,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    image: images.contestPlayer,
   },
   {
     id: 2,
@@ -64,6 +65,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    image: images.contestPlayer,
   },
   {
     id: 3,
@@ -71,6 +73,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    image: images.contestPlayer,
   },
 
   {
@@ -79,5 +82,38 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    image: images.contestPlayer,
+  },
+];
+
+export const inviteParents = [
+  {
+    id: 1,
+    image: images.childImage1,
+    color: 'darkOrange',
+    name: 'STEVE SMITH',
+    grade: 'Middle (Grade 6-8)',
+  },
+  {
+    id: 2,
+    image: images.childImage2,
+    color: 'yellow',
+    name: 'SASHA ROSE',
+    grade: 'Middle (Grade 6-8)',
+    showCheck: true,
+  },
+  {
+    id: 3,
+    image: images.childImage3,
+    color: 'green',
+    name: 'JULIA CARTER',
+    grade: 'Middle (Grade 6-8)',
+  },
+  {
+    id: 4,
+    image: images.childImage3,
+    color: 'darkBlue',
+    name: 'JULIA CARTER',
+    grade: 'Middle (Grade 6-8)',
   },
 ];

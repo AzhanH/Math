@@ -9,10 +9,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: vh * 2,
     backgroundColor: colors.lightGray,
-    height: vh * 8,
+    height: vh * 7,
     borderRadius: vw * 5,
     alignItems: 'center',
-
     paddingLeft: vw * 4,
   },
   textInput: {
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     resizeMode: 'contain',
-    width: '10%',
+    height: vh * 3,
   },
 });
 export default styles;

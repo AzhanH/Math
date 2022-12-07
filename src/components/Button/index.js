@@ -3,7 +3,7 @@ import {Icons, Text} from '../index';
 import styles from './styles';
 import svgs from '../../assets/svgs';
 import {TouchableOpacity, View} from 'react-native';
-import {vh} from '../../utils/units';
+import {fontSizes, vh} from '../../utils/units';
 const Button = ({
   onPress,
   black,
@@ -27,7 +27,7 @@ const Button = ({
           style={[
             styles.text,
             textStyle,
-            expand && {bottom: vh * 5.4},
+            expand && {bottom: vh * 5.4, fontSize: fontSizes.f16},
             reducedSize && {bottom: vh * 3.7},
           ]}
           text={btnText}

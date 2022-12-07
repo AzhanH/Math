@@ -13,4 +13,32 @@ export const colors = {
   red: '#B00E10',
   maroon: '#ED2123',
   sky: '#5383F5',
+  darkGreen: '#196A06',
+};
+
+export const rectangleTheme = {
+  yellow: {
+    fill: '#ffe451',
+    stroke: '#b19c29',
+  },
+  darkOrange: {
+    fill: '#ff914d',
+    stroke: '#9e4f0a',
+  },
+  green: {
+    fill: '#23af5b',
+    stroke: '#148541',
+  },
+  darkBlue: {
+    fill: '#5383f5',
+    stroke: '#3565d8',
+  },
+  blue: {
+    fill: '#9cbaff',
+    stroke: '#2051c6',
+  },
+  orange: {
+    fill: '#ff9d61',
+    stroke: '#9e4f0a',
+  },
 };

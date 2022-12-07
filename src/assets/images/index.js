@@ -31,6 +31,8 @@ import filter from './filter.png';
 import contestPlayer from './contestPlayer.png';
 import calendarWhite from './calendarWhite.png';
 import time from './time.png';
+import check from './check.png';
+import add from './add.png';
 
 export default {
   intro,
@@ -66,4 +68,6 @@ export default {
   contestPlayer,
   calendarWhite,
   time,
+  check,
+  add,
 };

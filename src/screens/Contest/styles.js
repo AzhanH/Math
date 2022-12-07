@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     elevation: 1,
     backgroundColor: colors.lightGray,
     width: vw * 14,
-    height: vh * 8,
+    height: vh * 7,
     marginTop: vh * 2,
     borderRadius: vw * 5,
     justifyContent: 'center',

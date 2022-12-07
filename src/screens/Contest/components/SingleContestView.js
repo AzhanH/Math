@@ -6,12 +6,12 @@ import styles from '../styles';
 import images from '../../../assets/images';
 import {vw} from '../../../utils/units';
 
-const SingleContestView = ({name, date, time, color}) => {
+const SingleContestView = ({name, date, time, color, image}) => {
   return (
     <View style={styles.contestContainer}>
       <Icons name={icons.contestContainer({color: color})} />
       <View style={styles.contentView}>
-        <Image style={styles.playerImage} source={images.contestPlayer} />
+        <Image style={styles.playerImage} source={image} />
         <View style={styles.marginTop}>
           <Text style={styles.contestHeading} text={name} />
           <View style={styles.row}>

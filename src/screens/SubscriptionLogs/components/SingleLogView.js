@@ -3,12 +3,22 @@ import {View} from 'react-native';
 import {Icons, Text} from '../../../components';
 import icons from '../../../assets/svgs';
 import styles from '../styles';
+import {rectangleTheme} from '../../../utils/theme';
 const SingleLogView = ({color}) => {
   return (
     <View style={styles.rectangleView}>
       <Icons
         style={styles.rectangleHeight}
-        name={icons.rectangle({color: color})}
+        name={icons.rectangle({
+          fill:
+            color === 'orange'
+              ? rectangleTheme.orange.fill
+              : rectangleTheme.blue.fill,
+          stroke:
+            color === 'orange'
+              ? rectangleTheme.orange.stroke
+              : rectangleTheme.blue.stroke,
+        })}
       />
       <View style={styles.textView}>
         <Text style={styles.headingText} text={'SUBSCRIPTION PLAN PRO'} />
