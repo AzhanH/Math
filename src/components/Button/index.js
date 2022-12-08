@@ -1,5 +1,6 @@
 import React from 'react';
-import {Icons, Text} from '../index';
+import Icons from '../Icon';
+import Text from '../Text';
 import styles from './styles';
 import svgs from '../../assets/svgs';
 import {TouchableOpacity, View} from 'react-native';

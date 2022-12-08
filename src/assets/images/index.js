@@ -30,9 +30,12 @@ import search from './search.png';
 import filter from './filter.png';
 import contestPlayer from './contestPlayer.png';
 import calendarWhite from './calendarWhite.png';
+import calender from './calendar.png';
 import time from './time.png';
 import check from './check.png';
 import add from './add.png';
+import upload from './upload.png';
+import timeBlue from './timeBlue.png';
 
 export default {
   intro,
@@ -70,4 +73,7 @@ export default {
   time,
   check,
   add,
+  upload,
+  calender,
+  timeBlue,
 };

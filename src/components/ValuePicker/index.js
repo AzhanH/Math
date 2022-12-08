@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import images from '../../assets/images';
-import {Text} from '../index';
+import Text from '../Text';
 import styles from './styles';
 
 const ValuePicker = ({placeholder, containerStyle, placeHolderStyle}) => {

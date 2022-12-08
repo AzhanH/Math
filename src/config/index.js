@@ -117,3 +117,23 @@ export const inviteParents = [
     grade: 'Middle (Grade 6-8)',
   },
 ];
+export const myTeams = [
+  {
+    id: 1,
+    name: 'The Gladiators',
+    image: images.childImage1,
+    color: colors.darkPeach,
+  },
+  {
+    id: 2,
+    name: 'ABC Team',
+    image: images.childImage2,
+    color: colors.yellow,
+  },
+  {
+    id: 3,
+    name: 'XYZ Team',
+    image: images.childImage3,
+    color: colors.green,
+  },
+];

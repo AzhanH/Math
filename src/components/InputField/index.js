@@ -12,11 +12,12 @@ const InputField = forwardRef((props, ref) => {
       <TextInput
         {...props}
         ref={ref}
+        multiline={true}
         value={props?.value}
         returnKeyType={props?.returnKeyType ? props?.returnKeyType : 'default'}
         onSubmitEditing={props?.onSubmitEditing}
         secureTextEntry={showPassword}
-        placeholderTextColor={colors.black}
+        placeholderTextColor={colors.black + '66'}
         underlineColorAndroid="rgba(0,0,0,0)"
         autoCapitalize="none"
         textAlignVertical="top"

@@ -37,9 +37,12 @@ const styles = StyleSheet.create({
     marginTop: vh * 2,
   },
   playerImage: {
+    height: vh * 12,
+    width: vw * 25,
+    resizeMode: 'contain',
     borderWidth: 1.3,
     borderColor: colors.white,
-    borderRadius: vw * 3,
+    borderRadius: vw * 6,
   },
   marginTop: {
     marginTop: vh * 2,

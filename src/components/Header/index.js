@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles';
-import {Icons, Text} from '../index';
+import Icons from '../Icon';
+import Text from '../Text';
 import icons from '../../assets/svgs';
 import {View, TouchableOpacity} from 'react-native';
 const Header = ({heading, nav}) => {

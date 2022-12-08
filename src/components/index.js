@@ -10,3 +10,4 @@ export {default as ValuePicker} from './ValuePicker';
 export {default as SingleClassView} from './SingleClassView';
 export {default as DatePicker} from './DatePicker';
 export {default as SearchBar} from './SearchBar';
+export {default as TableView} from './TableView';

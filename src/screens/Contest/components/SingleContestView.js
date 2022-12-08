@@ -6,9 +6,19 @@ import styles from '../styles';
 import images from '../../../assets/images';
 import {vw} from '../../../utils/units';
 
-const SingleContestView = ({name, date, time, color, image}) => {
+const SingleContestView = ({
+  name,
+  date,
+  time,
+  color,
+  image,
+  onPressContainer,
+  onPressSendInvite,
+}) => {
   return (
-    <View style={styles.contestContainer}>
+    <TouchableOpacity
+      onPress={onPressContainer}
+      style={styles.contestContainer}>
       <Icons name={icons.contestContainer({color: color})} />
       <View style={styles.contentView}>
         <Image style={styles.playerImage} source={image} />
@@ -23,12 +33,12 @@ const SingleContestView = ({name, date, time, color, image}) => {
             />
             <Text style={styles.dateText} text={time} />
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressSendInvite}>
             <Text style={styles.inviteText} text={'Send Invite'} />
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 export default SingleContestView;

@@ -14,6 +14,8 @@ export const colors = {
   maroon: '#ED2123',
   sky: '#5383F5',
   darkGreen: '#196A06',
+  navyBlue: '#03548A',
+  blueBorder: '#1176B9',
 };
 
 export const rectangleTheme = {

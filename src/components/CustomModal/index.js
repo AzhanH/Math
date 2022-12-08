@@ -1,6 +1,8 @@
 import React, {forwardRef, useImperativeHandle, useRef} from 'react';
 import {View, Image} from 'react-native';
-import {Modal, Text, Button} from '../index';
+import Modal from '../Modal';
+import Text from '../Text';
+import Button from '../Button';
 import styles from './styles';
 
 const CustomModal = forwardRef(

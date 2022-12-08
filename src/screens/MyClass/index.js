@@ -40,7 +40,6 @@ const MyClass = () => {
             modalRef.current.show();
           }
         }}
-        expand
         black
         textStyle={styles.btnText}
         btnText={isEdit ? 'UPDATE' : 'EDIT CLASSROOM'}

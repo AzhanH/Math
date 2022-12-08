@@ -7,6 +7,7 @@ import {Text} from '../../components';
 import styles from './styles';
 import Home from '../../screens/Home';
 import MyClass from '../../screens/MyClass';
+import MyTeams from '../../screens/MyTeams';
 import ContestStack from '../ContestStack';
 
 const BottomNavigation = () => {
@@ -75,7 +76,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="MY TEAM"
-        component={Welcome}
+        component={MyTeams}
       />
       <Tab.Screen
         options={{

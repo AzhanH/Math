@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
   },
 
   placeholder: {
-    width: '90%',
+    width: '88%',
     fontFamily: 'Oswald-Regular',
-    color: colors.black,
+    color: colors.black + '66',
     fontSize: fontSizes.f14,
   },
   iconView: {
@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '10%',
     height: vh * 8,
+    paddingRight: '2%',
+  },
+  icon: {
+    width: '80%',
+    height: vh * 3,
+    resizeMode: 'contain',
   },
 });
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './styles';
 import {Image, TouchableOpacity, View} from 'react-native';
-import {Text, Button} from '../index';
+import Text from '../Text';
+import Button from '../Button';
 import images from '../../assets/images';
 import {vh} from '../../utils/units';
 const SingleClassView = ({image, color, showBin, onPressDelete}) => {

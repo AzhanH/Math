@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   placeholder: {
     width: '90%',
     fontFamily: 'Oswald-Regular',
-    color: colors.black,
+    color: colors.black + '66',
     fontSize: fontSizes.f14,
   },
   iconView: {

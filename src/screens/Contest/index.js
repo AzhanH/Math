@@ -8,6 +8,8 @@ import {contests} from '../../config';
 const Contets = ({navigation}) => {
   const renderItem = ({item, index}) => (
     <SingleContestView
+      onPressContainer={() => navigation.navigate('ContestDetail')}
+      onPressSendInvite={() => navigation.navigate('InviteParents')}
       key={index}
       name={item?.name}
       image={item?.image}
@@ -28,7 +30,7 @@ const Contets = ({navigation}) => {
 
   const listFooterComponet = (
     <Button
-      onPress={() => navigation.navigate('InviteParents')}
+      onPress={() => navigation.navigate('CreateContest')}
       btnText={'CREATE CONTEST'}
     />
   );
