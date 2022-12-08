@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './styles';
-import {Image, Touchable, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {Text, Button} from '../index';
 import images from '../../assets/images';
+import {vh} from '../../utils/units';
 const SingleClassView = ({image, color, showBin, onPressDelete}) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
       <View style={styles.subView}>
         <View style={styles.row}>
-          <View>
+          <View style={styles.halfView}>
             <Text
               style={styles.player}
               text={
@@ -24,19 +25,22 @@ const SingleClassView = ({image, color, showBin, onPressDelete}) => {
               text={'Middle (Grade 6-8)'}
             />
             <Button
+              style={{height: vh * 4}}
               textStyle={styles.btnText}
               btnText={'EDIT PROFILE'}
               reducedSize
             />
           </View>
-          {showBin && (
-            <TouchableOpacity
-              onPress={onPressDelete}
-              style={styles.roundedView}>
-              <Image style={styles.trash} source={images.trash} />
-            </TouchableOpacity>
-          )}
-          <Image source={image} />
+          <View style={styles.halfView}>
+            {showBin && (
+              <TouchableOpacity
+                onPress={onPressDelete}
+                style={styles.roundedView}>
+                <Image style={styles.trash} source={images.trash} />
+              </TouchableOpacity>
+            )}
+            <Image style={styles.avatarImage} source={image} />
+          </View>
         </View>
       </View>
     </View>

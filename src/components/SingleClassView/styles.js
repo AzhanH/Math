@@ -11,15 +11,16 @@ const styles = StyleSheet.create({
   },
   subView: {
     paddingVertical: vh * 2,
+    paddingHorizontal: vw * 2,
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
     borderRadius: vh * 3,
     borderWidth: 1.3,
     borderStyle: 'dashed',
     borderColor: colors.white,
   },
   row: {
+    width: '100%',
     alignItems: 'center',
     flexDirection: 'row',
   },
@@ -34,14 +35,15 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: fontSizes.f15,
   },
+  halfView: {
+    width: '50%',
+  },
   roundedView: {
+    alignSelf: 'flex-end',
     borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: colors.white,
-    right: -vh * 3,
-    top: 0,
-    position: 'absolute',
     height: vh * 5,
     width: vh * 5,
     borderRadius: (vh * 5) / 2,
@@ -51,6 +53,12 @@ const styles = StyleSheet.create({
     height: vw * 5,
     width: vw * 5,
     resizeMode: 'contain',
+  },
+  avatarImage: {
+    bottom: vh * 2,
+    height: vh * 14,
+    resizeMode: 'contain',
+    width: '100%',
   },
 });
 

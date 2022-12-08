@@ -8,7 +8,7 @@ const IconComponent = ({name, style, iconHeight, fill}) => {
       {iconHeight ? (
         <SvgXml xml={name} height={iconHeight} fill={fill} />
       ) : (
-        <SvgXml xml={name} fill={'#fff'} />
+        <SvgXml height={'100%'} width="100%" xml={name} fill={'#fff'} />
       )}
     </View>
   );

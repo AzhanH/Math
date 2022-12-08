@@ -4,7 +4,6 @@ import images from '../../../assets/images';
 import rectangle from '../../../assets/svgs/rectangle';
 import {Icons, Text} from '../../../components';
 import {colors, rectangleTheme} from '../../../utils/theme';
-import {vh} from '../../../utils/units';
 import styles from '../styles';
 
 const SingleInvitaionView = ({
@@ -18,7 +17,6 @@ const SingleInvitaionView = ({
   return (
     <View style={styles.rectangleView}>
       <Icons
-        style={{height: vh * 22}}
         name={rectangle({
           fill:
             color === 'darkOrange'

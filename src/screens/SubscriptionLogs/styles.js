@@ -1,14 +1,17 @@
 import {StatusBar, StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
-import {fontSizes, vh} from '../../utils/units';
+import {fontSizes, vh, vw} from '../../utils/units';
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
   },
   contentContainerStyle: {
+    paddingHorizontal: vw * 3,
     paddingBottom: vh,
   },
   rectangleView: {
+    height: vh * 18,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     left: 0,
     right: 0,
-    top: vh * 6,
+    top: vh * 2,
     bottom: 0,
   },
   headingText: {

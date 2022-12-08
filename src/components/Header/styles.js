@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f20,
   },
   iconPadding: {
+    height: vh * 4,
+    width: vw * 12,
     padding: vh,
   },
 });

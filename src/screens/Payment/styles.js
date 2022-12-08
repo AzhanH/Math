@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: vw * 2,
   },
   rectangle: {
+    height: vh * 19,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -8,6 +8,7 @@ import {
   CustomModal,
 } from '../../components';
 import {classes} from '../../config';
+import {vh} from '../../utils/units';
 import styles from './styles';
 const MyClass = () => {
   const modalRef = useRef(null);
@@ -25,11 +26,12 @@ const MyClass = () => {
   const listFooterComponent = (
     <View>
       <Button
+        style={{height: vh * 7}}
         textStyle={styles.btnText}
-        expand
         btnText={'ADD STUDENTS TO CLASS'}
       />
       <Button
+        style={{height: vh * 7}}
         onPress={() => {
           if (!isEdit) {
             setIsEdit(true);
@@ -40,7 +42,6 @@ const MyClass = () => {
         }}
         expand
         black
-        style={styles.noMargin}
         textStyle={styles.btnText}
         btnText={isEdit ? 'UPDATE' : 'EDIT CLASSROOM'}
       />

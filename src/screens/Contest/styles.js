@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     left: vh * 2,
   },
   contestContainer: {
+    width: '48%',
+    height: vh * 32,
     marginTop: vh * 2,
   },
   playerImage: {
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   inviteText: {
+    textDecorationLine: 'underline',
     top: vw * 7.5,
     left: vh * 6,
     color: colors.white,

@@ -33,9 +33,13 @@ const CustomModal = forwardRef(
             <Text style={styles.subHeading} text={subHeading && subHeading} />
           </View>
           <View style={styles.row}>
-            <Button btnText={btn1Text ? btn1Text : 'OK'} />
+            <Button
+              containerStyle={multipleButtons && {width: '50%'}}
+              btnText={btn1Text ? btn1Text : 'OK'}
+            />
             {multipleButtons && (
               <Button
+                containerStyle={{width: '50%'}}
                 style={styles.marginLeft}
                 black
                 btnText={btn2Text ? btn2Text : 'CANCEL '}

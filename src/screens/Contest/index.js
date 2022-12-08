@@ -30,7 +30,6 @@ const Contets = ({navigation}) => {
     <Button
       onPress={() => navigation.navigate('InviteParents')}
       btnText={'CREATE CONTEST'}
-      expand
     />
   );
   return (

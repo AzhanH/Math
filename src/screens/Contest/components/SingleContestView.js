@@ -1,4 +1,4 @@
-import {Image, Touchable, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Icons, Text} from '../../../components';
 import icons from '../../../assets/svgs';

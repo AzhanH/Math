@@ -12,16 +12,20 @@ const Button = ({
   textStyle,
   reducedSize,
   expand,
+  containerStyle,
 }) => {
   return (
-    <View style={styles.cont}>
+    <View style={[styles.cont, containerStyle]}>
       <TouchableOpacity onPress={onPress} style={[styles.mainView, style]}>
         <Icons
           name={svgs.btnSvg({
-            expand: expand,
-            reducedSize: reducedSize,
             isRed: black ? false : true,
           })}
+          // name={svgs.btnSvg({
+          //   expand: expand,
+          //   reducedSize: reducedSize,
+          //   isRed: black ? false : true,
+          // })}
         />
         <Text
           style={[

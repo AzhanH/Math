@@ -11,14 +11,19 @@ const styles = StyleSheet.create({
     width: vw * 93,
   },
   contentView: {
+    bottom: vh,
+    left: vw * 2,
     width: '90%',
     flexDirection: 'row',
     position: 'absolute',
     justifyContent: 'space-between',
     alignItems: 'center',
-    overflow: 'hidden',
   },
   rectangleView: {
+    marginTop: 10,
+    height: vh * 16,
+    width: '100%',
+
     justifyContent: 'center',
   },
   avatarImage: {
