@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     borderRadius: vh * 1.4,
   },
   subView: {
-    flex: 1,
     borderWidth: 2,
     borderStyle: 'dashed',
     borderColor: colors.white + '66',
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
     borderWidth: vw * 4,
     borderColor: '#9E4F0A' + '66',
     right: vh * 2,
-    top: vh * 2,
+    top: vh * 2.5,
     borderTopEndRadius: vh * 7,
   },
 
