@@ -11,3 +11,4 @@ export {default as SinglePlayerView} from './SinglePayerView';
 export {default as DatePicker} from './DatePicker';
 export {default as SearchBar} from './SearchBar';
 export {default as TableView} from './TableView';
+export {default as Rectangle} from './Rectangle';
