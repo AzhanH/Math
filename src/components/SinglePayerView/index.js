@@ -41,7 +41,7 @@ const SinglePlayerView = ({
               reducedSize
             />
           </View>
-          <View>
+          <View style={{width: '45%'}}>
             {showBin && (
               <TouchableOpacity
                 onPress={onPressDelete}

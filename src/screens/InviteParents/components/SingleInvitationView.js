@@ -1,8 +1,7 @@
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import images from '../../../assets/images';
-import rectangle from '../../../assets/svgs/rectangle';
-import {Icons, Text} from '../../../components';
+import {Text, Rectangle} from '../../../components';
 import {colors, rectangleTheme} from '../../../utils/theme';
 import styles from '../styles';
 
@@ -15,10 +14,20 @@ const SingleInvitaionView = ({
   isChecked,
 }) => {
   return (
-    <View style={styles.rectangleView}>
-      <Icons
-        name={rectangle({
-          fill:
+    <Rectangle
+      innerColor={
+        color === 'darkOrange'
+          ? rectangleTheme.darkOrange.stroke
+          : color == 'yellow'
+          ? rectangleTheme.yellow.stroke
+          : color === 'green'
+          ? rectangleTheme.green.stroke
+          : color === 'darkBlue' && rectangleTheme.darkBlue.stroke
+      }
+      containerStyle={[
+        styles.invitaionContainer,
+        {
+          backgroundColor:
             color === 'darkOrange'
               ? rectangleTheme.darkOrange.fill
               : color === 'yellow'
@@ -26,19 +35,11 @@ const SingleInvitaionView = ({
               : color === 'green'
               ? rectangleTheme.green.fill
               : color === 'darkBlue' && rectangleTheme.darkBlue.fill,
-          stroke:
-            color === 'darkOrange'
-              ? rectangleTheme.darkOrange.stroke
-              : color === 'yellow'
-              ? rectangleTheme.yellow.stroke
-              : color === 'green'
-              ? rectangleTheme.green.stroke
-              : color === 'darkBlue' && rectangleTheme.darkBlue.stroke,
-        })}
-      />
+        },
+      ]}>
       <View style={styles.contentView}>
         <Image style={styles.avatarImage} source={image} />
-        <View style={styles.marginLeft}>
+        <View>
           <Text style={styles.nameText} text={name} />
           <Text style={styles.nameText} text={grade} />
         </View>
@@ -54,7 +55,7 @@ const SingleInvitaionView = ({
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </Rectangle>
   );
 };
 export default SingleInvitaionView;

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   mainView: {
     marginVertical: vh * 1.5,
     width: vw * 94,
-    padding: vw * 0.2,
+    padding: 0.1,
     borderRadius: 20,
   },
   subView: {
@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: vh * 3,
-    borderWidth: 1.3,
+    borderWidth: 2,
     borderStyle: 'dashed',
-    borderColor: colors.white,
+    borderColor: colors.white + '66',
   },
   row: {
     width: '100%',

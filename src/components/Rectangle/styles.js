@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   mainView: {
     padding: 0.1,
     backgroundColor: colors.peach,
-    marginTop: vh * 1.4,
     borderRadius: vh * 1.4,
   },
   subView: {
