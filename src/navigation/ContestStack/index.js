@@ -6,7 +6,7 @@ import InviteParent from '../../screens/InviteParents';
 import ContestDetail from '../../screens/ContestDetail';
 import CreateContest from '../../screens/CreateContest';
 
-const AuthStack = () => {
+const ContestStack = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
@@ -21,4 +21,4 @@ const AuthStack = () => {
     </Stack.Navigator>
   );
 };
-export default AuthStack;
+export default ContestStack;

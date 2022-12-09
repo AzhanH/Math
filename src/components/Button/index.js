@@ -22,11 +22,6 @@ const Button = ({
           name={svgs.btnSvg({
             isRed: black ? false : true,
           })}
-          // name={svgs.btnSvg({
-          //   expand: expand,
-          //   reducedSize: reducedSize,
-          //   isRed: black ? false : true,
-          // })}
         />
         <Text
           style={[

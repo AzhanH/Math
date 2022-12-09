@@ -36,6 +36,9 @@ import check from './check.png';
 import add from './add.png';
 import upload from './upload.png';
 import timeBlue from './timeBlue.png';
+import edit from './edit.png';
+import scoreboardBackground from './scoreboardBackground.png';
+import logo from './logo.png';
 
 export default {
   intro,
@@ -76,4 +79,7 @@ export default {
   upload,
   calender,
   timeBlue,
+  edit,
+  scoreboardBackground,
+  logo,
 };

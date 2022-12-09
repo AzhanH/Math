@@ -5,7 +5,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 const styles = StyleSheet.create({
   mainView: {
     marginVertical: vh * 1.5,
-    width: vw * 85,
+    width: vw * 94,
     padding: vw * 0.2,
     borderRadius: 20,
   },
@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f15,
   },
   halfView: {
-    width: '50%',
+    width: '55%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   roundedView: {
     alignSelf: 'flex-end',
@@ -55,10 +57,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   avatarImage: {
-    bottom: vh * 2,
-    height: vh * 14,
+    height: vh * 15,
+    width: vh * 15,
+    borderRadius: (vh * 15) / 2,
     resizeMode: 'contain',
-    width: '100%',
+    bottom: vh * 2,
   },
 });
 

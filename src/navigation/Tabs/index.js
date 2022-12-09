@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {Image, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Welcome from '../../screens/Welcome';
 import images from '../../assets/images';
 import {Text} from '../../components';
 import styles from './styles';
 import Home from '../../screens/Home';
 import MyClass from '../../screens/MyClass';
-import MyTeams from '../../screens/MyTeams';
 import ContestStack from '../ContestStack';
+import TeamStack from '../TeamStack';
+import ScoreBoardStack from '../ScoreBoardStack';
 
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -76,7 +76,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="MY TEAM"
-        component={MyTeams}
+        component={TeamStack}
       />
       <Tab.Screen
         options={{
@@ -89,7 +89,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="SCOREBOARD"
-        component={Welcome}
+        component={ScoreBoardStack}
       />
     </Tab.Navigator>
   );

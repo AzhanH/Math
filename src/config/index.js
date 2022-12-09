@@ -137,3 +137,11 @@ export const myTeams = [
     color: colors.green,
   },
 ];
+
+export const scoreBoardButtonList = [
+  {id: 1, name: 'CLASSROOM LEVEL'},
+  {id: 2, name: 'SCHOOL LEVEL'},
+  {id: 3, name: 'STATE LEVEL'},
+  {id: 4, name: 'NATIONAL MATHBEE '},
+  {id: 5, name: 'INTERNATONAL MATHBEE '},
+];

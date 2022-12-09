@@ -4,8 +4,15 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import Text from '../Text';
 import Button from '../Button';
 import images from '../../assets/images';
-import {vh} from '../../utils/units';
-const SingleClassView = ({image, color, showBin, onPressDelete}) => {
+import {vh, vw} from '../../utils/units';
+const SinglePlayerView = ({
+  image,
+  color,
+  showBin,
+  onPressDelete,
+  btnName,
+  onPressButton,
+}) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
       <View style={styles.subView}>
@@ -26,13 +33,15 @@ const SingleClassView = ({image, color, showBin, onPressDelete}) => {
               text={'Middle (Grade 6-8)'}
             />
             <Button
+              onPress={onPressButton}
+              containerStyle={{marginTop: vw * 2}}
               style={{height: vh * 4}}
               textStyle={styles.btnText}
-              btnText={'EDIT PROFILE'}
+              btnText={btnName ? btnName : 'EDIT PROFILE'}
               reducedSize
             />
           </View>
-          <View style={styles.halfView}>
+          <View>
             {showBin && (
               <TouchableOpacity
                 onPress={onPressDelete}
@@ -47,4 +56,4 @@ const SingleClassView = ({image, color, showBin, onPressDelete}) => {
     </View>
   );
 };
-export default SingleClassView;
+export default SinglePlayerView;

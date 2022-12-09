@@ -3,18 +3,18 @@ import {FlatList, View} from 'react-native';
 import images from '../../assets/images';
 import {
   BackgroundWrapper,
-  SingleClassView,
+  SinglePlayerView,
   Button,
   CustomModal,
 } from '../../components';
 import {classes} from '../../config';
-import {vh} from '../../utils/units';
+import {vh, vw} from '../../utils/units';
 import styles from './styles';
 const MyClass = () => {
   const modalRef = useRef(null);
   const [isEdit, setIsEdit] = useState(false);
   const renderItem = ({item, index}) => (
-    <SingleClassView
+    <SinglePlayerView
       showBin={isEdit}
       onPressDelete={() => modalRef.current.show()}
       image={item?.image}
@@ -26,11 +26,13 @@ const MyClass = () => {
   const listFooterComponent = (
     <View>
       <Button
+        containerStyle={{width: vw * 50}}
         style={{height: vh * 7}}
         textStyle={styles.btnText}
         btnText={'ADD STUDENTS TO CLASS'}
       />
       <Button
+        containerStyle={{width: vw * 50}}
         style={{height: vh * 7}}
         onPress={() => {
           if (!isEdit) {

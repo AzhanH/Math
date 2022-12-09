@@ -7,7 +7,7 @@ export {default as Modal} from './Modal';
 export {default as CustomModal} from './CustomModal';
 export {default as Button} from './Button';
 export {default as ValuePicker} from './ValuePicker';
-export {default as SingleClassView} from './SingleClassView';
+export {default as SinglePlayerView} from './SinglePayerView';
 export {default as DatePicker} from './DatePicker';
 export {default as SearchBar} from './SearchBar';
 export {default as TableView} from './TableView';

@@ -26,13 +26,26 @@ const styles = StyleSheet.create({
   btn: {
     height: vh * 5,
   },
+  btnContainer: {width: vw * 36, marginTop: vw * 2},
+
   row: {
     width: '100%',
     flexDirection: 'row',
   },
+  teamContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '55%',
+  },
   teamNameText: {
     fontFamily: 'Oswald-Regular',
     fontSize: fontSizes.f16,
+  },
+  avatarImage: {
+    height: vh * 15,
+    width: vh * 15,
+    borderRadius: (vh * 15) / 2,
+    resizeMode: 'contain',
   },
 });
 export default styles;
