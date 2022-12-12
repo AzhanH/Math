@@ -2,11 +2,18 @@ import React from 'react';
 import {View} from 'react-native';
 import styles from './styles';
 
-const Rectangle = ({children, containerStyle, innerColor}) => {
+const Rectangle = ({
+  children,
+  containerStyle,
+  innerColor,
+  midViewStyle,
+  leftSideStyle,
+  rightSideStyle,
+}) => {
   return (
     <View style={[styles.mainView, containerStyle]}>
       <View style={styles.subView}>
-        <View style={styles.sideView}>
+        <View style={[styles.sideView, leftSideStyle]}>
           <View style={styles.flex} />
           <View
             style={[
@@ -15,8 +22,8 @@ const Rectangle = ({children, containerStyle, innerColor}) => {
             ]}
           />
         </View>
-        <View style={styles.midView}>{children}</View>
-        <View style={styles.sideView}>
+        <View style={[styles.midView, midViewStyle]}>{children}</View>
+        <View style={[styles.sideView, rightSideStyle]}>
           <View
             style={[
               styles.rightCircleView,

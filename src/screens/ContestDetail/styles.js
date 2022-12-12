@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  contestDetailView: {
+    justifyContent: 'flex-start',
+    paddingVertical: vh * 3,
+  },
+  textView: {right: vw * 4},
   contestHeading: {
     fontFamily: 'Oswald-Medium',
     fontSize: fontSizes.f20,
@@ -28,6 +33,7 @@ const styles = StyleSheet.create({
   timeView: {
     width: '60%',
     alignSelf: 'center',
+    marginTop: vh * 2,
   },
 
   dateHeading: {
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
   centeredView: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: vh * 2,
+    marginTop: vh * 3,
     paddingHorizontal: vw * 6,
   },
   chooseText: {
@@ -75,6 +81,37 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Regular',
     fontSize: fontSizes.f10,
     color: colors.white,
+  },
+  contestName: {
+    fontFamily: 'Oswald-Medium',
+    color: colors.white,
+    fontSize: fontSizes.f20,
+  },
+  contestDesc: {
+    marginTop: vh,
+    fontSize: fontSizes.f15,
+    fontFamily: 'Renner_ 400 Book',
+    color: colors.white,
+  },
+  dateText: {
+    marginLeft: vw,
+    fontFamily: 'Oswald-Light',
+    fontSize: fontSizes.f12,
+    color: colors.white,
+  },
+  icons: {
+    height: vh * 2.2,
+    width: vh * 2.2,
+    resizeMode: 'contain',
+  },
+  rightSide: {
+    width: '25%',
+  },
+  rightSide: {
+    width: '25%',
+  },
+  midView: {
+    width: '60%',
   },
 });
 export default styles;

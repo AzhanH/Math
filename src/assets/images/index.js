@@ -39,6 +39,8 @@ import timeBlue from './timeBlue.png';
 import edit from './edit.png';
 import scoreboardBackground from './scoreboardBackground.png';
 import logo from './logo.png';
+import dropDownWhite from './dropDownWhite.png';
+import eyePeach from './eyePeach.png';
 
 export default {
   intro,
@@ -82,4 +84,6 @@ export default {
   edit,
   scoreboardBackground,
   logo,
+  dropDownWhite,
+  eyePeach,
 };

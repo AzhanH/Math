@@ -11,7 +11,7 @@ const SinglePlayerView = ({
   showBin,
   onPressDelete,
   btnName,
-  onPressButton,
+  onPressEditProfile,
 }) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
@@ -33,7 +33,7 @@ const SinglePlayerView = ({
               text={'Middle (Grade 6-8)'}
             />
             <Button
-              onPress={onPressButton}
+              onPress={onPressEditProfile}
               containerStyle={{marginTop: vw * 2}}
               style={{height: vh * 4}}
               textStyle={styles.btnText}

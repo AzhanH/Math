@@ -16,7 +16,6 @@ const SingleTeamView = ({teamName, color, image, onPressViewDetail}) => {
             <Button
               onPress={onPressViewDetail}
               containerStyle={styles.btnContainer}
-              style={styles.btn}
               btnText={'View Details'}
             />
           </View>

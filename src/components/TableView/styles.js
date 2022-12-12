@@ -22,5 +22,11 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f10,
     color: colors.white,
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '33%',
+  },
+  dropDown: {marginLeft: vw, marginTop: vw},
 });
 export default styles;

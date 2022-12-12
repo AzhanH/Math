@@ -16,6 +16,8 @@ export const colors = {
   darkGreen: '#196A06',
   navyBlue: '#03548A',
   blueBorder: '#1176B9',
+  borderLight: '#E6E6E6',
+  lightBrown: '#999999',
 };
 
 export const rectangleTheme = {

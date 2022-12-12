@@ -1,12 +1,52 @@
 import React from 'react';
-import {BackgroundWrapper, Text, Button} from '../../components';
+import {
+  BackgroundWrapper,
+  Text,
+  Button,
+  Rectangle,
+  TableView,
+} from '../../components';
 import styles from './styles';
-import {View} from 'react-native';
-import {vh} from '../../utils/units';
-const ContestDetail = () => {
+import {Image, ScrollView, View} from 'react-native';
+import {vh, vw} from '../../utils/units';
+import images from '../../assets/images';
+const ContestDetail = ({navigation}) => {
+  const options = [
+    {label: 'Level of play', value: 'Classroom'},
+    {label: 'Mode', value: 'Additon'},
+    {label: 'Grade', value: 'First'},
+    {label: 'State', value: 'PA'},
+    {label: 'Country', value: 'USA'},
+    {label: 'Team Type', value: 'Multip-player'},
+  ];
   return (
     <BackgroundWrapper>
-      <View style={styles.mainView}>
+      <ScrollView style={styles.mainView}>
+        <Rectangle
+          rightSideStyle={styles.rightSide}
+          midViewStyle={styles.midView}>
+          <View style={[styles.row, styles.contestDetailView]}>
+            <View style={styles.textView}>
+              <Text style={styles.contestName} text={'ABC CONTEST'} />
+              <View style={[styles.row, {justifyContent: 'flex-start'}]}>
+                <Image style={styles.icons} source={images.calendarWhite} />
+                <Text style={styles.dateText} text={'May 5,2022'} />
+                <Image
+                  style={[styles.icons, {marginLeft: vw}]}
+                  source={images.time}
+                />
+                <Text style={styles.dateText} text={'5:00PM'} />
+              </View>
+              <Text
+                style={styles.contestDesc}
+                text={
+                  'You have the knowledge now put to use by playing along real games with real pros in real time'
+                }
+              />
+            </View>
+            <Image style={{right: 10}} source={images.contestPlayer} />
+          </View>
+        </Rectangle>
         <View style={styles.timeView}>
           <View style={styles.row}>
             <View>
@@ -30,7 +70,7 @@ const ContestDetail = () => {
           </View>
         </View>
         <View style={styles.centeredView}>
-          <Text style={styles.chooseText} text={'Choose options'} />
+          <Text style={styles.chooseText} text={'CHOOSE OPTIONS'} />
           <Text
             text={
               <>
@@ -39,35 +79,16 @@ const ContestDetail = () => {
               </>
             }
           />
-          <View style={styles.tableView}>
-            <View style={styles.tableRow}>
-              <Text style={styles.rowText} text={'Level of play:'} />
-              <Text style={styles.rowText} text={'Classroom'} />
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.rowText} text={'Mode:'} />
-              <Text style={styles.rowText} text={'Addition'} />
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.rowText} text={'Grade:'} />
-              <Text style={styles.rowText} text={'First'} />
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.rowText} text={'State'} />
-              <Text style={styles.rowText} text={'PA'} />
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.rowText} text={'Country'} />
-              <Text style={styles.rowText} text={'USA'} />
-            </View>
-            <View style={[styles.tableRow, {marginBottom: vh * 2}]}>
-              <Text style={styles.rowText} text={'Team Type'} />
-              <Text style={styles.rowText} text={'Multi-player'} />
-            </View>
-          </View>
-          <Button btnText={'EDIT'} />
+
+          <TableView array={options} />
+          <Button
+            onPress={() =>
+              navigation.navigate('CreateAndEditContest', {type: 'Update'})
+            }
+            btnText={'EDIT'}
+          />
         </View>
-      </View>
+      </ScrollView>
     </BackgroundWrapper>
   );
 };

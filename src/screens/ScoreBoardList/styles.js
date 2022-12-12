@@ -1,6 +1,6 @@
 import {StatusBar, StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
-import {fontSizes, vh} from '../../utils/units';
+import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   imageContainer: {
@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f15,
     color: colors.white,
   },
+  btnContainer: {
+    width: vw * 50,
+    marginTop: vh * 2,
+  },
+  btn: {height: vh * 7},
 });
 
 export default styles;

@@ -11,17 +11,12 @@ import {
   Button,
   ValuePicker,
 } from '../../components';
+import {options} from '../../config';
 import styles from './styles';
 
-const CreateContest = () => {
-  const options = [
-    {label: 'Level of play', value: 'Select Level of Play'},
-    {label: 'Mode', value: 'Select Mode'},
-    {label: 'Grade', value: 'Select Grade'},
-    {label: 'State', value: 'Select State'},
-    {label: 'Country', value: 'Select Country'},
-    {label: 'Team Type', value: 'Select Team Type'},
-  ];
+const CreateAndEditContest = ({route}) => {
+  const type = route?.params?.type;
+
   return (
     <BackgroundWrapper>
       <KeyboardAwareScrollView enableOnAndroid style={styles.contentContainer}>
@@ -38,16 +33,18 @@ const CreateContest = () => {
             placeholder="Description"
           />
           <Text style={styles.chooseText} text={'CHOOSE OPTIONS'} />
-          <TableView array={options} />
+          <TableView editable array={options} />
           <DatePicker mode="date" placeholder={'Choose Contest Start Date'} />
           <DatePicker mode="time" placeholder={'Choose Contest Start Time'} />
           <DatePicker mode="date" placeholder={'Choose Contest End Date'} />
           <DatePicker mode="time" placeholder={'Choose Contest End Time'} />
           <ValuePicker placeholder={'Active'} />
-          <Button btnText={'CREATE CONTEST'} />
+          <Button
+            btnText={type === 'Update' ? 'UPDATE CONTEST' : 'CREATE CONTEST'}
+          />
         </View>
       </KeyboardAwareScrollView>
     </BackgroundWrapper>
   );
 };
-export default CreateContest;
+export default CreateAndEditContest;

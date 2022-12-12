@@ -1,8 +1,9 @@
 import React from 'react';
 import {ImageBackground, StatusBar, View} from 'react-native';
 import images from '../../assets/images';
+import {colors} from '../../utils/theme';
 import styles from './styles';
-const BackgroundWrapper = ({children}) => {
+const BackgroundWrapper = ({children, transparent}) => {
   return (
     <View style={styles.main_view}>
       <StatusBar
@@ -12,7 +13,10 @@ const BackgroundWrapper = ({children}) => {
       />
       <ImageBackground
         resizeMode="contain"
-        style={styles.image}
+        style={[
+          styles.main_view,
+          !transparent && {backgroundColor: colors.white},
+        ]}
         source={images.backgroundImage}>
         {children}
       </ImageBackground>

@@ -30,7 +30,7 @@ const Contets = ({navigation}) => {
 
   const listFooterComponet = (
     <Button
-      onPress={() => navigation.navigate('CreateContest')}
+      onPress={() => navigation.navigate('CreateAndEditContest')}
       btnText={'CREATE CONTEST'}
     />
   );

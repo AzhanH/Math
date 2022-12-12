@@ -9,6 +9,7 @@ import MyClass from '../../screens/MyClass';
 import ContestStack from '../ContestStack';
 import TeamStack from '../TeamStack';
 import ScoreBoardStack from '../ScoreBoardStack';
+import ClassStack from '../ClassStack';
 
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -50,7 +51,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="MY CLASS"
-        component={MyClass}
+        component={ClassStack}
       />
       <Tab.Screen
         options={{

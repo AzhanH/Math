@@ -10,11 +10,12 @@ import {
 import {classes} from '../../config';
 import {vh, vw} from '../../utils/units';
 import styles from './styles';
-const MyClass = () => {
+const MyClass = ({navigation}) => {
   const modalRef = useRef(null);
   const [isEdit, setIsEdit] = useState(false);
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      onPressEditProfile={() => navigation.navigate('EditStudentProfile')}
       showBin={isEdit}
       onPressDelete={() => modalRef.current.show()}
       image={item?.image}

@@ -139,9 +139,90 @@ export const myTeams = [
 ];
 
 export const scoreBoardButtonList = [
-  {id: 1, name: 'CLASSROOM LEVEL'},
-  {id: 2, name: 'SCHOOL LEVEL'},
-  {id: 3, name: 'STATE LEVEL'},
-  {id: 4, name: 'NATIONAL MATHBEE '},
-  {id: 5, name: 'INTERNATONAL MATHBEE '},
+  {id: 1, name: 'CLASSROOM LEVEL', to: 'Levels', params: 'class'},
+  {id: 2, name: 'SCHOOL LEVEL', to: 'Levels', params: 'school'},
+  {id: 3, name: 'STATE LEVEL', to: 'Levels', params: 'state'},
+  {id: 4, name: 'NATIONAL MATHBEE®', to: 'Levels', params: 'national'},
+  {id: 5, name: 'INTERNATONAL MATHBEE®', to: 'Levels', params: 'international'},
 ];
+
+export const options = [
+  {label: 'Level of play', value: 'Select Level of Play'},
+  {label: 'Mode', value: 'Select Mode'},
+  {label: 'Grade', value: 'Select Grade'},
+  {label: 'State', value: 'Select State'},
+  {label: 'Country', value: 'Select Country'},
+  {label: 'Team Type', value: 'Select Team Type'},
+];
+
+export const levels = [
+  {
+    id: 1,
+    teamType: 'Multi-Player',
+    name: 'Hello Kitty',
+    score: 0.89,
+    state: 'PA',
+    country: 'USA',
+    schoolName: 'West Brook',
+  },
+  {
+    id: 2,
+    teamType: 'Single-Player',
+    name: 'Blue Cats',
+    score: 0.875,
+    state: 'TX',
+    country: 'USA',
+    schoolName: 'Cedar Crest',
+  },
+  {
+    id: 3,
+    teamType: 'Multi-Player',
+    name: 'Jaguar',
+    score: 0.866,
+    state: 'TX',
+    country: 'USA',
+    schoolName: 'Homeschool',
+  },
+  {
+    id: 4,
+    teamType: 'Single-Player',
+    name: 'Pink Panthers',
+    score: 0.789,
+    state: 'FL',
+    country: 'USA',
+    schoolName: 'Easton',
+  },
+  {
+    id: 5,
+    teamType: 'Multi-Player',
+    name: 'Jets',
+    score: 0.89,
+    state: 'PA',
+    country: 'USA',
+    schoolName: 'Broadbeck',
+  },
+  {
+    teamType: 'Single-Player',
+    id: 6,
+    name: 'Orioles',
+    score: 0.89,
+    state: 'PA',
+    country: 'USA',
+    schoolName: 'Camden',
+  },
+];
+export const addSuffixToWord = position => {
+  if (position > 3 && position < 21) {
+    return position + 'th';
+  }
+  switch (position % 10) {
+    case 1:
+      return position + 'st';
+    case 2:
+      return position + 'nd';
+    case 3:
+      return position + 'rd';
+    default:
+      return position + 'th';
+  }
+};

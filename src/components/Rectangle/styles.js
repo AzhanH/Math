@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     width: '15%',
   },
   midView: {
+    zIndex: 2,
     width: '70%',
   },
 });

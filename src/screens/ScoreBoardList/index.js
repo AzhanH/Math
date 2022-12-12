@@ -4,9 +4,8 @@ import {Button, Text} from '../../components';
 import images from '../../assets/images';
 import {scoreBoardButtonList} from '../../config';
 import styles from './styles';
-import {vh, vw} from '../../utils/units';
 
-const ScoreBoardList = () => {
+const ScoreBoardList = ({navigation}) => {
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -16,8 +15,9 @@ const ScoreBoardList = () => {
         <Image style={styles.logo} source={images.logo} />
         {scoreBoardButtonList?.map((v, i) => (
           <Button
-            style={{height: vh * 7}}
-            containerStyle={{width: vw * 50, marginTop: vh * 2}}
+            onPress={() => navigation.navigate(v?.to, {type: v?.params})}
+            style={styles.btn}
+            containerStyle={styles.btnContainer}
             btnText={v?.name}
             key={i}
           />

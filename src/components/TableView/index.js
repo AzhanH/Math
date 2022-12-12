@@ -1,10 +1,11 @@
 import React from 'react';
-import {View} from 'react-native';
-import {vh} from '../../utils/units';
+import {View, Image, TouchableOpacity} from 'react-native';
+import images from '../../assets/images';
+import {vh, vw} from '../../utils/units';
 import Text from '../Text';
 import styles from './styles';
 
-const TableView = ({array}) => {
+const TableView = ({array, editable = false}) => {
   return (
     <View style={styles.tableView}>
       {array?.length > 0 &&
@@ -16,7 +17,12 @@ const TableView = ({array}) => {
               array?.length - 1 == i && {marginBottom: vh * 2},
             ]}>
             <Text style={styles.rowText} text={v?.label} />
-            <Text style={styles.rowText} text={v?.value} />
+            <TouchableOpacity disabled={!editable} style={styles.row}>
+              <Text style={styles.rowText} text={v?.value} />
+              {editable && (
+                <Image style={styles.dropDown} source={images.dropDownWhite} />
+              )}
+            </TouchableOpacity>
           </View>
         ))}
     </View>
