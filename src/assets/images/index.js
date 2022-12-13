@@ -41,6 +41,7 @@ import scoreboardBackground from './scoreboardBackground.png';
 import logo from './logo.png';
 import dropDownWhite from './dropDownWhite.png';
 import eyePeach from './eyePeach.png';
+import camera from './camera.png';
 
 export default {
   intro,
@@ -86,4 +87,5 @@ export default {
   logo,
   dropDownWhite,
   eyePeach,
+  camera,
 };

@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     height: vh * 8,
     borderRadius: vw * 5,
     paddingLeft: vw * 4,
+    paddingRight: vw * 2,
     alignItems: 'center',
   },
 
