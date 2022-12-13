@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   recoverText: {
     textAlign: 'center',
     marginTop: vh,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f15,
   },
   buttonView: {
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
   },
   dontText: {
     fontSize: fontSizes.f15,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   signUpText: {
     fontSize: fontSizes.f15,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     color: colors.purple,
     textDecorationLine: 'underline',
   },

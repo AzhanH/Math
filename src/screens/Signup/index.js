@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity, StatusBar} from 'react-native';
+import {View, TouchableOpacity, StatusBar, Platform} from 'react-native';
 import {
   BackgroundWrapper,
   Button,
@@ -14,7 +15,9 @@ import styles from './styles';
 
 const Signup = ({navigation}) => {
   useEffect(() => {
-    AndroidKeyboardAdjust.setAdjustPan();
+    if (Platform.OS == 'android') {
+      AndroidKeyboardAdjust.setAdjustPan();
+    }
   }, []);
   return (
     <BackgroundWrapper>

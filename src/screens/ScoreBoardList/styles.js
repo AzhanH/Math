@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     marginVertical: vh * 2,
   },
   chooseText: {
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f15,
     color: colors.white,
   },

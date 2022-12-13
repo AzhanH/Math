@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: colors.purple,
     fontSize: fontSizes.f12,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   buttonView: {
     alignItems: 'center',
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
   },
   dontText: {
     fontSize: fontSizes.f15,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   signUpText: {
     fontSize: fontSizes.f15,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     color: colors.purple,
     textDecorationLine: 'underline',
   },

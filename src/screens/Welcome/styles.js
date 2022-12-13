@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   learnText: {
     fontSize: fontSizes.f16,
     textAlign: 'center',
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   leftAlign: {
     textAlign: 'left',

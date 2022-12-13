@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     bottom: vh * 5,
   },
   backText: {
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f12,
     textAlign: 'center',
     textDecorationLine: 'underline',

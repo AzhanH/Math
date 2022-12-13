@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   subHeadText: {
     textAlign: 'center',
     color: colors.white,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f16,
   },
   detailView: {
@@ -89,11 +89,11 @@ const styles = StyleSheet.create({
   thanksText: {
     fontSize: fontSizes.f16,
     textAlign: 'center',
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   successText: {
     fontSize: fontSizes.f14,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
 });
 export default styles;

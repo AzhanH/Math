@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   planDescText: {
     fontSize: fontSizes.f18,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     textAlign: 'center',
   },
   buttonView: {

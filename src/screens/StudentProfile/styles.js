@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   changePassword: {
     marginTop: vh,
     fontSize: fontSizes.f12,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     color: colors.purple,
     textDecorationLine: 'underline',
   },

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   subHeading: {
     fontSize: fontSizes.f15,
     textAlign: 'center',
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
   },
   success: {
     marginTop: vh * 2,

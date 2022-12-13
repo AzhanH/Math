@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Medium',
     color: colors.white,
   },
-  purchaseText: {fontFamily: 'Renner_ 400 Book', fontSize: fontSizes.f15},
+  purchaseText: {fontFamily: 'Renner-it-Book', fontSize: fontSizes.f15},
   whiteText: {
     color: colors.white,
   },

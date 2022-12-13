@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity, Platform} from 'react-native';
 import {
   BackgroundWrapper,
   Header,
@@ -13,7 +13,9 @@ import styles from './styles';
 
 const Login = ({navigation}) => {
   useEffect(() => {
-    AndroidKeyboardAdjust.setAdjustPan();
+    if (Platform.OS === 'android') {
+      AndroidKeyboardAdjust.setAdjustPan();
+    }
   }, []);
   return (
     <BackgroundWrapper>

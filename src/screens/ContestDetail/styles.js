@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   contestDesc: {
     marginTop: vh,
     fontSize: fontSizes.f15,
-    fontFamily: 'Renner_ 400 Book',
+    fontFamily: 'Renner-it-Book',
     color: colors.white,
   },
   dateText: {
@@ -103,9 +103,6 @@ const styles = StyleSheet.create({
     height: vh * 2.2,
     width: vh * 2.2,
     resizeMode: 'contain',
-  },
-  rightSide: {
-    width: '25%',
   },
   rightSide: {
     width: '25%',
