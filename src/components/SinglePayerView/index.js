@@ -12,6 +12,10 @@ const SinglePlayerView = ({
   onPressDelete,
   btnName,
   onPressEditProfile,
+  playerId,
+  playerName,
+  onPressViewDetail,
+  grade,
 }) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
@@ -23,17 +27,18 @@ const SinglePlayerView = ({
               text={
                 <>
                   <Text text="Player ID " />
-                  <Text text="1234" />
+                  <Text text={playerId} />
                 </>
               }
             />
-            <Text style={styles.player} text={'Steve Smith'} />
-            <Text
-              style={[styles.player, styles.grade]}
-              text={'Middle (Grade 6-8)'}
-            />
+            <Text style={styles.player} text={playerName} />
+            <Text style={[styles.player, styles.grade]} text={grade} />
             <Button
-              onPress={onPressEditProfile}
+              onPress={
+                btnName === 'VIEW DETAIL'
+                  ? onPressViewDetail
+                  : onPressEditProfile
+              }
               containerStyle={{marginTop: vw * 2}}
               style={{height: vh * 4}}
               textStyle={styles.btnText}

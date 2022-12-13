@@ -16,6 +16,12 @@ const TeamDetail = ({navigation, route}) => {
   const modalRef = useRef(null);
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      playerName={item?.name}
+      playerId={item?.playerId}
+      grade={item?.grade}
+      onPressViewDetail={() =>
+        navigation.navigate('StudentProfile', {data: item})
+      }
       btnName="VIEW DETAIL"
       image={item?.image}
       color={item?.color}

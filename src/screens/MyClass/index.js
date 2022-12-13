@@ -15,6 +15,9 @@ const MyClass = ({navigation}) => {
   const [isEdit, setIsEdit] = useState(false);
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      playerName={item?.name}
+      playerId={item?.playerId}
+      grade={item?.grade}
       onPressEditProfile={() => navigation.navigate('EditStudentProfile')}
       showBin={isEdit}
       onPressDelete={() => modalRef.current.show()}
