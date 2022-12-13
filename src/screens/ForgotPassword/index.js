@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, TouchableOpacity, StatusBar} from 'react-native';
+import {View, TouchableOpacity, StatusBar, Platform} from 'react-native';
 import {BackgroundWrapper, Button, InputField, Text} from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
@@ -8,7 +8,9 @@ import styles from './styles';
 const ForgotPassword = ({navigation}) => {
   const [step, setStep] = useState(1);
   useEffect(() => {
-    AndroidKeyboardAdjust.setAdjustPan();
+    if (Platform.OS === 'android') {
+      AndroidKeyboardAdjust.setAdjustPan();
+    }
   }, []);
   return (
     <BackgroundWrapper>

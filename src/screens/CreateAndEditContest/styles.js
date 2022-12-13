@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     padding: vh * 2,
   },
   mainView: {
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 5,
   },

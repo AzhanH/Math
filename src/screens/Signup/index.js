@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity, StatusBar, Platform} from 'react-native';
+import {View, TouchableOpacity, Platform} from 'react-native';
 import {
   BackgroundWrapper,
   Button,
@@ -21,11 +21,6 @@ const Signup = ({navigation}) => {
   }, []);
   return (
     <BackgroundWrapper>
-      <StatusBar
-        barStyle={'dark-content'}
-        translucent
-        backgroundColor={'transparent'}
-      />
       <Header nav={navigation} heading={'SIGN UP'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}

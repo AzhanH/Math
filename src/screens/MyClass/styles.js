@@ -1,9 +1,9 @@
 import {StyleSheet, StatusBar} from 'react-native';
-import {fontSizes} from '../../utils/units';
+import {fontSizes, vh} from '../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || vh * 6,
   },
   contentContainer: {
     justifyContent: 'center',

@@ -54,6 +54,9 @@ const styles = StyleSheet.create({
     borderRadius: vh * 2,
     marginLeft: vw,
   },
+  textCenter: {
+    textAlign: 'center',
+  },
 });
 
 export default styles;

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mainView: {
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || vh * 6,
     alignItems: 'center',
   },
   logo: {

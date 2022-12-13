@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: vh * 2,
     backgroundColor: colors.lightGray,
-    height: vh * 8,
+    height: Platform.OS === 'ios' ? vh * 7 : vh * 8,
     borderRadius: vw * 5,
     justifyContent: 'center',
     alignItems: 'center',

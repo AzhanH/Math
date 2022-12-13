@@ -3,7 +3,7 @@ import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || vh * 6,
   },
   contentContainerStyle: {
     paddingHorizontal: vw * 3,
