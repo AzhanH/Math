@@ -12,7 +12,7 @@ const InputField = forwardRef((props, ref) => {
       <TextInput
         {...props}
         ref={ref}
-        multiline={true}
+        multiline={props?.multiline}
         value={props?.value}
         returnKeyType={props?.returnKeyType ? props?.returnKeyType : 'default'}
         onSubmitEditing={props?.onSubmitEditing}

@@ -1,15 +1,28 @@
 import React from 'react';
 import {View} from 'react-native';
-import {BackgroundWrapper, InputField} from '../../components';
+import {BackgroundWrapper, Button, InputField} from '../../components';
 import styles from './styles';
 
-const ChangePassword = () => {
+const ChangePassword = ({navigation}) => {
   return (
     <BackgroundWrapper>
       <View style={styles.mainView}>
-        <InputField secureTextEntry />
-        <InputField secureTextEntry />
-        <InputField secureTextEntry />
+        <InputField
+          placeholder="Current Password"
+          viewStyle={styles.inputView}
+          secureTextEntry
+        />
+        <InputField
+          placeholder="New Password"
+          viewStyle={styles.inputView}
+          secureTextEntry
+        />
+        <InputField
+          placeholder="Confirm Password"
+          viewStyle={styles.inputView}
+          secureTextEntry
+        />
+        <Button btnText={'UPDATE'} />
       </View>
     </BackgroundWrapper>
   );

@@ -14,9 +14,14 @@ import styles from './styles';
 const CreateAndEditTeam = ({route}) => {
   const type = route?.params?.type;
   const modalRef = useRef(null);
+
   const renderItem = ({item, index}) => (
     <SinglePlayerView
-      onPressButton={() => modalRef.current.show()}
+      playerName={item?.name}
+      playerId={item?.playerId}
+      grade={item?.grade}
+      onPressRemove={() => modalRef.current.show()}
+      onPressAdd={() => modalRef.current.show()}
       btnName={type === 'Edit' ? 'REMOVE' : 'ADD'}
       image={item?.image}
       color={item?.color}

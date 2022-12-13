@@ -4,11 +4,12 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
-  },
-  mainView: {
     marginTop: vh * 2,
-    paddingHorizontal: vw * 2,
+    paddingHorizontal: vw * 3,
+    paddingBottom: vh * 3,
+  },
+  input: {
+    width: '100%',
   },
 
   buttonView: {
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     bottom: vh * 5,
   },
   backText: {
+    marginTop: vh,
     fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f12,
     textAlign: 'center',

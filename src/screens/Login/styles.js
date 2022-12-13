@@ -4,16 +4,19 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
+    marginTop: vh * 2,
+    paddingHorizontal: vw * 3,
+    paddingBottom: vh * 3,
   },
-  mainView: {
-    marginTop: vh * 10,
-    paddingHorizontal: vw * 2,
+  input: {
+    width: '100%',
   },
+
   forgotView: {
     alignSelf: 'flex-end',
   },
   forgotText: {
+    marginTop: vh,
     textDecorationLine: 'underline',
     color: colors.purple,
     fontSize: fontSizes.f12,
@@ -31,6 +34,7 @@ const styles = StyleSheet.create({
     bottom: vh * 5,
   },
   row: {
+    marginTop: vh,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

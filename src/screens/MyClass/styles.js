@@ -1,5 +1,5 @@
 import {StyleSheet, StatusBar} from 'react-native';
-import {fontSizes, vh} from '../../utils/units';
+import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
   },
   noMargin: {
     marginTop: 0,
+  },
+  btnContainer: {
+    width: vw * 50,
+    marginTop: vh * 2,
   },
 });
 export default styles;

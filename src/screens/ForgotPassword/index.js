@@ -33,6 +33,7 @@ const ForgotPassword = ({navigation}) => {
             }
           />
           <InputField
+            viewStyle={styles.input}
             secureTextEntry={step == 3}
             placeholder={
               step == 1
@@ -43,7 +44,11 @@ const ForgotPassword = ({navigation}) => {
             }
           />
           {step === 3 && (
-            <InputField secureTextEntry={true} placeholder="Confirm Password" />
+            <InputField
+              viewStyle={styles.input}
+              secureTextEntry={true}
+              placeholder="Confirm Password"
+            />
           )}
           <Button
             onPress={() => step < 3 && setStep(step + 1)}

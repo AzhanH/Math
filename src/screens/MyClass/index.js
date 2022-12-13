@@ -8,7 +8,6 @@ import {
   CustomModal,
 } from '../../components';
 import {classes} from '../../config';
-import {vh, vw} from '../../utils/units';
 import styles from './styles';
 const MyClass = ({navigation}) => {
   const modalRef = useRef(null);
@@ -30,14 +29,12 @@ const MyClass = ({navigation}) => {
   const listFooterComponent = (
     <View>
       <Button
-        containerStyle={{width: vw * 50}}
-        style={{height: vh * 7}}
+        containerStyle={styles.btnContainer}
         textStyle={styles.btnText}
         btnText={'ADD STUDENTS TO CLASS'}
       />
       <Button
-        containerStyle={{width: vw * 50}}
-        style={{height: vh * 7}}
+        containerStyle={styles.btnContainer}
         onPress={() => {
           if (!isEdit) {
             setIsEdit(true);

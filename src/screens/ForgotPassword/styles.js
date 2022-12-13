@@ -4,11 +4,13 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
+    paddingHorizontal: vw * 3,
   },
   mainView: {
     marginTop: vh * 10,
-    paddingHorizontal: vw * 2,
+  },
+  input: {
+    width: '100%',
   },
   forgotView: {
     alignSelf: 'flex-end',
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
     marginLeft: vw,
   },
   centeredView: {
+    marginTop: vh,
     justifyContent: 'center',
     alignItems: 'center',
   },

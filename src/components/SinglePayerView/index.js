@@ -15,7 +15,9 @@ const SinglePlayerView = ({
   playerId,
   playerName,
   onPressViewDetail,
+  onPressRemove,
   grade,
+  onPressAdd,
 }) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
@@ -37,6 +39,10 @@ const SinglePlayerView = ({
               onPress={
                 btnName === 'VIEW DETAIL'
                   ? onPressViewDetail
+                  : btnName === 'REMOVE'
+                  ? onPressRemove
+                  : btnName === 'ADD'
+                  ? onPressAdd
                   : onPressEditProfile
               }
               containerStyle={{marginTop: vw * 2}}

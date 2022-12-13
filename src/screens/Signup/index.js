@@ -19,35 +19,48 @@ const Signup = ({navigation}) => {
       AndroidKeyboardAdjust.setAdjustPan();
     }
   }, []);
+
   return (
     <BackgroundWrapper>
       <Header nav={navigation} heading={'SIGN UP'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid>
-        <View style={styles.mainView}>
-          <InputField returnKeyType="next" placeholder="First Name" />
-          <InputField returnKeyType="next" placeholder="Last Name" />
-          <InputField returnKeyType="next" placeholder="Email Address" />
-          <ValuePicker placeholder={'Select'} />
-          <InputField
-            secureTextEntry
-            returnKeyType="next"
-            placeholder="Password"
-          />
-          <InputField
-            secureTextEntry
-            returnKeyType="send"
-            placeholder="Confirm Password"
-          />
-          <Button
-            btnText={'REGISTER'}
-            onPress={() => navigation.navigate('ProfileCreation')}
-          />
-          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.backText} text={'Back To Login'} />
-          </TouchableOpacity>
-        </View>
+        <InputField
+          viewStyle={styles.input}
+          returnKeyType="next"
+          placeholder="First Name"
+        />
+        <InputField
+          viewStyle={styles.input}
+          returnKeyType="next"
+          placeholder="Last Name"
+        />
+        <InputField
+          viewStyle={styles.input}
+          returnKeyType="next"
+          placeholder="Email Address"
+        />
+        <ValuePicker containerStyle={styles.input} placeholder={'Select'} />
+        <InputField
+          viewStyle={styles.input}
+          secureTextEntry
+          returnKeyType="next"
+          placeholder="Password"
+        />
+        <InputField
+          viewStyle={styles.input}
+          secureTextEntry
+          returnKeyType="send"
+          placeholder="Confirm Password"
+        />
+        <Button
+          btnText={'REGISTER'}
+          onPress={() => navigation.navigate('ProfileCreation')}
+        />
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.backText} text={'Back To Login'} />
+        </TouchableOpacity>
       </KeyboardAwareScrollView>
     </BackgroundWrapper>
   );

@@ -72,7 +72,8 @@ const StudentProfile = ({navigation, route}) => {
               onPress={() => navigation.navigate('EditStudentProfile')}
               btnText={'EDIT PROFILE'}
             />
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ChangePassword')}>
               <Text style={styles.changePassword} text={'Change Password'} />
             </TouchableOpacity>
           </View>
