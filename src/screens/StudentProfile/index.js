@@ -4,7 +4,7 @@ import images from '../../assets/images';
 import {BackgroundWrapper, Button, Text} from '../../components';
 import styles from './styles';
 
-const StudentProfile = ({route}) => {
+const StudentProfile = ({navigation, route}) => {
   const student = route?.params?.data;
   return (
     <BackgroundWrapper>
@@ -68,7 +68,10 @@ const StudentProfile = ({route}) => {
             </View>
           </View>
           <View style={styles.btnContainer}>
-            <Button btnText={'EDIT PROFILE'} />
+            <Button
+              onPress={() => navigation.navigate('EditStudentProfile')}
+              btnText={'EDIT PROFILE'}
+            />
             <TouchableOpacity>
               <Text style={styles.changePassword} text={'Change Password'} />
             </TouchableOpacity>
