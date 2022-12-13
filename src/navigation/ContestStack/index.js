@@ -5,18 +5,17 @@ import Contest from '../../screens/Contest';
 import InviteParent from '../../screens/InviteParents';
 import ContestDetail from '../../screens/ContestDetail';
 import CreateAndEditContest from '../../screens/CreateAndEditContest';
+import NavigationOptions from '../NavigationOptions';
 
-const ContestStack = () => {
+const ContestStack = ({route}) => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={NavigationOptions}
       initialRouteName="Contest">
       <Stack.Screen name="Contest" component={Contest} />
-      <Stack.Screen name="InviteParents" component={InviteParent} />
       <Stack.Screen name="ContestDetail" component={ContestDetail} />
+      <Stack.Screen name="InviteParents" component={InviteParent} />
       <Stack.Screen
         name="CreateAndEditContest"
         component={CreateAndEditContest}

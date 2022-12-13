@@ -19,7 +19,6 @@ import scoreboard from './scoreboard.png';
 import contest from './contest.png';
 import homeBackground from './homeBackground.png';
 import ball from './ball.png';
-import drawer from './drawer.png';
 import childImage1 from './childImage1.png';
 import childImage2 from './childImage2.png';
 import childImage3 from './childImage3.png';
@@ -42,6 +41,9 @@ import logo from './logo.png';
 import dropDownWhite from './dropDownWhite.png';
 import eyePeach from './eyePeach.png';
 import camera from './camera.png';
+import drawer from './drawer.png';
+import notification from './notification.png';
+import backArrow from './backArrow.png';
 
 export default {
   intro,
@@ -65,7 +67,6 @@ export default {
   contest,
   homeBackground,
   ball,
-  drawer,
   childImage1,
   childImage2,
   childImage3,
@@ -88,4 +89,7 @@ export default {
   dropDownWhite,
   eyePeach,
   camera,
+  drawer,
+  notification,
+  backArrow,
 };

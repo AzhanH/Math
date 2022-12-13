@@ -2,9 +2,10 @@ import {StatusBar, StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
+console.log('StatusBar.currentHeight', StatusBar.currentHeight);
 const styles = StyleSheet.create({
   contanier: {
-    marginTop: StatusBar.currentHeight || vh * 6,
+    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   row: {
