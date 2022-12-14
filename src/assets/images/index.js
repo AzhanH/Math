@@ -46,6 +46,12 @@ import notification from './notification.png';
 import notificationWhite from './notificationWhite.png';
 import drawerWhite from './drawerWhite.png';
 import backArrow from './backArrow.png';
+import profile from './profile.png';
+import policy from './policy.png';
+import contact from './contact.png';
+import baseball from './baseball.png';
+import terms from './terms.png';
+import logout from './logout.png';
 
 export default {
   intro,
@@ -96,4 +102,10 @@ export default {
   backArrow,
   notificationWhite,
   drawerWhite,
+  policy,
+  profile,
+  contact,
+  terms,
+  baseball,
+  logout,
 };

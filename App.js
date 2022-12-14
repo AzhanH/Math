@@ -8,6 +8,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import StudentProfile from './src/screens/StudentProfile';
 import EditStudentProfile from './src/screens/EditStudentProfile';
 import ChangePassword from './src/screens/ChangePassword';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
 const App = () => {
   useEffect(() => {
     AnimatedSplash.hide();
@@ -18,7 +19,7 @@ const App = () => {
     <NavigationContainer>
       <RootStack.Navigator screenOptions={{headerShown: false}}>
         <RootStack.Screen name="AuthStack" component={AuthStack} />
-        <RootStack.Screen name="BottomTabs" component={BottomNavigation} />
+        <RootStack.Screen name="BottomTabs" component={DrawerNavigator} />
         <RootStack.Screen name="StudentProfile" component={StudentProfile} />
         <RootStack.Screen
           name="EditStudentProfile"

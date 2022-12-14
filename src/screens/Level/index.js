@@ -66,7 +66,7 @@ const Levels = ({navigation, route}) => {
 
   const listFooterComponent = <Button btnText={'EXPORT TO EXCEL'} />;
   return (
-    <BackgroundWrapper transparent>
+    <BackgroundWrapper>
       <FlatList
         contentContainerStyle={styles.contentContainer}
         renderItem={renderItem}

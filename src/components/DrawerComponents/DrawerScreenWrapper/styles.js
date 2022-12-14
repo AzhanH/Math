@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { vh } from '../../../utils/units';
+import {vh} from '../../../utils/units';
 
 const styles = StyleSheet.create({
   stack: {

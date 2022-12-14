@@ -10,7 +10,6 @@ const DrawerScreenWrapper = props => {
     const borderRadius = interpolate(progress.value, [0, 1], [0, 26]);
     return {
       transform: [{scale}],
-      borderRadius,
     };
   });
 
@@ -22,11 +21,11 @@ const DrawerScreenWrapper = props => {
           flexGrow: 1,
           overflow: 'hidden',
           shadowColor: 'white',
-
           elevation: 6,
           shadowOpacity: 0.26,
-          shadowRadius: 8,
+          shadowRadius: 10,
           shadowOffset: {width: 0, height: 4},
+
           // borderStartWidth:10
         },
         animatedStyles,

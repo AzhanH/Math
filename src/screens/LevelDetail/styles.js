@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: vw * 3,
   },
   levelContainer: {
+    elevation: 1,
     borderRadius: vw * 3,
     marginTop: vh,
     backgroundColor: colors.white,

@@ -31,7 +31,7 @@ const LevelDetail = ({route}) => {
   ];
 
   return (
-    <BackgroundWrapper transparent>
+    <BackgroundWrapper>
       <View style={styles.mainView}>
         <View style={styles.levelContainer}>
           <View style={styles.levelSubContainer}>

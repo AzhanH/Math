@@ -1,22 +1,23 @@
 import {StyleSheet} from 'react-native';
-import { colors } from '../../../utils/theme';
-import { vh, vw } from '../../../utils/units';
+import {colors} from '../../../utils/theme';
+import {fontSizes, vh, vw} from '../../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 3 * vh,
+    marginBottom: vh * 5,
   },
   icon: {
-    height: 2.5 * vh,
-    width: 2.5 * vh,
+    height: 4 * vh,
+    width: 4 * vh,
     resizeMode: 'contain',
-    marginHorizontal: 5 * vw,
   },
   label: {
-    fontSize: 2 * vh,
-    color: colors.black,
+    fontFamily: 'Oswald-Light',
+    fontSize: fontSizes.f16,
+    marginLeft: vw * 2,
+    color: colors.white,
   },
 });
 

@@ -4,14 +4,13 @@ import MyTeams from '../../screens/MyTeams';
 import TeamDetail from '../../screens/TeamDetail';
 import CreateAndEditTeam from '../../screens/CreateAndEditTeam';
 import RegisteredStudents from '../../screens/RegisteredStudents';
+import NavigationOptions from '../NavigationOptions';
 
 const TeamStack = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={NavigationOptions}
       initialRouteName="MyTeams">
       <Stack.Screen name="MyTeams" component={MyTeams} />
       <Stack.Screen name="TeamDetail" component={TeamDetail} />

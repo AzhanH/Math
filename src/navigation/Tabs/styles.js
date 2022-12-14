@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
     height: vh * 10,
     borderTopColor: 'transparent',
     backgroundColor: colors.white,
-    borderTopLeftRadius: vw * 5,
-    borderTopRightRadius: vw * 5,
   },
 });
 

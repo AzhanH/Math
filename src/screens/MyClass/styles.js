@@ -3,7 +3,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || vh * 6,
+    // marginTop: StatusBar.currentHeight || vh * 6,
   },
   contentContainer: {
     justifyContent: 'center',
