@@ -26,7 +26,11 @@ const getHeaderLeft = props => (
     <Image
       style={styles.headerImage}
       source={
-        backBtnRoutes[props?.route?.name] ? images.backArrow : images.drawer
+        props?.route?.name === 'Home'
+          ? images.drawerWhite
+          : backBtnRoutes[props?.route?.name]
+          ? images.backArrow
+          : images.drawer
       }
     />
   </TouchableOpacity>
@@ -36,7 +40,14 @@ const getHeaderRight = props => {
   if (!backBtnRoutes[props?.route?.name]) {
     return (
       <TouchableOpacity>
-        <Image style={styles.headerImage} source={images.notification} />
+        <Image
+          style={styles.headerImage}
+          source={
+            props?.route?.name === 'Home'
+              ? images.notificationWhite
+              : images.notification
+          }
+        />
         <View style={styles.count}>
           <Text style={styles.textWhite} text={'2'} />
         </View>
@@ -61,9 +72,10 @@ const getTitle = props => {
 
 const NavigationOptions = props => {
   return {
+    headerTransparent: props?.route?.name === 'Home' ? true : false,
     headerShadowVisible: false,
     headerTitleAlign: 'center',
-    headerTitleStyle: {fontFamily: 'Oswald-Bold', fontSize: fontSizes.f20},
+    headerTitleStyle: styles.headerText,
     title: getTitle(props),
     headerLeft: () => getHeaderLeft(props),
     headerRight: () => getHeaderRight(props),

@@ -4,15 +4,15 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
-  },
-  mainView: {
-    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 5,
+    // marginTop: StatusBar.currentHeight || vh * 6,
+  },
+  input: {
+    width: '100%',
   },
   uploadContainer: {
-    width: vw * 89,
+    width: '100%',
     marginTop: vh * 2,
     backgroundColor: colors.lightGray,
     height: vh * 16,
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f14,
   },
   multiInput: {
+    width: '100%',
     height: vh * 20,
     alignItems: 'flex-start',
   },

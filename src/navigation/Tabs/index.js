@@ -10,6 +10,7 @@ import ContestStack from '../ContestStack';
 import TeamStack from '../TeamStack';
 import ScoreBoardStack from '../ScoreBoardStack';
 import ClassStack from '../ClassStack';
+import HomeStack from '../HomeStack';
 
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -38,7 +39,7 @@ const BottomNavigation = () => {
           ),
         }}
         name="HOME"
-        component={Home}
+        component={HomeStack}
       />
       <Tab.Screen
         options={{

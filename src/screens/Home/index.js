@@ -23,7 +23,7 @@ const Home = () => {
         />
 
         <Button
-          style={styles.btn}
+          containerStyle={styles.btn}
           textStyle={styles.btnText}
           btnText={'REGISTER STUDENTS'}
         />

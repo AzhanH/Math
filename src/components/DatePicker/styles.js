@@ -11,11 +11,12 @@ const styles = StyleSheet.create({
     height: vh * 8,
     borderRadius: vw * 5,
     paddingLeft: vw * 4,
+    paddingRight: vw * 2,
     alignItems: 'center',
   },
 
   placeholder: {
-    width: '88%',
+    width: '90%',
     fontFamily: 'Oswald-Regular',
     color: colors.black + '66',
     fontSize: fontSizes.f14,
@@ -25,10 +26,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '10%',
     height: vh * 8,
-    paddingRight: '2%',
   },
   icon: {
-    width: '80%',
+    width: vw * 4,
     height: vh * 3,
     resizeMode: 'contain',
   },

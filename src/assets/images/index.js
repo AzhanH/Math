@@ -43,6 +43,8 @@ import eyePeach from './eyePeach.png';
 import camera from './camera.png';
 import drawer from './drawer.png';
 import notification from './notification.png';
+import notificationWhite from './notificationWhite.png';
+import drawerWhite from './drawerWhite.png';
 import backArrow from './backArrow.png';
 
 export default {
@@ -92,4 +94,6 @@ export default {
   drawer,
   notification,
   backArrow,
+  notificationWhite,
+  drawerWhite,
 };

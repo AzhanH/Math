@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f16,
   },
   btn: {
-    marginTop: vh * 6,
+    width: vw * 50,
   },
 });
 export default styles;

@@ -4,7 +4,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    paddingHorizontal: vw * 2,
+    paddingHorizontal: vw * 3,
   },
   rectangle: {
     height: vh * 19,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textView: {
-    position: 'absolute',
+    marginVertical: vh * 3,
   },
   headingText: {
     textAlign: 'center',
@@ -28,7 +28,13 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f16,
   },
   detailView: {
-    paddingHorizontal: vw * 7,
+    marginTop: vh * 2,
+  },
+  input: {
+    width: '100%',
+  },
+  reducedInput: {
+    width: '48%',
   },
   cardText: {
     fontFamily: 'Oswald-Medium',
@@ -37,8 +43,7 @@ const styles = StyleSheet.create({
   payment: {
     resizeMode: 'contain',
     height: vh * 5,
-    width: vw * 9,
-    marginTop: vh,
+    width: vw * 10,
   },
   row: {
     flexDirection: 'row',
@@ -94,6 +99,9 @@ const styles = StyleSheet.create({
   successText: {
     fontSize: fontSizes.f14,
     fontFamily: 'Renner-it-Book',
+  },
+  inputSeprator: {
+    marginLeft: '4%',
   },
 });
 export default styles;

@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
     width: '10%',
     height: vh * 8,
   },
+  icon: {
+    width: vw * 3,
+    height: vh * 3,
+    resizeMode: 'contain',
+  },
 });
 
 export default styles;

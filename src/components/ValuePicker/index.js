@@ -9,7 +9,7 @@ const ValuePicker = ({placeholder, containerStyle, placeHolderStyle}) => {
     <TouchableOpacity style={[styles.container, containerStyle]}>
       <Text style={[styles.placeholder, placeHolderStyle]} text={placeholder} />
       <View style={styles.iconView}>
-        <Image source={images.dropDown} />
+        <Image style={styles.icon} source={images.dropDown} />
       </View>
     </TouchableOpacity>
   );

@@ -1,20 +1,31 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   BackgroundWrapper,
   Button,
   Header,
-  Icons,
   InputField,
   CustomModal,
   Text,
+  Rectangle,
+  DatePicker,
 } from '../../components';
 import {Image, StatusBar, View} from 'react-native';
-import icons from '../../assets/svgs';
 import images from '../../assets/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import CheckBox from '@react-native-community/checkbox';
+import {colors} from '../../utils/theme';
 const PaymentScreen = ({navigation}) => {
   const paymentModalRef = useRef(null);
+  const [toggleCheckBox, setToggleCheckBox] = useState({
+    masterCard: false,
+    visa: false,
+    paypal: false,
+  });
+
+  let tintColors = {
+    true: colors.maroon,
+  };
   return (
     <BackgroundWrapper>
       <StatusBar
@@ -25,22 +36,68 @@ const PaymentScreen = ({navigation}) => {
       <Header nav={navigation} heading={'Payment Screen'} />
 
       <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>
-        <View style={styles.rectangle}>
-          <Icons name={icons.rectangle()} />
+        <Rectangle>
           <View style={styles.textView}>
             <Text style={styles.headingText} text={'PACKAGE NAME:'} />
             <Text style={styles.headingText} text={'PRO-PLAN -FOR 6 MONTHS'} />
             <Text style={styles.subHeadText} text={'Total Payable: $7.77'} />
           </View>
-        </View>
+        </Rectangle>
+
         <View style={styles.detailView}>
           <Text style={styles.cardText} text={'Credit/Debit Card'} />
-          <Image style={styles.payment} source={images.masterCard} />
-          <Image style={styles.payment} source={images.visa} />
-          <Image style={styles.payment} source={images.paypal} />
-          <InputField placeholder="Card Holder's Name" />
-          <InputField placeholder="Card Number" />
-          <InputField placeholder="CVV" />
+          <View style={styles.row}>
+            <CheckBox
+              tintColors={tintColors}
+              disabled={false}
+              value={toggleCheckBox?.masterCard}
+              onValueChange={newValue =>
+                setToggleCheckBox({...toggleCheckBox, masterCard: newValue})
+              }
+            />
+            <Image style={styles.payment} source={images.masterCard} />
+          </View>
+          <View style={styles.row}>
+            <CheckBox
+              tintColors={tintColors}
+              disabled={false}
+              value={toggleCheckBox?.visa}
+              onValueChange={newValue =>
+                setToggleCheckBox({...toggleCheckBox, visa: newValue})
+              }
+            />
+            <Image style={styles.payment} source={images.visa} />
+          </View>
+          <View style={styles.row}>
+            <CheckBox
+              tintColors={tintColors}
+              disabled={false}
+              value={toggleCheckBox?.paypal}
+              onValueChange={newValue =>
+                setToggleCheckBox({...toggleCheckBox, paypal: newValue})
+              }
+            />
+            <Image style={styles.payment} source={images.paypal} />
+          </View>
+          <InputField
+            viewStyle={styles.input}
+            placeholder="Card Holder's Name"
+          />
+          <InputField viewStyle={styles.input} placeholder="Card Number" />
+          <View style={styles.row}>
+            <DatePicker
+              placeholder={'mm'}
+              containerStyle={styles.reducedInput}
+              mode={'date'}
+            />
+            <DatePicker
+              placeholder={'yy'}
+              containerStyle={[styles.reducedInput, styles.inputSeprator]}
+              mode={'date'}
+            />
+          </View>
+          <InputField viewStyle={styles.input} placeholder="CVV" />
+
           <Button
             onPress={() => paymentModalRef.current.show()}
             btnText={'PAY NOW'}

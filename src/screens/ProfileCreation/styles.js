@@ -4,13 +4,12 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
+    // marginTop: vh * 2,
+    paddingHorizontal: vw * 3,
   },
-  mainView: {
-    marginTop: vh * 2,
-    paddingHorizontal: vw * 2,
+  input: {
+    width: '100%',
   },
-
   buttonView: {
     alignItems: 'center',
     justifyContent: 'center',
