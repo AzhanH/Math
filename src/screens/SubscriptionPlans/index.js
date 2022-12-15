@@ -109,12 +109,6 @@ const SubscriptionPlans = ({navigation}) => {
   );
   return (
     <BackgroundWrapper>
-      <StatusBar
-        barStyle={'dark-content'}
-        translucent
-        backgroundColor={'transparent'}
-      />
-      <Header nav={navigation} heading={'SUBSCRIPTION PLANS'} />
       <FlatList
         style={styles.contentContainer}
         ListFooterComponent={ListFooterComponent}

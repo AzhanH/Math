@@ -19,6 +19,7 @@ export const colors = {
   blueBorder: '#1176B9',
   borderLight: '#E6E6E6',
   lightBrown: '#999999',
+  lightBlack: '#666666',
 };
 
 export const rectangleTheme = {

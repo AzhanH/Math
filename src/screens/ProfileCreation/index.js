@@ -19,7 +19,6 @@ const ProfileCreation = ({navigation}) => {
   }, []);
   return (
     <BackgroundWrapper>
-      <Header nav={navigation} heading={'PROFILE CREATION'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid>

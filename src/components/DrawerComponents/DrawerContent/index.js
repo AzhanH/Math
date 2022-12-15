@@ -18,18 +18,22 @@ const drawerRoutes = [
   {
     label: 'Registered Students',
     icon: images.baseball,
+    to: 'RegisteredStudents',
   },
   {
     label: 'Privacy Policy',
+    to: 'PrivacyPolicy',
     icon: images.policy,
   },
   {
     label: 'Terms & Condition',
     icon: images.terms,
+    to: 'TermsAndCondition',
   },
   {
     label: 'Contact Us',
     icon: images.contact,
+    to: 'ContactUs',
   },
 ];
 
@@ -84,7 +88,7 @@ const DrawerContent = props => {
               label={v?.label}
               icon={v?.icon}
               index={i}
-              onPress={handleOnDrawerItemPress}
+              onPress={() => props?.navigation?.navigate(v?.to)}
             />
           ))}
         </View>

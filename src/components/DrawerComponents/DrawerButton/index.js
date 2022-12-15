@@ -7,9 +7,9 @@ import styles from './styles';
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-const DrawerButton = ({icon, label}) => {
+const DrawerButton = ({icon, label, onPress}) => {
   return (
-    <TouchableOpacity style={[styles.container]}>
+    <TouchableOpacity onPress={onPress} style={[styles.container]}>
       <Image style={styles.icon} source={icon} />
       <Text style={styles.label} text={label} />
     </TouchableOpacity>

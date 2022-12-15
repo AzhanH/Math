@@ -4,7 +4,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    marginTop: vh * 2,
+    // marginTop: vh * 2,
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 3,
   },

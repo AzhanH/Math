@@ -4,7 +4,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
+    paddingBottom: vh * 2,
   },
   planTypeView: {
     width: '31%',

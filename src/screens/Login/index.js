@@ -19,7 +19,6 @@ const Login = ({navigation}) => {
   }, []);
   return (
     <BackgroundWrapper>
-      <Header nav={navigation} heading={'LOGIN'} />
       <KeyboardAwareScrollView style={styles.contentContainer}>
         <InputField
           viewStyle={styles.input}

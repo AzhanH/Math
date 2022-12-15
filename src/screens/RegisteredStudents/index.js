@@ -8,6 +8,9 @@ import styles from './styles';
 const RegisteredStudents = () => {
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      playerName={item?.name}
+      playerId={item?.playerId}
+      grade={item?.grade}
       btnName="VIEW PROFILE"
       image={item?.image}
       color={item?.color}

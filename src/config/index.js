@@ -9,6 +9,11 @@ export const classes = [
     grade: 'Middle (Grade 6-8)',
     image: images.childImage1,
     color: colors.darkPeach,
+    gender: 'Female',
+    email: 'Email@info.com',
+    PhoneNo: '+866-876463',
+    SchoolName: 'ABC School',
+    Dob: 'june 3, 1995',
   },
   {
     id: 2,
@@ -17,6 +22,11 @@ export const classes = [
     grade: 'Middle (Grade 6-8)',
     image: images.childImage2,
     color: colors.yellow,
+    gender: 'Female',
+    email: 'Email@info.com',
+    PhoneNo: '+866-876463',
+    SchoolName: 'ABC School',
+    Dob: 'june 3, 1995',
   },
   {
     id: 3,
@@ -25,6 +35,11 @@ export const classes = [
     grade: 'Middle (Grade 6-8)',
     image: images.childImage3,
     color: colors.green,
+    gender: 'Female',
+    email: 'Email@info.com',
+    PhoneNo: '+866-876463',
+    SchoolName: 'ABC School',
+    Dob: 'june 3, 1995',
   },
   {
     id: 4,
@@ -33,6 +48,11 @@ export const classes = [
     grade: 'Middle (Grade 6-8)',
     image: images.childImage4,
     color: colors.sky,
+    gender: 'Female',
+    email: 'Email@info.com',
+    PhoneNo: '+866-876463',
+    SchoolName: 'ABC School',
+    Dob: 'june 3, 1995',
   },
 ];
 
@@ -226,3 +246,6 @@ export const addSuffixToWord = position => {
       return position + 'th';
   }
 };
+
+export const privacyText =
+  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.';

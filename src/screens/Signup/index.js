@@ -22,7 +22,6 @@ const Signup = ({navigation}) => {
 
   return (
     <BackgroundWrapper>
-      <Header nav={navigation} heading={'SIGN UP'} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid>

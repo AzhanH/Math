@@ -2,14 +2,13 @@ import React, {useRef, useState} from 'react';
 import {
   BackgroundWrapper,
   Button,
-  Header,
   InputField,
   CustomModal,
   Text,
   Rectangle,
   DatePicker,
 } from '../../components';
-import {Image, StatusBar, View} from 'react-native';
+import {Image, View} from 'react-native';
 import images from '../../assets/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
@@ -28,13 +27,6 @@ const PaymentScreen = ({navigation}) => {
   };
   return (
     <BackgroundWrapper>
-      <StatusBar
-        barStyle={'dark-content'}
-        translucent
-        backgroundColor={'transparent'}
-      />
-      <Header nav={navigation} heading={'Payment Screen'} />
-
       <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>
         <Rectangle>
           <View style={styles.textView}>

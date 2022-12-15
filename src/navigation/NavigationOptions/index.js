@@ -2,7 +2,6 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import images from '../../assets/images';
 import {Text} from '../../components';
 import {colors} from '../../utils/theme';
-import {fontSizes} from '../../utils/units';
 import styles from './styles';
 
 const titles = {
@@ -11,6 +10,8 @@ const titles = {
   ContestDetail: 'Contest Detail',
   InviteParents: 'Invite Parent(s)/Teacher(s)',
   CreateAndEditContest: 'Create Contest',
+  PrivacyPolicy: 'Privacy Policy',
+  TermsAndCondition: 'Terms & Conditions',
   //My Class
   MyClass: 'My Class',
   //My Teams
@@ -22,6 +23,9 @@ const titles = {
   ScoreBoardList: 'ScoreBoard List',
   Levels: 'Team ScoreBoards',
   LevelDetail: 'Team ScoreBoards',
+
+  //
+  ContactUs: 'Contact Us ',
 };
 
 const backBtnRoutes = {
@@ -33,28 +37,45 @@ const backBtnRoutes = {
   Levels: true,
   LevelDetail: true,
 };
-const getHeaderLeft = props => (
-  <TouchableOpacity
-    onPress={() =>
-      backBtnRoutes[props?.route?.name]
-        ? props?.navigation?.goBack()
-        : props?.navigation?.openDrawer()
-    }>
-    <Image
-      style={styles.headerImage}
-      source={
-        props?.route?.name === 'Home' || props?.route?.name === 'ScoreBoardList'
-          ? images.drawerWhite
-          : backBtnRoutes[props?.route?.name]
-          ? images.backArrow
-          : images.drawer
-      }
-    />
-  </TouchableOpacity>
-);
+const getHeaderLeft = props => {
+  if (props?.route?.params?.hasOwnProperty('_stack')) {
+    if (backBtnRoutes[props?.route?.name]) {
+      return (
+        <TouchableOpacity onPress={() => props?.navigation?.goBack()}>
+          <Image style={styles.headerImage} source={images.backArrow} />
+        </TouchableOpacity>
+      );
+    } else {
+      return '';
+    }
+  }
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        backBtnRoutes[props?.route?.name]
+          ? props?.navigation?.goBack()
+          : props?.navigation?.openDrawer()
+      }>
+      <Image
+        style={styles.headerImage}
+        source={
+          props?.route?.name === 'Home' ||
+          props?.route?.name === 'ScoreBoardList'
+            ? images.drawerWhite
+            : backBtnRoutes[props?.route?.name]
+            ? images.backArrow
+            : images.drawer
+        }
+      />
+    </TouchableOpacity>
+  );
+};
 
 const getHeaderRight = props => {
-  if (!backBtnRoutes[props?.route?.name]) {
+  if (
+    !backBtnRoutes[props?.route?.name] &&
+    !props?.route?.params?.hasOwnProperty('_stack')
+  ) {
     return (
       <TouchableOpacity>
         <Image
@@ -96,6 +117,7 @@ const getTitle = props => {
 
 const NavigationOptions = props => {
   return {
+    headerShown: true,
     headerTransparent:
       props?.route?.name === 'Home' || props?.route?.name === 'ScoreBoardList'
         ? true

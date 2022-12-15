@@ -8,19 +8,18 @@ import SubscriptionPlans from '../../screens/SubscriptionPlans';
 import ForgotPassword from '../../screens/ForgotPassword';
 import ProfileCreation from '../../screens/ProfileCreation';
 import SubsscriptionLogs from '../../screens/SubscriptionLogs';
+import AuthNavigationOptions from '../AuthNavigationOptions';
 const AuthStack = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={AuthNavigationOptions}
       initialRouteName="Welcome">
       <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="SubscriptionLogs" component={SubsscriptionLogs} />
       <Stack.Screen name="SubscriptionPlans" component={SubscriptionPlans} />
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="ProfileCreation" component={ProfileCreation} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       <Stack.Screen name="Payment" component={Payment} />
