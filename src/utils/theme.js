@@ -20,6 +20,7 @@ export const colors = {
   borderLight: '#E6E6E6',
   lightBrown: '#999999',
   lightBlack: '#666666',
+  notificationBorder: '#EEEEEE',
 };
 
 export const rectangleTheme = {

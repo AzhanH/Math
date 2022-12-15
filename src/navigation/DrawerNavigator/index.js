@@ -12,6 +12,7 @@ import NavigationOptions from '../NavigationOptions';
 import TermsAndCondition from '../../screens/TermsAndCondition';
 import RegisteredStudents from '../../screens/RegisteredStudents';
 import ContactUs from '../../screens/ContactUs';
+import Notifiaction from '../../screens/Notification';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Drawer = createDrawerNavigator();
@@ -60,6 +61,7 @@ const DrawerNavigator = props => {
       <Drawer.Screen name="RegisteredStudents" component={RegisteredStudents} />
       <Drawer.Screen name="ContactUs" component={ContactUs} />
       <Drawer.Screen name="TermsAndCondition" component={TermsAndCondition} />
+      <Drawer.Screen name="Notifications" component={Notifiaction} />
     </Drawer.Navigator>
   );
 };

@@ -247,5 +247,43 @@ export const addSuffixToWord = position => {
   }
 };
 
+export const notifications = [
+  {
+    id: 1,
+    desc: 'Lorem ipsum dolor sit amet, consectetur elit t Aenean euismod bibendum Proin book.',
+    date: '12/15/2022',
+    time: '00:00 PM',
+    isSeen: false,
+  },
+  {
+    id: 2,
+    desc: 'Lorem ipsum dolor sit amet, consectetur elit t Aenean euismod bibendum Proin book.',
+    date: '12/15/2022',
+    time: '00:00 PM',
+    isSeen: false,
+  },
+  {
+    id: 3,
+    desc: 'Lorem ipsum dolor sit amet, consectetur elit t Aenean euismod bibendum Proin book.',
+    date: '12/15/2022',
+    time: '00:00 PM',
+    isSeen: true,
+  },
+  {
+    id: 4,
+    desc: 'Lorem ipsum dolor sit amet, consectetur elit t Aenean euismod bibendum Proin book.',
+    date: '12/15/2022',
+    time: '00:00 PM',
+    isSeen: true,
+  },
+  {
+    id: 5,
+    desc: 'Lorem ipsum dolor sit amet, consectetur elit t Aenean euismod bibendum Proin book.',
+    date: '12/15/2022',
+    time: '00:00 PM',
+    isSeen: true,
+  },
+];
+
 export const privacyText =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.';

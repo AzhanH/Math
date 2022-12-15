@@ -77,7 +77,8 @@ const getHeaderRight = props => {
     !props?.route?.params?.hasOwnProperty('_stack')
   ) {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => props?.navigation?.navigate('Notifications')}>
         <Image
           style={styles.headerImage}
           source={

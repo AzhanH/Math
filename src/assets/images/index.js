@@ -52,6 +52,7 @@ import contact from './contact.png';
 import baseball from './baseball.png';
 import terms from './terms.png';
 import logout from './logout.png';
+import checked from './checked.png';
 
 export default {
   intro,
@@ -108,4 +109,5 @@ export default {
   terms,
   baseball,
   logout,
+  checked,
 };
