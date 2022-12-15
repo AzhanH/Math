@@ -14,6 +14,7 @@ const backBtnRoutes = {
   ProfileCreation: true,
   SubscriptionPlans: true,
   Payment: true,
+  ForgotPassword: true,
 };
 
 const getHeaderLeft = props => {
@@ -35,6 +36,7 @@ const getTitle = props => {
 
 const AuthNavigationOptions = props => {
   return {
+    headerBackVisible: false,
     headerTransparent: false,
     headerShadowVisible: false,
     headerTitleAlign: 'center',

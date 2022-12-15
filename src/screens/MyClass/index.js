@@ -17,7 +17,12 @@ const MyClass = ({navigation}) => {
       playerName={item?.name}
       playerId={item?.playerId}
       grade={item?.grade}
-      onPressEditProfile={() => navigation.navigate('EditStudentProfile')}
+      onPressEditProfile={() =>
+        navigation.navigate('ProfileStack', {
+          screen: 'EditProfile',
+          params: item,
+        })
+      }
       showBin={isEdit}
       onPressDelete={() => modalRef.current.show()}
       image={item?.image}

@@ -1,19 +1,24 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './styles';
 import DrawerButton from '../DrawerButton';
-import {Image, View, ImageBackground, TouchableOpacity} from 'react-native';
+import {Image, View, ImageBackground} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import images from '../../../assets/images';
-import {useNavigation} from '@react-navigation/native';
 import Text from '../../Text';
 import Button from '../../Button';
 import CustomModal from '../../CustomModal';
 
 const drawerRoutes = [
   {
+    label: 'Home',
+    icon: images.home,
+    to: 'Tabs',
+  },
+  {
     label: 'My Profile',
     icon: images.profile,
+    to: 'ProfileStack',
   },
   {
     label: 'Registered Students',
@@ -38,13 +43,9 @@ const drawerRoutes = [
 ];
 
 const DrawerContent = props => {
-  const navigation = useNavigation();
   const modalRef = useRef();
-
-  const [visibility, setVisibility] = useState(false);
-  const [isCollapsed, setisCollapsed] = useState(true);
+  let isCollapsed = true;
   const rotateAnim = new Animated.Value(0);
-
   useEffect(() => {
     if (isCollapsed) {
       Animated.timing(rotateAnim, {
@@ -58,17 +59,6 @@ const DrawerContent = props => {
       }).start();
     }
   }, [isCollapsed]);
-  const handleVisibility = () => {
-    setVisibility(!visibility);
-  };
-
-  const handleOnDrawerItemPress = routeName => {
-    if (drawerRoutes[routeName]) {
-      if (drawerRoutes[routeName].notRoute != true) {
-        return props.navigation.navigate(routeName);
-      }
-    }
-  };
 
   return (
     <ImageBackground
@@ -88,7 +78,14 @@ const DrawerContent = props => {
               label={v?.label}
               icon={v?.icon}
               index={i}
-              onPress={() => props?.navigation?.navigate(v?.to)}
+              onPress={() =>
+                props?.navigation?.navigate(
+                  v?.to,
+                  (v?.to === 'ProfileStack' || v?.to === 'Tabs') && {
+                    screen: v?.to === 'ProfileStack' ? 'Profile' : 'HOME',
+                  },
+                )
+              }
             />
           ))}
         </View>

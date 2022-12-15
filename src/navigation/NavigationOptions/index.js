@@ -1,4 +1,4 @@
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, TurboModuleRegistry, View} from 'react-native';
 import images from '../../assets/images';
 import {Text} from '../../components';
 import {colors} from '../../utils/theme';
@@ -24,8 +24,15 @@ const titles = {
   Levels: 'Team ScoreBoards',
   LevelDetail: 'Team ScoreBoards',
 
-  //
+  //DrawerScreen
+  Profile: 'My Profile',
+  Privacy: 'Privacy Policy',
   ContactUs: 'Contact Us ',
+  Terms: 'Terms & Conditions',
+  RegisteredStd: 'Registered Students',
+  Contact: 'Contact Us',
+  Notify: 'Notifications',
+  EditProfile: 'Edit Profile',
 };
 
 const backBtnRoutes = {
@@ -36,18 +43,28 @@ const backBtnRoutes = {
   CreateAndEditTeam: true,
   Levels: true,
   LevelDetail: true,
+  EditProfile: true,
+  Profile: true,
+  ChangePassword: true,
 };
 const getHeaderLeft = props => {
-  if (props?.route?.params?.hasOwnProperty('_stack')) {
-    if (backBtnRoutes[props?.route?.name]) {
+  if (backBtnRoutes[props?.route?.name]) {
+    if (
+      (props?.route?.name === 'Profile' && props?.route?.params == undefined) ||
+      (props?.route?.name === 'EditProfile' &&
+        props?.route?.params === undefined)
+    ) {
       return (
-        <TouchableOpacity onPress={() => props?.navigation?.goBack()}>
-          <Image style={styles.headerImage} source={images.backArrow} />
+        <TouchableOpacity onPress={() => props?.navigation?.openDrawer()}>
+          <Image style={styles.headerImage} source={images.drawer} />
         </TouchableOpacity>
       );
-    } else {
-      return '';
     }
+    return (
+      <TouchableOpacity onPress={() => props?.navigation?.goBack()}>
+        <Image style={styles.headerImage} source={images.backArrow} />
+      </TouchableOpacity>
+    );
   }
   return (
     <TouchableOpacity
@@ -72,29 +89,23 @@ const getHeaderLeft = props => {
 };
 
 const getHeaderRight = props => {
-  if (
-    !backBtnRoutes[props?.route?.name] &&
-    !props?.route?.params?.hasOwnProperty('_stack')
-  ) {
-    return (
-      <TouchableOpacity
-        onPress={() => props?.navigation?.navigate('Notifications')}>
-        <Image
-          style={styles.headerImage}
-          source={
-            props?.route?.name === 'Home' ||
-            props?.route?.name === 'ScoreBoardList'
-              ? images.notificationWhite
-              : images.notification
-          }
-        />
-        <View style={styles.count}>
-          <Text style={styles.textWhite} text={'2'} />
-        </View>
-      </TouchableOpacity>
-    );
-  }
-  return '';
+  return (
+    <TouchableOpacity
+      onPress={() => props?.navigation?.navigate('Notifications')}>
+      <Image
+        style={styles.headerImage}
+        source={
+          props?.route?.name === 'Home' ||
+          props?.route?.name === 'ScoreBoardList'
+            ? images.notificationWhite
+            : images.notification
+        }
+      />
+      <View style={styles.count}>
+        <Text style={styles.textWhite} text={'2'} />
+      </View>
+    </TouchableOpacity>
+  );
 };
 
 const getTitle = props => {
@@ -110,6 +121,18 @@ const getTitle = props => {
       props?.route?.params !== undefined
     ) {
       return 'EDIT MY TEAM';
+    }
+    if (
+      props?.route?.name === 'Profile' &&
+      props?.route?.params !== undefined
+    ) {
+      return 'STUDENT PROFILE';
+    }
+    if (
+      props?.route?.name === 'EditProfile' &&
+      props?.route?.params !== undefined
+    ) {
+      return 'EDIT STUDENT PROFILE';
     }
     return titles[props?.route?.name]?.toUpperCase();
   }

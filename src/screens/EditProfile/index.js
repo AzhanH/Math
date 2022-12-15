@@ -11,7 +11,7 @@ import {
 } from '../../components';
 import styles from './styles';
 
-const EditStudentProfile = () => {
+const EditProfile = ({route}) => {
   const modalRef = useRef(null);
   return (
     <BackgroundWrapper>
@@ -93,4 +93,4 @@ const EditStudentProfile = () => {
     </BackgroundWrapper>
   );
 };
-export default EditStudentProfile;
+export default EditProfile;

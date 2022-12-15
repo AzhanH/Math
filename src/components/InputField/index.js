@@ -23,13 +23,19 @@ const InputField = forwardRef((props, ref) => {
         textAlignVertical="top"
         style={[styles.textInput, props?.style]}
       />
-      <View style={styles.eyeView}>
+
+      <TouchableOpacity
+        disabled={!props?.secureTextEntry}
+        onPress={() => setShowPassword(!showPassword)}
+        style={styles.eyeView}>
         {props?.secureTextEntry && (
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Image style={styles.eyeImage} source={images.eyecut} />
-          </TouchableOpacity>
+          <Image
+            tintColor={colors.lightBrown}
+            style={styles.eyeImage}
+            source={showPassword ? images.eyeClosed : images.eyeOpen}
+          />
         )}
-      </View>
+      </TouchableOpacity>
     </View>
   );
 });

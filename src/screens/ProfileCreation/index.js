@@ -42,6 +42,10 @@ const ProfileCreation = ({navigation}) => {
           containerStyle={styles.input}
           placeholder="Chosose Class Grade"
         />
+        <ValuePicker
+          containerStyle={styles.input}
+          placeholder="Chosose a School"
+        />
         <InputField
           returnKeyType="next"
           viewStyle={styles.input}
@@ -68,7 +72,7 @@ const ProfileCreation = ({navigation}) => {
         />
         <DatePicker
           containerStyle={styles.input}
-          mode="time"
+          mode="date"
           placeholder="mm/dd/yyyy"
         />
         <Button

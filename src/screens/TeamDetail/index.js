@@ -20,7 +20,10 @@ const TeamDetail = ({navigation, route}) => {
       playerId={item?.playerId}
       grade={item?.grade}
       onPressViewDetail={() =>
-        navigation.navigate('StudentProfile', {data: item})
+        navigation.navigate('ProfileStack', {
+          screen: 'Profile',
+          params: {data: item},
+        })
       }
       btnName="VIEW DETAIL"
       image={item?.image}

@@ -53,6 +53,8 @@ import baseball from './baseball.png';
 import terms from './terms.png';
 import logout from './logout.png';
 import checked from './checked.png';
+import eyeClosed from './eyeClosed.png';
+import eyeOpen from './eyeOpen.png';
 
 export default {
   intro,
@@ -110,4 +112,6 @@ export default {
   baseball,
   logout,
   checked,
+  eyeClosed,
+  eyeOpen,
 };

@@ -4,7 +4,7 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    marginTop: StatusBar.currentHeight || vh * 6,
+    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   notificationView: {
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   },
   checked: {
     resizeMode: 'contain',
-    width: '10%',
-    height: vh * 3,
+    width: '20%',
+    height: vh * 2.5,
   },
 });
 export default styles;

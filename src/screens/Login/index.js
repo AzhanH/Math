@@ -1,12 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, TouchableOpacity, Platform} from 'react-native';
-import {
-  BackgroundWrapper,
-  Header,
-  Button,
-  InputField,
-  Text,
-} from '../../components';
+import {BackgroundWrapper, Button, InputField, Text} from '../../components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import styles from './styles';
@@ -39,7 +33,7 @@ const Login = ({navigation}) => {
         </TouchableOpacity>
         <Button
           btnText={'LOGIN'}
-          onPress={() => navigation.navigate('BottomTabs')}
+          onPress={() => navigation.navigate('MainNavigator')}
         />
         <View style={styles.row}>
           <Text style={styles.dontText} text={"Don't Have An Account"} />

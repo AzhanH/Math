@@ -33,10 +33,13 @@ const styles = StyleSheet.create({
     width: vh * 20,
     alignItems: 'center',
     borderRadius: (vh * 20) / 2,
-    marginVertical: vh * 4,
   },
 
-  image: {height: '100%', width: '100%', resizeMode: 'contain'},
+  image: {
+    height: '100%',
+    width: '100%',
+    resizeMode: 'contain',
+  },
 
   RubikMediumStyle: {
     fontFamily: 'Oswald-Bold',

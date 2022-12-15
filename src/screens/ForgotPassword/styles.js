@@ -6,9 +6,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingHorizontal: vw * 3,
   },
-  mainView: {
-    marginTop: vh * 10,
-  },
+
   input: {
     width: '100%',
   },
@@ -59,6 +57,16 @@ const styles = StyleSheet.create({
     marginTop: vh,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  resendCont: {
+    alignSelf: 'flex-end',
+  },
+  resendText: {
+    marginTop: vh,
+    color: colors.purple,
+    textDecorationLine: 'underline',
+    fontSize: fontSizes.f12,
+    fontFamily: 'Renner-it-Book',
   },
 });
 export default styles;

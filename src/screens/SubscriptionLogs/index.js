@@ -11,8 +11,6 @@ const SubsscriptionLogs = ({navigation}) => {
   );
   return (
     <BackgroundWrapper>
-      <Header heading={'My Subscription Logs'} nav={navigation} />
-
       <FlatList
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.container}

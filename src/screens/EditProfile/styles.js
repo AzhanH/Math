@@ -4,14 +4,13 @@ import {vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    marginTop: StatusBar.currentHeight || vh * 6,
+    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   profileView: {
-    marginVertical: vh * 3,
-    height: vh * 16,
-    width: vh * 16,
-    borderRadius: (vh * 16) / 2,
+    height: vh * 20,
+    width: vh * 20,
+    borderRadius: (vh * 20) / 2,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
@@ -26,9 +25,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     bottom: 0,
-    left: vw * 16,
+    left: vw * 20,
     right: 0,
-    top: vh * 11,
     height: vh * 5,
     width: vh * 5,
     backgroundColor: colors.green,

@@ -5,13 +5,16 @@ import {BackgroundWrapper, SinglePlayerView} from '../../components';
 import {classes} from '../../config';
 import styles from './styles';
 
-const RegisteredStudents = () => {
+const RegisteredStudents = ({navigation}) => {
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      onPressViewDetail={() =>
+        navigation.navigate('ProfileStack', {screen: 'Profile', params: item})
+      }
       playerName={item?.name}
       playerId={item?.playerId}
       grade={item?.grade}
-      btnName="VIEW PROFILE"
+      btnName="VIEW DETAIL"
       image={item?.image}
       color={item?.color}
       key={index}

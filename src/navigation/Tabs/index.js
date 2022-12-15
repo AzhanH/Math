@@ -4,8 +4,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import images from '../../assets/images';
 import {Text} from '../../components';
 import styles from './styles';
-import Home from '../../screens/Home';
-import MyClass from '../../screens/MyClass';
 import ContestStack from '../ContestStack';
 import TeamStack from '../TeamStack';
 import ScoreBoardStack from '../ScoreBoardStack';

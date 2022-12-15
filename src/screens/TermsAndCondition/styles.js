@@ -5,9 +5,10 @@ import {fontSizes, vw} from '../../utils/units';
 const styles = StyleSheet.create({
   mainView: {
     // marginTop: 40,
-    paddingHorizontal: vw * 3,
+    paddingHorizontal: vw * 4,
   },
   text: {
+    textAlign: 'center',
     color: colors.lightBlack,
     fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f15,

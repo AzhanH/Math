@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: vw * 4,
+    paddingRight: vw * 2,
   },
   inputText: {
     fontSize: vw * 3.6,
@@ -28,6 +29,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '10%',
     height: vh * 8,
+  },
+  eyeImage: {
+    resizeMode: 'contain',
+    width: '50%',
+    height: vh * 3,
   },
 });
 

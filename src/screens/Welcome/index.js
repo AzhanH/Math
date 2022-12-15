@@ -40,11 +40,12 @@ const Welcome = ({navigation}) => {
         onPress={() => navigation.navigate('Signup')}
         btnText={'SIGNUP'}
       />
-      <View style={styles.row}>
+      {/* Wajahat bhai ne hatanay ko kaha tha */}
+      {/* <View style={styles.row}>
         <View style={[styles.positionView, {backgroundColor: colors.green}]} />
         <View style={styles.positionView} />
         <View style={styles.positionView} />
-      </View>
+      </View> */}
     </View>
   );
 };
