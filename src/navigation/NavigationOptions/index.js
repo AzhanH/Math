@@ -5,6 +5,9 @@ import {colors} from '../../utils/theme';
 import styles from './styles';
 
 const titles = {
+  //HomeStack
+
+  InviteStudent: 'Invite A Student',
   //ContestStack
   Contest: 'Contests',
   ContestDetail: 'Contest Detail',
@@ -37,6 +40,7 @@ const titles = {
 };
 
 const backBtnRoutes = {
+  InviteStudent: true,
   ContestDetail: true,
   InviteParents: true,
   CreateAndEditContest: true,

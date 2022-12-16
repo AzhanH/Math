@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
   beeText: {
     color: colors.purple,
   },
+  registered: {
+    color: colors.purple,
+    fontSize: fontSizes.f12,
+  },
   learnText: {
     fontSize: fontSizes.f16,
     textAlign: 'center',

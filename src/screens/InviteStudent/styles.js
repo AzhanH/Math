@@ -4,11 +4,8 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    padding: vh * 2,
-  },
-  mainView: {
-    marginTop: vh * 2,
-    paddingHorizontal: vw * 2,
+    paddingHorizontal: vw * 3,
+    paddingBottom: vh * 2,
   },
 
   buttonView: {
@@ -28,17 +25,24 @@ const styles = StyleSheet.create({
     color: colors.purple,
   },
   row: {
+    width: '100%',
+    alignItems: 'center',
     flexDirection: 'row',
     marginTop: vh,
   },
   infoImage: {
-    marginLeft: vw,
-    marginTop: vh,
+    resizeMode: 'contain',
+    height: vh * 2,
+    width: vw * 8,
   },
   warningText: {
+    color: colors.gray,
     marginLeft: vw,
     fontFamily: 'Oswald-Light',
     fontSize: fontSizes.f12,
+  },
+  input: {
+    width: '100%',
   },
 });
 export default styles;

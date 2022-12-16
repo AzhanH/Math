@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-SemiBold',
     fontSize: fontSizes.f14,
     color: colors.green,
+    textTransform: 'uppercase',
   },
   tableView: {
     borderRadius: vw * 5,

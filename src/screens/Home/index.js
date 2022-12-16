@@ -4,7 +4,7 @@ import images from '../../assets/images';
 import {Button, Text} from '../../components';
 import styles from './styles';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <ImageBackground
       style={styles.imageContainer}
@@ -23,6 +23,7 @@ const Home = () => {
         />
 
         <Button
+          onPress={() => navigation.navigate('InviteStudent')}
           containerStyle={styles.btn}
           textStyle={styles.btnText}
           btnText={'REGISTER STUDENTS'}

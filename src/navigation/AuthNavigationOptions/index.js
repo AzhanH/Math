@@ -9,8 +9,6 @@ const titles = {
   Payment: 'Payment Screen',
 };
 const backBtnRoutes = {
-  Login: true,
-  Signup: true,
   ProfileCreation: true,
   SubscriptionPlans: true,
   Payment: true,

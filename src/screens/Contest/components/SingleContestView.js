@@ -33,7 +33,9 @@ const SingleContestView = ({
             />
             <Text style={styles.dateText} text={time} />
           </View>
-          <TouchableOpacity onPress={onPressSendInvite}>
+          <TouchableOpacity
+            style={styles.inviteCont}
+            onPress={onPressSendInvite}>
             <Text style={styles.inviteText} text={'Send Invite'} />
           </TouchableOpacity>
         </View>

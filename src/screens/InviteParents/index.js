@@ -18,8 +18,8 @@ const InviteParent = () => {
   const renderItem = ({item, index}) => (
     <SingleInvitaionView
       index={index}
-      onPressAdd={checked => {
-        setChecked(checked);
+      onPressAdd={() => {
+        setChecked(true);
         modalRef.current.show();
       }}
       isChecked={item?.showCheck}
@@ -30,7 +30,15 @@ const InviteParent = () => {
     />
   );
   const listHeaderComponent = <SearchBar style={styles.searchBar} />;
-  const listFooterComponent = <Button btnText={'SEND INVITE'} />;
+  const listFooterComponent = (
+    <Button
+      onPress={() => {
+        setChecked(false);
+        modalRef?.current?.show();
+      }}
+      btnText={'SEND INVITE'}
+    />
+  );
   return (
     <BackgroundWrapper>
       <FlatList

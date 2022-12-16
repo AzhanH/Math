@@ -3,7 +3,12 @@ import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
-  headerImage: {height: vh * 4, width: vh * 4, resizeMode: 'contain'},
+  headerImage: {
+    height: vh * 4,
+    width: vh * 4,
+    resizeMode: 'contain',
+    marginHorizontal: vw * 3,
+  },
   count: {
     justifyContent: 'center',
     alignItems: 'center',

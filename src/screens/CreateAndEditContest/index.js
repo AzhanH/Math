@@ -32,7 +32,9 @@ const CreateAndEditContest = ({route}) => {
           placeholder="Description"
         />
         <Text style={styles.chooseText} text={'CHOOSE OPTIONS'} />
-        <TableView editable array={options} />
+        <View style={styles.paddingView}>
+          <TableView editable array={options} />
+        </View>
         <DatePicker
           containerStyle={styles.input}
           mode="date"
@@ -55,6 +57,7 @@ const CreateAndEditContest = ({route}) => {
         />
         <ValuePicker containerStyle={styles.input} placeholder={'Active'} />
         <Button
+          containerStyle={styles.btn}
           btnText={type === 'Update' ? 'UPDATE CONTEST' : 'CREATE CONTEST'}
         />
       </KeyboardAwareScrollView>

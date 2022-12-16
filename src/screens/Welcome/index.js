@@ -20,6 +20,7 @@ const Welcome = ({navigation}) => {
             <>
               <Text style={styles.textCenter} text={'MATH'} />
               <Text style={styles.beeText} text={' BEE'} />
+              <Text style={styles.registered} text={'®'} />
             </>
           }
         />

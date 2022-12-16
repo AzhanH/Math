@@ -10,14 +10,16 @@ import styles from './styles';
 import {Image, ScrollView, View} from 'react-native';
 import {vh, vw} from '../../utils/units';
 import images from '../../assets/images';
-const ContestDetail = ({navigation}) => {
+import {colors} from '../../utils/theme';
+const ContestDetail = ({navigation, route}) => {
+  const data = route?.params?.data;
   const options = [
-    {label: 'Level of play', value: 'Classroom'},
-    {label: 'Mode', value: 'Additon'},
-    {label: 'Grade', value: 'First'},
-    {label: 'State', value: 'PA'},
-    {label: 'Country', value: 'USA'},
-    {label: 'Team Type', value: 'Multip-player'},
+    {label: 'Level of play:', value: 'Classroom'},
+    {label: 'Mode:', value: 'Additon'},
+    {label: 'Grade:', value: 'First'},
+    {label: 'State:', value: 'PA'},
+    {label: 'Country:', value: 'USA'},
+    {label: 'Team Type:', value: 'Multip-player'},
   ];
   return (
     <BackgroundWrapper>
@@ -74,8 +76,14 @@ const ContestDetail = ({navigation}) => {
           <Text
             text={
               <>
-                <Text style={styles.status} text={'STATUS:'} />
-                <Text style={styles.statusActive} text={'ACTIVE'} />
+                <Text style={styles.status} text={'STATUS: '} />
+                <Text
+                  style={[
+                    styles.statusActive,
+                    data?.status === 'Inactive' && {color: colors.red},
+                  ]}
+                  text={data?.status}
+                />
               </>
             }
           />

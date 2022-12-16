@@ -31,10 +31,16 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   chooseText: {
-    marginTop: vh * 2,
+    marginVertical: vh * 2,
     textAlign: 'center',
     fontFamily: 'Oswald-Bold',
     fontSize: fontSizes.f18f,
+  },
+  paddingView: {
+    paddingHorizontal: vw * 6,
+  },
+  btn: {
+    width: vw * 45,
   },
 });
 export default styles;

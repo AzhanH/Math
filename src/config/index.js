@@ -77,6 +77,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    status: 'Active',
     image: images.contestPlayer,
   },
   {
@@ -85,6 +86,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    status: 'Active',
     image: images.contestPlayer,
   },
   {
@@ -93,6 +95,7 @@ export const contests = [
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
+    status: 'Active',
     image: images.contestPlayer,
   },
 
@@ -103,6 +106,7 @@ export const contests = [
     date: 'May 5 ,2022',
     time: '5:00PM',
     image: images.contestPlayer,
+    status: 'Inactive',
   },
 ];
 

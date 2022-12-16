@@ -63,10 +63,12 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f12,
     color: colors.white,
   },
+  inviteCont: {
+    top: vw * 9,
+    left: vh * 6,
+  },
   inviteText: {
     textDecorationLine: 'underline',
-    top: vw * 7.5,
-    left: vh * 6,
     color: colors.white,
     fontFamily: 'Oswald-Light',
     fontSize: fontSizes.f14,

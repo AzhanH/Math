@@ -8,7 +8,9 @@ import {contests} from '../../config';
 const Contets = ({navigation}) => {
   const renderItem = ({item, index}) => (
     <SingleContestView
-      onPressContainer={() => navigation.navigate('ContestDetail')}
+      onPressContainer={() =>
+        navigation.navigate('ContestDetail', {data: item})
+      }
       onPressSendInvite={() => navigation.navigate('InviteParents')}
       key={index}
       name={item?.name}
