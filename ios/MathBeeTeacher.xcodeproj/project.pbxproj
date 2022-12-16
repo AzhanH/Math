@@ -13,13 +13,14 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-MathBeeTeacher-MathBeeTeacherTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MathBeeTeacher-MathBeeTeacherTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		EFAE6641294C4F22009C8EBA /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE663B294C4F1F009C8EBA /* Oswald-Light.ttf */; };
 		EFAE6642294C4F22009C8EBA /* Oswald-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE663C294C4F20009C8EBA /* Oswald-SemiBold.ttf */; };
 		EFAE6643294C4F22009C8EBA /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE663D294C4F20009C8EBA /* Oswald-Medium.ttf */; };
 		EFAE6644294C4F22009C8EBA /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE663E294C4F21009C8EBA /* Oswald-Regular.ttf */; };
 		EFAE6645294C4F22009C8EBA /* Renner_ 400 Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE663F294C4F21009C8EBA /* Renner_ 400 Book.ttf */; };
 		EFAE6646294C4F22009C8EBA /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE6640294C4F22009C8EBA /* Oswald-Bold.ttf */; };
+		EFAE664A294C77A0009C8EBA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EFAE6648294C77A0009C8EBA /* logo.png */; };
+		EFAE664C294C7864009C8EBA /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = EFAE664B294C7864009C8EBA /* Splash.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,6 @@
 		5709B34CF0A7D63546082F79 /* Pods-MathBeeTeacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathBeeTeacher.release.xcconfig"; path = "Target Support Files/Pods-MathBeeTeacher/Pods-MathBeeTeacher.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-MathBeeTeacher-MathBeeTeacherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathBeeTeacher-MathBeeTeacherTests.debug.xcconfig"; path = "Target Support Files/Pods-MathBeeTeacher-MathBeeTeacherTests/Pods-MathBeeTeacher-MathBeeTeacherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-MathBeeTeacher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MathBeeTeacher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MathBeeTeacher/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MathBeeTeacher-MathBeeTeacherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathBeeTeacher-MathBeeTeacherTests.release.xcconfig"; path = "Target Support Files/Pods-MathBeeTeacher-MathBeeTeacherTests/Pods-MathBeeTeacher-MathBeeTeacherTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EFAE663B294C4F1F009C8EBA /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		EFAE663E294C4F21009C8EBA /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		EFAE663F294C4F21009C8EBA /* Renner_ 400 Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Renner_ 400 Book.ttf"; sourceTree = "<group>"; };
 		EFAE6640294C4F22009C8EBA /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		EFAE6648294C77A0009C8EBA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = MathBeeTeacher/Images.xcassets/logo.png; sourceTree = "<group>"; };
+		EFAE664B294C7864009C8EBA /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = MathBeeTeacher/Images.xcassets/Splash.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,9 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				EFAE664B294C7864009C8EBA /* Splash.png */,
+				EFAE6648294C77A0009C8EBA /* logo.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = MathBeeTeacher;
@@ -261,12 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFAE6641294C4F22009C8EBA /* Oswald-Light.ttf in Resources */,
+				EFAE664A294C77A0009C8EBA /* logo.png in Resources */,
 				EFAE6644294C4F22009C8EBA /* Oswald-Regular.ttf in Resources */,
 				EFAE6642294C4F22009C8EBA /* Oswald-SemiBold.ttf in Resources */,
 				EFAE6646294C4F22009C8EBA /* Oswald-Bold.ttf in Resources */,
 				EFAE6643294C4F22009C8EBA /* Oswald-Medium.ttf in Resources */,
 				EFAE6645294C4F22009C8EBA /* Renner_ 400 Book.ttf in Resources */,
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				EFAE664C294C7864009C8EBA /* Splash.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
