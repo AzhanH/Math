@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f14,
   },
   btnContainer: {
+    paddingBottom: vh * 2,
     alignItems: 'center',
   },
   changePassword: {

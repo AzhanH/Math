@@ -2,8 +2,6 @@ import React from 'react';
 import {Image, StatusBar, View} from 'react-native';
 import images from '../../assets/images';
 import {Text, Button} from '../../components';
-
-import {colors} from '../../utils/theme';
 import styles from './styles';
 const Welcome = ({navigation}) => {
   return (
@@ -36,10 +34,7 @@ const Welcome = ({navigation}) => {
           }
         />
       </View>
-      <Button
-        onPress={() => navigation.navigate('Signup')}
-        btnText={'SIGNUP'}
-      />
+      <Button onPress={() => navigation.navigate('Login')} btnText={'LOGIN'} />
       {/* Wajahat bhai ne hatanay ko kaha tha */}
       {/* <View style={styles.row}>
         <View style={[styles.positionView, {backgroundColor: colors.green}]} />

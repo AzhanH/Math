@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {TouchableOpacity, StatusBar} from 'react-native';
+import {TouchableOpacity, StatusBar, Platform} from 'react-native';
 import {
   BackgroundWrapper,
   Button,
@@ -15,7 +15,9 @@ import styles from './styles';
 
 const ProfileCreation = ({navigation}) => {
   useEffect(() => {
-    AndroidKeyboardAdjust.setAdjustPan();
+    if (Platform.OS === 'android') {
+      AndroidKeyboardAdjust.setAdjustPan();
+    }
   }, []);
   return (
     <BackgroundWrapper>

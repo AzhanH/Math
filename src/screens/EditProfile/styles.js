@@ -5,6 +5,7 @@ import {vh, vw} from '../../utils/units';
 const styles = StyleSheet.create({
   mainView: {
     // marginTop: StatusBar.currentHeight || vh * 6,
+    paddingBottom: vh * 2,
     paddingHorizontal: vw * 3,
   },
   profileView: {

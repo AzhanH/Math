@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.maroon,
   },
   tabBarStyle: {
-    height: vh * 10,
+    height: vh * 11,
+    paddingVertical: vh,
     borderTopColor: 'transparent',
     backgroundColor: colors.white,
   },

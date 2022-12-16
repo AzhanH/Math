@@ -33,6 +33,7 @@ const titles = {
   Contact: 'Contact Us',
   Notify: 'Notifications',
   EditProfile: 'Edit Profile',
+  ChangePassword: 'Change Password',
 };
 
 const backBtnRoutes = {

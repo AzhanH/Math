@@ -4,6 +4,14 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+
     elevation: 1,
     width: vw * 75,
     flexDirection: 'row',

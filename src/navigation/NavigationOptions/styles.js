@@ -3,16 +3,21 @@ import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
-  headerImage: {height: vh * 4, width: vh * 4, resizeMode: 'contain'},
+  headerImage: {
+    height: vh * 4,
+    width: vh * 4,
+    resizeMode: 'contain',
+    marginHorizontal: vw * 3,
+  },
   count: {
     justifyContent: 'center',
     alignItems: 'center',
-    left: vw * 3,
+    left: vw * 7,
     bottom: vh * 2,
     backgroundColor: colors.darkRed,
-    height: vh * 3,
-    width: vh * 3,
-    borderRadius: (vh * 3) / 2,
+    height: vh * 2.5,
+    width: vh * 2.5,
+    borderRadius: (vh * 2.5) / 2,
     position: 'absolute',
   },
   headerText: {

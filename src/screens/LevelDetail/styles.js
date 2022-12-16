@@ -4,10 +4,18 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    marginTop: StatusBar.currentHeight || vh * 6,
+    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   levelContainer: {
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+
     elevation: 1,
     borderRadius: vw * 3,
     marginTop: vh,
