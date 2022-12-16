@@ -1,9 +1,11 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
+
 import MyClass from '../../screens/MyClass';
 import NavigationOptions from '../NavigationOptions';
 const ClassStack = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       screenOptions={NavigationOptions}

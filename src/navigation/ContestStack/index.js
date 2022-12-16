@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Contest from '../../screens/Contest';
 import InviteParent from '../../screens/InviteParents';
@@ -8,7 +9,7 @@ import CreateAndEditContest from '../../screens/CreateAndEditContest';
 import NavigationOptions from '../NavigationOptions';
 
 const ContestStack = ({route}) => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       screenOptions={NavigationOptions}

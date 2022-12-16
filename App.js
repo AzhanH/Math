@@ -4,6 +4,8 @@ import AuthStack from './src/navigation/AuthStack';
 import AnimatedSplash from 'react-native-animated-splash';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DrawerNavigator from './src/navigation/DrawerNavigator';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {StatusBar} from 'react-native';
 const App = () => {
   useEffect(() => {
     AnimatedSplash.hide();
@@ -11,12 +13,19 @@ const App = () => {
 
   const RootStack = createNativeStackNavigator();
   return (
-    <NavigationContainer>
-      <RootStack.Navigator screenOptions={{headerShown: false}}>
-        <RootStack.Screen name="AuthStack" component={AuthStack} />
-        <RootStack.Screen name="MainNavigator" component={DrawerNavigator} />
-      </RootStack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor={'transparent'}
+        />
+        <RootStack.Navigator screenOptions={{headerShown: false}}>
+          <RootStack.Screen name="AuthStack" component={AuthStack} />
+          <RootStack.Screen name="MainNavigator" component={DrawerNavigator} />
+        </RootStack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 export default App;

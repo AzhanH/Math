@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../../screens/Welcome';
 import Login from '../../screens/Login';
 import Signup from '../../screens/Signup';
@@ -10,7 +11,7 @@ import ProfileCreation from '../../screens/ProfileCreation';
 import SubsscriptionLogs from '../../screens/SubscriptionLogs';
 import AuthNavigationOptions from '../AuthNavigationOptions';
 const AuthStack = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       screenOptions={AuthNavigationOptions}

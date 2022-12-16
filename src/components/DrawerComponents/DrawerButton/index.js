@@ -12,8 +12,7 @@ const DrawerButton = ({icon, label, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container]}>
       <Image
-        tintColor={label === 'Home' && colors.white}
-        style={styles.icon}
+        style={[styles.icon, label === 'Home' && {tintColor: colors.white}]}
         source={icon}
       />
       <Text style={styles.label} text={label} />

@@ -30,7 +30,6 @@ const InputField = forwardRef((props, ref) => {
         style={styles.eyeView}>
         {props?.secureTextEntry && (
           <Image
-            tintColor={colors.lightBrown}
             style={styles.eyeImage}
             source={showPassword ? images.eyeClosed : images.eyeOpen}
           />

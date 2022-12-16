@@ -9,14 +9,14 @@ import TermsAndCondition from '../../screens/TermsAndCondition';
 import RegisteredStudents from '../../screens/RegisteredStudents';
 import ContactUs from '../../screens/ContactUs';
 import Notifications from '../../screens/Notification';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import styles from './styles';
 import EditProfile from '../../screens/EditProfile';
 import Profile from '../../screens/Profile';
 import ChangePassword from '../../screens/ChangePassword';
 
 const Drawer = createDrawerNavigator();
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const AnimatedHomeStack = () => {
   return (

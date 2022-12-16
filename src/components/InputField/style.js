@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     height: vh * 8,
   },
   eyeImage: {
+    tintColor: colors.lightBrown,
     resizeMode: 'contain',
     width: '50%',
     height: vh * 3,
