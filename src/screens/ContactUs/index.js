@@ -1,9 +1,11 @@
 import React from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {BackgroundWrapper, Button, InputField} from '../../components';
+import useGeneral from '../../hooks/useGeneral';
 import styles from './styles';
 
 const ContactUs = () => {
+  const {} = useGeneral();
   return (
     <BackgroundWrapper>
       <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>

@@ -4,14 +4,17 @@ import initial from './initial';
 import {get, post} from '../api';
 import {endpoints} from '../api/configs';
 
-export const LoginUser = createAsyncThunk('auth/login', async data => {
-  try {
-    let response = await post(endpoints.auth.login, data, false);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-});
+export const AuthenticateTeacher = createAsyncThunk(
+  '/teacher/auth/login',
+  async data => {
+    try {
+      let response = await post(endpoints.auth.login, data, false);
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
 export const ForgotPassword = createAsyncThunk(
   'auth/forgot-password',
   async data => {

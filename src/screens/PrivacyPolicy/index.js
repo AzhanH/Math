@@ -1,14 +1,37 @@
-import React from 'react';
+import {useFocusEffect} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
-import {BackgroundWrapper, Text} from '../../components';
+import {BackgroundWrapper, Loader, Text} from '../../components';
 import {privacyText} from '../../config';
+import useGeneral from '../../hooks/useGeneral';
 import styles from './styles';
 
 const PrivacyPolicy = () => {
+  const {getPrivacyPolicy} = useGeneral();
+  const [loading, setLoading] = useState(false);
+  const [description, setDescription] = useState(false);
+
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      let res = await getPrivacyPolicy();
+      setLoading(false);
+      setDescription(res);
+    } catch (e) {
+      setLoading(false);
+      console.log('Error', e);
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, []),
+  );
   return (
     <BackgroundWrapper>
       <View style={styles.mainView}>
-        <Text style={styles.text} text={privacyText} />
+        {loading ? <Loader /> : <Text style={styles.text} text={description} />}
       </View>
     </BackgroundWrapper>
   );

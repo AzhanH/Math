@@ -4,9 +4,22 @@ import Modal from '../Modal';
 import Text from '../Text';
 import Button from '../Button';
 import styles from './styles';
+import Loader from '../Loader';
 
 const CustomModal = forwardRef(
-  ({heading, subHeading, image, multipleButtons, btn1Text, btn2Text}, ref) => {
+  (
+    {
+      heading,
+      subHeading,
+      image,
+      multipleButtons,
+      btn1Text,
+      btn2Text,
+      onPressOk,
+      loading,
+    },
+    ref,
+  ) => {
     const modalRef = useRef();
 
     useImperativeHandle(ref, () => ({
@@ -23,7 +36,7 @@ const CustomModal = forwardRef(
     };
 
     return (
-      <Modal ref={modalRef} style={styles.modalStyle}>
+      <Modal disabled={loading} ref={modalRef} style={styles.modalStyle}>
         <View style={styles.modalContainer}>
           <View style={styles.boderLine} />
           {image && <Image style={styles.success} source={image} />}
@@ -34,20 +47,25 @@ const CustomModal = forwardRef(
             />
             <Text style={styles.subHeading} text={subHeading && subHeading} />
           </View>
-          <View style={styles.row}>
-            <Button
-              containerStyle={multipleButtons && {width: '50%'}}
-              btnText={btn1Text ? btn1Text : 'OK'}
-            />
-            {multipleButtons && (
+          {loading ? (
+            <Loader />
+          ) : (
+            <View style={styles.row}>
               <Button
-                containerStyle={{width: '50%'}}
-                style={styles.marginLeft}
-                black
-                btnText={btn2Text ? btn2Text : 'CANCEL '}
+                onPress={onPressOk}
+                containerStyle={multipleButtons && {width: '50%'}}
+                btnText={btn1Text ? btn1Text : 'OK'}
               />
-            )}
-          </View>
+              {multipleButtons && (
+                <Button
+                  containerStyle={{width: '50%'}}
+                  style={styles.marginLeft}
+                  black
+                  btnText={btn2Text ? btn2Text : 'CANCEL '}
+                />
+              )}
+            </View>
+          )}
         </View>
       </Modal>
     );

@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vw} from '../../utils/units';
 
@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.f15,
   },
   mainView: {
-    marginTop: StatusBar.currentHeight,
     paddingHorizontal: vw * 4,
   },
 });

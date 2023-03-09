@@ -4,7 +4,6 @@ import {fontSizes, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    // marginTop: 40,
     paddingHorizontal: vw * 4,
   },
   text: {

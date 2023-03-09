@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './styles';
 import DrawerButton from '../DrawerButton';
 import {Image, View, ImageBackground} from 'react-native';
@@ -8,6 +8,7 @@ import images from '../../../assets/images';
 import Text from '../../Text';
 import Button from '../../Button';
 import CustomModal from '../../CustomModal';
+import useAuth from '../../../hooks/useAuth';
 
 const drawerRoutes = [
   {
@@ -60,6 +61,8 @@ const DrawerContent = props => {
     }
   }, [isCollapsed]);
 
+  const {logoutUser} = useAuth();
+  const [loading, setLoading] = useState(false);
   return (
     <ImageBackground
       style={[styles.container]}
@@ -92,6 +95,17 @@ const DrawerContent = props => {
         <Button onPress={() => modalRef.current.show()} btnText={'SIGNOUT'} />
       </DrawerContentScrollView>
       <CustomModal
+        loading={loading}
+        onPressOk={async () => {
+          try {
+            setLoading(true);
+            await logoutUser();
+
+            setLoading(false);
+          } catch (e) {
+            setLoading(false);
+          }
+        }}
         heading="Alert"
         subHeading="Are you sure you want to logout?"
         multipleButtons

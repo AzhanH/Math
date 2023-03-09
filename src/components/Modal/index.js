@@ -35,7 +35,10 @@ const CustomModal = React.forwardRef((props, ref) => {
       transparent={true}
       statusBarTranslucent={true}>
       {isBlur && (
-        <TouchableOpacity style={styles.blurBackground} onPress={hideModal}>
+        <TouchableOpacity
+          disabled={props?.disabled}
+          style={styles.blurBackground}
+          onPress={hideModal}>
           <BlurView
             style={styles.blurView}
             blurType="dark"

@@ -11,6 +11,11 @@ export const endpoints = {
     verifyCode: '/teacher/email-verification',
     resetPassword: '/teacher/reset-password',
   },
+  general: {
+    contactUs: '/contact-us',
+    terms: '/terms-and-conditons',
+    privacy: '/privacy-policy',
+  },
 };
 export default {
   endpoints: endpoints,
