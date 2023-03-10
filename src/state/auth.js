@@ -8,7 +8,7 @@ export const AuthenticateTeacher = createAsyncThunk(
   '/teacher/auth/login',
   async data => {
     try {
-      let response = await post(endpoints.auth.login, data, false);
+      let response = await post(endpoints.auth.login, data, true);
       return response;
     } catch (error) {
       throw new Error(error);
@@ -19,7 +19,7 @@ export const ForgotPassword = createAsyncThunk(
   'auth/forgot-password',
   async data => {
     try {
-      let response = await post(endpoints.auth.forgotPassword, data, false);
+      let response = await post(endpoints.auth.forgotPassword, data, true);
       return response;
     } catch (error) {
       throw new Error(error);
@@ -29,7 +29,7 @@ export const ForgotPassword = createAsyncThunk(
 
 export const VerifyOtp = createAsyncThunk('auth/verify-otp', async data => {
   try {
-    let response = await post(endpoints.auth.verifyCode, data, false);
+    let response = await post(endpoints.auth.verifyCode, data, true);
     return response;
   } catch (error) {
     throw new Error(error);
@@ -39,7 +39,7 @@ export const ResetPassword = createAsyncThunk(
   'auth/reset-password',
   async data => {
     try {
-      let response = await post(endpoints.auth.resetPassword, data, false);
+      let response = await post(endpoints.auth.resetPassword, data, true);
       return response;
     } catch (error) {
       throw new Error(error);
@@ -58,7 +58,7 @@ export const RegisterUser = createAsyncThunk(
   'auth/register-user',
   async data => {
     try {
-      let response = await post(endpoints.auth.register, data, false);
+      let response = await post(endpoints.auth.register, data, true);
       return response;
     } catch (error) {
       throw new Error(error);

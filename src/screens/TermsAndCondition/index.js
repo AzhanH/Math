@@ -2,7 +2,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
 import {BackgroundWrapper, Loader, Text} from '../../components';
-import {useGeneral} from '../../hooks';
+import {useGeneral} from '../../hooks/index';
 import styles from './styles';
 
 const TermsAndCondition = () => {

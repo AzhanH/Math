@@ -62,6 +62,7 @@ const Login = ({navigation}) => {
           viewStyle={styles.input}
           returnKeyType="send"
           secureTextEntry={true}
+          onSubmitEditing={onPressLogin}
           placeholder="Password"
         />
         <TouchableOpacity
