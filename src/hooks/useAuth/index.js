@@ -8,6 +8,7 @@ import {
   Logout,
   VerifyOtp,
   ResetPassword,
+  RegisterUser,
 } from '../../state/auth';
 import {validateEmptyInputs} from '../../utils/helperFunctions';
 const useAuth = () => {
@@ -65,9 +66,35 @@ const useAuth = () => {
   const logoutUser = async () => {
     try {
       const res = await dispatch(Logout()).unwrap();
-
       dispatch(setUser(null));
       dispatch(setToken(null));
+      return res;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
+
+  const registerUser = async data => {
+    try {
+      let apiData = validateEmptyInputs(data);
+      if (!apiData?.first_name?.match(/^[a-z ,.'-]+$/i)) {
+        throw new Error('Please Enter A Valid First Name');
+      }
+      if (!apiData?.last_name?.match(/^[a-z ,.'-]+$/i)) {
+        throw new Error('Please Enter A Valid Last Name');
+      }
+      if (apiData?.first_name?.length < 3) {
+        throw new Error('First Name should contain minimum 3 characters');
+      }
+      if (apiData?.last_name?.length < 3) {
+        throw new Error('Last Name should contain minimum 3 characters');
+      }
+      if (apiData?.password !== apiData?.password_confirmation) {
+        throw new Error('Passowrd & Confirm Password Should be Same');
+      }
+      console.log(apiData);
+      const res = await dispatch(RegisterUser(apiData)).unwrap();
       return res;
     } catch (e) {
       Toast.error(getMessage(e));
@@ -82,6 +109,7 @@ const useAuth = () => {
     token,
     logoutUser,
     authenticateTeacher,
+    registerUser,
   };
 };
 export default useAuth;

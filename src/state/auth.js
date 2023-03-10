@@ -54,17 +54,14 @@ export const Logout = createAsyncThunk('auth/logout', async () => {
     throw new Error(error);
   }
 });
-export const RegisterUser = createAsyncThunk(
-  'auth/register-user',
-  async data => {
-    try {
-      let response = await post(endpoints.auth.register, data, true);
-      return response;
-    } catch (error) {
-      throw new Error(error);
-    }
-  },
-);
+export const RegisterUser = createAsyncThunk('auth/register', async data => {
+  try {
+    let response = await post(endpoints.auth.signup, data, true);
+    return response;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 
 export const authSlice = createSlice({
   name: initial.auth.name,

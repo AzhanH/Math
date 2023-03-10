@@ -13,3 +13,4 @@ export {default as SearchBar} from './SearchBar';
 export {default as TableView} from './TableView';
 export {default as Rectangle} from './Rectangle';
 export {default as Loader} from './Loader';
+export {default as DropDown} from './DropDown';
