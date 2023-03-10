@@ -5,7 +5,6 @@ import useGeneral from '../../hooks/useGeneral';
 import styles from './styles';
 
 const ContactUs = () => {
-  const {} = useGeneral();
   return (
     <BackgroundWrapper>
       <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>

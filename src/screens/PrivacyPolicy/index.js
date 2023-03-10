@@ -2,8 +2,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
 import {BackgroundWrapper, Loader, Text} from '../../components';
-import {privacyText} from '../../config';
-import useGeneral from '../../hooks/useGeneral';
+import {useGeneral} from '../../hooks';
 import styles from './styles';
 
 const PrivacyPolicy = () => {

@@ -8,7 +8,7 @@ import images from '../../../assets/images';
 import Text from '../../Text';
 import Button from '../../Button';
 import CustomModal from '../../CustomModal';
-import useAuth from '../../../hooks/useAuth';
+import {useAuth} from '../../../hooks';
 
 const drawerRoutes = [
   {
