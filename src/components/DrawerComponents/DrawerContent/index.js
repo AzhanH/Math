@@ -61,8 +61,9 @@ const DrawerContent = props => {
     }
   }, [isCollapsed]);
 
-  const {logoutUser} = useAuth();
+  const {logoutUser, user} = useAuth();
   const [loading, setLoading] = useState(false);
+
   return (
     <ImageBackground
       style={[styles.container]}
@@ -71,7 +72,10 @@ const DrawerContent = props => {
         <View style={styles.userInfo}>
           <Image style={styles.image} source={images.childImage1} />
           <Text style={styles.hello} text={'HELLO'} />
-          <Text style={styles.userNameText} text={'ALEX JOHN'} />
+          <Text
+            style={styles.userNameText}
+            text={user?.full_name?.toUpperCase()}
+          />
         </View>
 
         <View style={styles.listContainer}>
