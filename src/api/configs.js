@@ -11,10 +11,20 @@ export const endpoints = {
     verifyCode: '/teacher/email-verification',
     resetPassword: '/teacher/reset-password',
   },
+  teacher: {
+    register: '/teacher/student/register',
+  },
   general: {
     contactUs: '/contact-us',
     terms: '/terms-and-conditons',
     privacy: '/privacy-policy',
+  },
+  profile: {
+    createProfile: '/teacher/profile/add',
+  },
+  plans: {
+    subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,
+    readPlans: '/teacher/plan/index',
   },
 };
 export default {

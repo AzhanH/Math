@@ -11,6 +11,7 @@ const ValuePicker = ({
   containerStyle,
   placeHolderStyle,
   onPress,
+  icon,
 }) => {
   return (
     <TouchableOpacity
@@ -25,7 +26,7 @@ const ValuePicker = ({
         text={value ? value : placeholder}
       />
       <View style={styles.iconView}>
-        <Image style={styles.icon} source={images.dropDown} />
+        <Image style={styles.icon} source={icon ? icon : images.dropDown} />
       </View>
     </TouchableOpacity>
   );

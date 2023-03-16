@@ -22,7 +22,7 @@ const DropDown = ({
   const renderItem = ({item, index}) => (
     <TouchableOpacity
       onPress={() => {
-        onPressItem(item?.value);
+        onPressItem(item);
         closeModal();
       }}
       style={[

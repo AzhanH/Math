@@ -289,5 +289,63 @@ export const notifications = [
   },
 ];
 
+export const playData = [
+  {
+    name: 'Classroom',
+    value: 'classrome',
+  },
+  {
+    name: 'School',
+    value: 'school',
+  },
+  {
+    name: 'National',
+    value: 'national',
+  },
+  {
+    name: 'International',
+    value: 'national',
+  },
+];
+
+export const modeData = [
+  {
+    name: 'Addition',
+    value: 'addition',
+  },
+  {
+    name: 'Subtraction',
+    value: 'subtraction',
+  },
+  {
+    name: 'Division',
+    value: 'division',
+  },
+  {
+    name: 'Multiplication',
+    value: 'multiplication',
+  },
+];
+
+export const gradeData = [
+  {name: '1st grade', value: 1},
+  {name: '2nd grade', value: 2},
+  {name: '3rd grade', value: 3},
+];
+
+export const stateDate = [
+  {name: 'AB', value: 1},
+  {name: 'CD', value: 2},
+];
+export const countryData = [
+  {name: 'AB', value: 1},
+  {name: 'CD', value: 2},
+  {name: 'EF', value: 3},
+];
+export const teamData = [
+  {name: 'Single', value: 0},
+  {name: 'Multiplay', value: 1},
+];
+
 export const privacyText =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit \n amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.';

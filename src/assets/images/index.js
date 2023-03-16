@@ -55,6 +55,7 @@ import logout from './logout.png';
 import checked from './checked.png';
 import eyeClosed from './eyeClosed.png';
 import eyeOpen from './eyeOpen.png';
+import close from './close.png';
 
 export default {
   intro,
@@ -114,4 +115,5 @@ export default {
   checked,
   eyeClosed,
   eyeOpen,
+  close,
 };

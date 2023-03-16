@@ -58,7 +58,7 @@ const Signup = ({navigation}) => {
       ];
       let res = await registerUser(apiData);
       Toast.success(res?.messge);
-      navigation.replace('ProfileCreation');
+      navigation.replace('ProfileCreation', {token: res?.token});
       setLoading(false);
     } catch (e) {
       setLoading(false);
@@ -142,8 +142,8 @@ const Signup = ({navigation}) => {
         <DropDown
           placeholder="Select Role"
           closeModal={() => setShowModal(false)}
-          onPressItem={value => {
-            setRole(value);
+          onPressItem={item => {
+            setRole(item?.value);
             setTimeout(() => {
               passwordRef.current.focus();
             }, 100);

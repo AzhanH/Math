@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 5,
-    // marginTop: StatusBar.currentHeight || vh * 6,
   },
   input: {
     width: '100%',
@@ -38,6 +37,25 @@ const styles = StyleSheet.create({
   },
   paddingView: {
     paddingHorizontal: vw * 6,
+  },
+  contestImage: {
+    width: vw * 25,
+    height: vw * 25,
+  },
+  removeView: {
+    right: -vw * 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: (vw * 10) / 2,
+    width: vw * 5,
+    height: vw * 5,
+    position: 'absolute',
+    backgroundColor: colors.white,
+  },
+  closeIcon: {
+    height: '65%',
+    width: '65%',
+    resizeMode: 'contain',
   },
   btn: {
     width: vw * 45,

@@ -3,13 +3,13 @@ import {TouchableOpacity} from 'react-native';
 import {Text} from '../../../components';
 import {colors} from '../../../utils/theme';
 import styles from '../styles';
-const SinglePlanType = ({type, selecetdType, onPressType}) => {
+const SinglePlanType = ({type, selectedPlan, onPressType}) => {
   return (
     <TouchableOpacity onPress={onPressType} style={styles.planTypeView}>
       <Text
         style={[
           styles.planTypeText,
-          selecetdType === type && {
+          selectedPlan?.title === type && {
             color: colors.black,
           },
         ]}

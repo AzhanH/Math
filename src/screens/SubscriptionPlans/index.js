@@ -1,25 +1,48 @@
-import React, {useState} from 'react';
-import {FlatList, ImageBackground, StatusBar, View} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
+import {FlatList, ImageBackground, View} from 'react-native';
 import images from '../../assets/images';
-import {BackgroundWrapper, Button, Header, Text} from '../../components';
+import {BackgroundWrapper, Button, Loader, Text} from '../../components';
+import {usePlans} from '../../hooks';
 import {fontSizes} from '../../utils/units';
 import {SinglePlanType} from './components';
 import styles from './styles';
-const SubscriptionPlans = ({navigation}) => {
-  const plans = [
-    {id: 1, name: 'Standard'},
-    {id: 2, name: 'Pro Plan'},
-    {id: 3, name: 'Free'},
-  ];
+const SubscriptionPlans = ({navigation, route}) => {
+  const token = route?.params?.token;
 
-  const [selecetdType, setSelectedType] = useState(plans[0]?.name);
+  const {readPlans} = usePlans();
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, []),
+  );
+
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [plans, setPlans] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      let res = await readPlans(token);
+      if (res?.length > 0) {
+        setPlans(res?.filter((v, i) => i <= 2));
+        setSelectedPlan(res[0]);
+      } else {
+        setPlans(null);
+      }
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+    }
+  };
 
   const renderPlanType = ({item, index}) => (
     <SinglePlanType
-      onPressType={() => setSelectedType(item?.name)}
-      selecetdType={selecetdType}
+      onPressType={() => setSelectedPlan(item)}
+      selectedPlan={selectedPlan}
       key={index}
-      type={item?.name}
+      type={item?.title}
     />
   );
 
@@ -27,9 +50,9 @@ const SubscriptionPlans = ({navigation}) => {
     <View>
       <ImageBackground
         source={
-          selecetdType === 'Standard'
+          selectedPlan?.title === 'Standard'
             ? images.standardPlan
-            : selecetdType === 'Pro Plan'
+            : selectedPlan?.title === 'Pro Plan'
             ? images.standardPlan2
             : images.standardPlan3
         }
@@ -39,10 +62,8 @@ const SubscriptionPlans = ({navigation}) => {
           <Text
             style={styles.planHeadings}
             text={
-              selecetdType === 'Standard'
-                ? 'STANDARD MONTHLY'
-                : selecetdType === 'Pro Plan'
-                ? 'PRO MONTHLY'
+              selectedPlan?.title !== 'Free'
+                ? selectedPlan?.title?.toUpperCase() + ' ' + 'MONTHLY'
                 : 'FREE TRIAL'
             }
           />
@@ -50,36 +71,26 @@ const SubscriptionPlans = ({navigation}) => {
           <Text
             text={
               <>
-                {selecetdType !== 'Free' && (
+                {selectedPlan !== 'Free' && (
                   <Text style={styles.planPriceHeading} text={'$'} />
                 )}
                 <Text
                   style={styles.planPriceHeading}
-                  text={
-                    selecetdType === 'Standard'
-                      ? 1
-                      : selecetdType == 'Pro Plan'
-                      ? 7
-                      : 2
-                  }
+                  text={selectedPlan?.price_per_month}
                 />
-                {selecetdType !== 'Free' && (
-                  <>
-                    <Text style={styles.planPriceHeading2} text={'.47'} />
-
-                    <Text
-                      style={[
-                        styles.planPriceHeading2,
-                        {fontSizes: fontSizes.f16},
-                      ]}
-                      text={'/ month'}
-                    />
-                  </>
+                {selectedPlan !== 'Free' && (
+                  <Text
+                    style={[
+                      styles.planPriceHeading2,
+                      {fontSizes: fontSizes.f16},
+                    ]}
+                    text={'/ month'}
+                  />
                 )}
-                {selecetdType == 'Free' && (
+                {selectedPlan == 'Free' && (
                   <Text
                     style={styles.planPriceHeading2}
-                    text={' weeks free trial'}
+                    text={'weeks free trial'}
                   />
                 )}
               </>
@@ -87,35 +98,38 @@ const SubscriptionPlans = ({navigation}) => {
           />
         </View>
       </ImageBackground>
-      <View style={styles.planDescView}>
-        <Text
-          style={styles.planDescText}
-          text={
-            selecetdType === 'Standard'
-              ? 'The standard monthly plan is an automatic-renewal of the monthly subscription price at $1.47 per month. This makes the plan cost $8.82 for a 6-month period, but it renews automatically every month, until the subscription is cancelled.'
-              : selecetdType === 'Pro Plan'
-              ? 'The Pro-Player plan provides a discount to parents who sign-up for an automatic-renewal of the 6-month subscription at $7.77 for six months. The parent saves $1.05 for buying six months at a time.'
-              : 'No tournament participation.'
-          }
-        />
-      </View>
+      {selectedPlan?.description?.length > 0 && (
+        <View style={styles.planDescView}>
+          <Text
+            style={styles.planDescText}
+            text={selectedPlan?.description?.map(v => v?.description)}
+          />
+        </View>
+      )}
 
       <Button
-        onPress={() => navigation.navigate('Payment')}
+        onPress={() =>
+          navigation.navigate('Payment', {plan: selectedPlan, token})
+        }
         black
         btnText={'GET IT'}
       />
     </View>
   );
+
   return (
     <BackgroundWrapper>
-      <FlatList
-        style={styles.contentContainer}
-        ListFooterComponent={ListFooterComponent}
-        renderItem={renderPlanType}
-        numColumns={3}
-        data={plans}
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <FlatList
+          style={styles.contentContainer}
+          ListFooterComponent={ListFooterComponent}
+          renderItem={renderPlanType}
+          numColumns={3}
+          data={plans}
+        />
+      )}
     </BackgroundWrapper>
   );
 };
