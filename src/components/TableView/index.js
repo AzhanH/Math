@@ -18,10 +18,13 @@ const TableView = ({array, editable = false, onPressItem}) => {
             ]}>
             <Text style={styles.rowText} text={v?.label} />
             <TouchableOpacity
-              onPress={() => onPressItem(v)}
+              onPress={() => onPressItem(v, i)}
               disabled={!editable}
               style={styles.row}>
-              <Text style={styles.rowText} text={v?.value} />
+              <Text
+                style={styles.rowText}
+                text={v?.value ? v?.value : v?.placeholder}
+              />
               {editable && (
                 <Image style={styles.dropDown} source={images.dropDownWhite} />
               )}

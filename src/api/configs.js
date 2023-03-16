@@ -26,6 +26,10 @@ export const endpoints = {
     subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,
     readPlans: '/teacher/plan/index',
   },
+  contest: {
+    getAllContests: '/teacher/contest/index',
+    createContest: '/teacher/contest/create',
+  },
 };
 export default {
   endpoints: endpoints,

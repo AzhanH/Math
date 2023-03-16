@@ -93,7 +93,6 @@ const useAuth = () => {
       if (apiData?.password !== apiData?.password_confirmation) {
         throw new Error('Passowrd & Confirm Password Should be Same');
       }
-      console.log(apiData);
       const res = await dispatch(RegisterUser(apiData)).unwrap();
       return res;
     } catch (e) {

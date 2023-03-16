@@ -12,6 +12,7 @@ const DatePicker = ({
   placeHolderStyle,
   mode,
   onPressConfirm,
+  min,
 }) => {
   const [show, setShow] = useState(false);
   return (
@@ -33,6 +34,7 @@ const DatePicker = ({
         />
       </View>
       <DateTimePickerModal
+        minimumDate={min ? min : null}
         onConfirm={date => {
           onPressConfirm(date);
           setShow(false);

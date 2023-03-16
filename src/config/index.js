@@ -91,7 +91,7 @@ export const contests = [
   },
   {
     id: 3,
-    color: 'blue',
+    color: 'red',
     name: 'ABC Contest',
     date: 'May 5 ,2022',
     time: '5:00PM',
@@ -171,12 +171,12 @@ export const scoreBoardButtonList = [
 ];
 
 export const options = [
-  {label: 'Level of play', value: 'Select Level of Play'},
-  {label: 'Mode', value: 'Select Mode'},
-  {label: 'Grade', value: 'Select Grade'},
-  {label: 'State', value: 'Select State'},
-  {label: 'Country', value: 'Select Country'},
-  {label: 'Team Type', value: 'Select Team Type'},
+  {label: 'Level of play', placeholder: 'Select Level of Play'},
+  {label: 'Mode', placeholder: 'Select Mode'},
+  {label: 'Grade', placeholder: 'Select Grade'},
+  {label: 'State', placeholder: 'Select State'},
+  {label: 'Country', placeholder: 'Select Country'},
+  {label: 'Team Type', placeholder: 'Select Team Type'},
 ];
 
 export const levels = [
@@ -304,7 +304,7 @@ export const playData = [
   },
   {
     name: 'International',
-    value: 'national',
+    value: 'international',
   },
 ];
 
@@ -333,7 +333,7 @@ export const gradeData = [
   {name: '3rd grade', value: 3},
 ];
 
-export const stateDate = [
+export const stateData = [
   {name: 'AB', value: 1},
   {name: 'CD', value: 2},
 ];
