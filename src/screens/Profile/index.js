@@ -1,85 +1,120 @@
-import React from 'react';
+import {useFocusEffect} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
 import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
 import images from '../../assets/images';
-import {BackgroundWrapper, Button, Text} from '../../components';
+import {BackgroundWrapper, Button, Loader, Text} from '../../components';
+import useProfile from '../../hooks/useProfile';
 import styles from './styles';
 
-const Profle = ({navigation, route}) => {
+const Profile = ({navigation, route}) => {
+  const id = route?.params?.id;
+
+  const {getStudentProfile, getProfile} = useProfile();
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const student = route?.params?.data;
+
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      let res;
+      if (id) {
+        res = await getStudentProfile(id);
+      } else {
+        res = await getProfile();
+      }
+      setProfile(res);
+      setLoading(false);
+    } catch (e) {
+      setProfile(null);
+      console.log('Error', e);
+      setLoading(false);
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, [id]),
+  );
 
   const data = [
     {
       id: 0,
       title: 'First Name:',
-      value: student?.name ? student?.name : 'John',
+      value: profile?.first_name,
     },
-    {id: 1, title: 'last Name:', value: 'Doe'},
+    {id: 1, title: 'last Name:', value: profile?.last_name},
     {
       id: 2,
       title: 'Phone No:',
-      value: student?.PhoneNo ? student?.PhoneNo : '+866-876463 ',
+      value: profile?.phon_no,
     },
     {
       id: 3,
       title: 'Player ID',
-      value: student?.playerId ? student?.playerId : 'Batman2022',
+      value: profile?.username,
     },
     {
       id: 4,
       title: 'Email',
-      value: student?.email ? student?.email : 'Email@Info.Com',
+      value: profile?.email,
     },
     {
       id: 5,
       title: 'Class Grade',
-      value: student?.grade ? student?.grade : '6',
+      value: profile?.class_grade,
     },
     {
       id: 6,
       title: 'School Name',
-      value: student?.SchoolName ? student?.SchoolName : 'ABC School',
+      value: profile?.school,
     },
-    {id: 7, title: 'DOB', value: student?.Dob ? student?.Dob : 'June 3, 1995'},
-    {id: 6, title: 'Gender', value: student?.gender ? student?.gender : 'Male'},
+    {id: 7, title: 'DOB', value: profile?.dob},
+    {id: 6, title: 'Gender', value: profile?.gender},
   ];
 
   const renderFields = () =>
     data?.map((v, i) => (
       <View key={i} style={styles.renderFieldsContainerStyle}>
         <Text style={styles.label} text={v?.title} />
-        <Text style={styles.value} text={v?.value} />
+        <Text numberOfLines={1} style={styles.value} text={v?.value} />
       </View>
     ));
 
   return (
     <BackgroundWrapper>
-      <ScrollView contentContainerStyle={styles.btnContainer}>
-        <View style={styles.imageContainer}>
-          <Image
-            source={student?.image ? student?.image : images.childImage1}
-            style={styles.image}
-          />
-        </View>
-        <View style={styles.fieldsContainer}>{renderFields()}</View>
-        <View style={styles.btnContainer}>
-          <Button
-            onPress={() =>
-              navigation.navigate('ProfileStack', {
-                screen: 'EditProfile',
-                params: student,
-              })
-            }
-            btnText={'EDIT PROFILE'}
-          />
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('ProfileStack', {screen: 'ChangePassword'})
-            }>
-            <Text style={styles.changePassword} text={'Change Password'} />
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+      {loading ? (
+        <Loader />
+      ) : (
+        <ScrollView contentContainerStyle={styles.btnContainer}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={student?.image ? student?.image : images.childImage1}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.fieldsContainer}>{renderFields()}</View>
+          <View style={styles.btnContainer}>
+            <Button
+              onPress={() =>
+                navigation.navigate('ProfileStack', {
+                  screen: 'EditProfile',
+                  params: student,
+                })
+              }
+              btnText={'EDIT PROFILE'}
+            />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('ProfileStack', {screen: 'ChangePassword'})
+              }>
+              <Text style={styles.changePassword} text={'Change Password'} />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      )}
     </BackgroundWrapper>
   );
 };
-export default Profle;
+export default Profile;

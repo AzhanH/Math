@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
     width: vh * 15,
     borderRadius: (vh * 15) / 2,
     resizeMode: 'contain',
-    bottom: vh * 2,
   },
 });
 

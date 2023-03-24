@@ -1,10 +1,19 @@
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {getMessage, Toast} from '../../api/APIHelpers';
-import {ContactUs, GetPrivacyPolicy, GetTerms} from '../../state/general';
+import {
+  ContactUs,
+  GetAllStudents,
+  GetAllTeachers,
+  GetGeneralData,
+  GetPrivacyPolicy,
+  GetTerms,
+  setGeneralData,
+} from '../../state/general';
 import {validateEmptyInputs} from '../../utils/helperFunctions';
 
 const useGeneral = () => {
   const dispatch = useDispatch();
+  const {general} = useSelector(state => state.general);
   const getPrivacyPolicy = async () => {
     try {
       const res = await dispatch(GetPrivacyPolicy()).unwrap();
@@ -45,10 +54,46 @@ const useGeneral = () => {
       throw new Error(e);
     }
   };
+
+  const getAllStudents = async () => {
+    try {
+      let res = await dispatch(GetAllStudents()).unwrap();
+      return {
+        perPage: res?.data?.per_page,
+        students: res?.data?.data,
+      };
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
+  const getAllTeachers = async () => {
+    try {
+      let res = await dispatch(GetAllTeachers()).unwrap();
+      return res?.data;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
+
+  const getGeneralData = async () => {
+    try {
+      let res = await dispatch(GetGeneralData()).unwrap();
+      dispatch(setGeneralData(res?.general));
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
   return {
     getTerms,
     contactUs,
     getPrivacyPolicy,
+    getAllTeachers,
+    getAllStudents,
+    getGeneralData,
+    general,
   };
 };
 export default useGeneral;

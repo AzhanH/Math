@@ -19,3 +19,14 @@ export const CreateContest = createAsyncThunk('/create-contest', async data => {
     throw new Error(error);
   }
 });
+export const GetContestDetail = createAsyncThunk(
+  '/contest/details',
+  async id => {
+    try {
+      let response = await get(endpoints.contest.getContestDetail(id));
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);

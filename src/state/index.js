@@ -4,12 +4,14 @@ import {persistStore} from 'redux-persist';
 import persistReducer from 'redux-persist/es/persistReducer';
 import thunk from 'redux-thunk';
 import auth from './auth';
+import general from './general';
 const persistedConfig = {
   key: 'MathBee',
   storage: AsyncStorage,
 };
 const reducers = combineReducers({
-  auth: auth,
+  auth,
+  general,
 });
 const persistedReducer = persistReducer(persistedConfig, reducers);
 export const store = configureStore({

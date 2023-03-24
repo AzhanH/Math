@@ -28,7 +28,7 @@ const SinglePlayerView = ({
               style={styles.player}
               text={
                 <>
-                  <Text text="Player ID " />
+                  <Text text="Player ID: " />
                   <Text text={playerId} />
                 </>
               }
@@ -37,11 +37,11 @@ const SinglePlayerView = ({
             <Text style={[styles.player, styles.grade]} text={grade} />
             <Button
               onPress={
-                btnName === 'VIEW DETAIL'
+                btnName === 'VIEW PROFILE'
                   ? onPressViewDetail
                   : btnName === 'REMOVE'
                   ? onPressRemove
-                  : btnName === 'ADD'
+                  : btnName === 'ADD' || btnName == 'ADDED'
                   ? onPressAdd
                   : onPressEditProfile
               }

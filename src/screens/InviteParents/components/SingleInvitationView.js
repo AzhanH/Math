@@ -3,6 +3,7 @@ import {View, Image, TouchableOpacity} from 'react-native';
 import images from '../../../assets/images';
 import {Text, Rectangle} from '../../../components';
 import {colors, rectangleTheme} from '../../../utils/theme';
+import {vw} from '../../../utils/units';
 import styles from '../styles';
 
 const SingleInvitaionView = ({
@@ -38,8 +39,8 @@ const SingleInvitaionView = ({
         },
       ]}>
       <View style={styles.contentView}>
-        <Image style={styles.avatarImage} source={image} />
-        <View>
+        <Image style={styles.avatarImage} source={{uri: image}} />
+        <View style={{right: vw * 5}}>
           <Text style={styles.nameText} text={name} />
           <Text style={styles.nameText} text={grade} />
         </View>

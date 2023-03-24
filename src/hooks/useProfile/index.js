@@ -1,3 +1,4 @@
+import {useDispatch} from 'react-redux';
 import {
   getMessage,
   handleResponse,
@@ -6,9 +7,11 @@ import {
   Toast,
 } from '../../api/APIHelpers';
 import {base_url, endpoints} from '../../api/configs';
+import {GetProfile, GetStudentProfile} from '../../state/profile';
 import {validateEmptyInputs} from '../../utils/helperFunctions';
 
 const useProfile = () => {
+  const dispatch = useDispatch();
   const createProfile = async data => {
     try {
       let apiData = validateEmptyInputs(data);
@@ -47,8 +50,29 @@ const useProfile = () => {
       throw new Error(e);
     }
   };
+
+  const getProfile = async () => {
+    try {
+      let res = await dispatch(GetProfile()).unwrap();
+      return res;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
+  const getStudentProfile = async id => {
+    try {
+      let res = await dispatch(GetStudentProfile(id)).unwrap();
+      return res?.data;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
   return {
+    getProfile,
     createProfile,
+    getStudentProfile,
   };
 };
 

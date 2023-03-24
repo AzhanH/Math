@@ -4,14 +4,19 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   rectangle: {
     height: vh * 19,
-
     width: '100%',
   },
+  image: {
+    left: vw * 10,
+    height: vh * 12,
+    borderRadius: vw * 4,
+    width: vw * 22,
+  },
+
   rectangleContent: {
     position: 'absolute',
   },

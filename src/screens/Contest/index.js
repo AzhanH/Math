@@ -4,7 +4,6 @@ import images from '../../assets/images';
 import {BackgroundWrapper, SearchBar, Button} from '../../components';
 import styles from './styles';
 import {SingleContestView} from './components';
-import {contests} from '../../config';
 import {useFocusEffect} from '@react-navigation/native';
 import useContest from '../../hooks/useContest';
 import moment from 'moment/moment';
@@ -39,7 +38,7 @@ const Contests = ({navigation}) => {
   const renderItem = ({item, index}) => (
     <SingleContestView
       onPressContainer={() =>
-        navigation.navigate('ContestDetail', {data: item})
+        navigation.navigate('ContestDetail', {id: item?.id})
       }
       onPressSendInvite={() => navigation.navigate('InviteParents')}
       key={index}

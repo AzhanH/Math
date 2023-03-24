@@ -4,13 +4,13 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
-    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   searchBar: {
     width: vw * 93,
   },
   contentView: {
+    paddingVertical: vh,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -23,11 +23,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarImage: {
-    right: vh * 3,
-    borderRadius: (vh * 25) / 2,
+    borderRadius: (vw * 20) / 2,
     resizeMode: 'contain',
-    height: vh * 14,
-    width: vw * 24,
+    height: vw * 20,
+    width: vw * 20,
   },
   nameText: {
     fontFamily: 'Oswald-Regular',

@@ -35,6 +35,13 @@ const CustomModal = forwardRef(
       modalRef.current.hide();
     };
 
+    const _onPressOk = () => {
+      if (onPressOk) {
+        onPressOk();
+      }
+      hideModal();
+    };
+
     return (
       <Modal disabled={loading} ref={modalRef} style={styles.modalStyle}>
         <View style={styles.modalContainer}>
@@ -52,7 +59,7 @@ const CustomModal = forwardRef(
           ) : (
             <View style={styles.row}>
               <Button
-                onPress={onPressOk}
+                onPress={_onPressOk}
                 containerStyle={multipleButtons && {width: '50%'}}
                 btnText={btn1Text ? btn1Text : 'OK'}
               />
