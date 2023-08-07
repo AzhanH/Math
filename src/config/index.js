@@ -162,6 +162,10 @@ export const myTeams = [
   },
 ];
 
+function removeLeadingZeroAndDecimal(numberString) {
+  return numberString.replace(/^0+(\.\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+}
+
 export const scoreBoardButtonList = [
   {id: 1, name: 'CLASSROOM LEVEL', to: 'Levels', params: 'class'},
   {id: 2, name: 'SCHOOL LEVEL', to: 'Levels', params: 'school'},
@@ -184,16 +188,19 @@ export const levels = [
     id: 1,
     teamType: 'Multi-Player',
     name: 'Hello Kitty',
-    score: 0.89,
+    score: removeLeadingZeroAndDecimal("0.89"),
+    decimalText: "View Full Decimal",
     state: 'PA',
     country: 'USA',
     schoolName: 'West Brook',
+  
   },
   {
     id: 2,
     teamType: 'Single-Player',
     name: 'Blue Cats',
-    score: 0.875,
+    score: removeLeadingZeroAndDecimal("0.875"),
+    decimalText: "View Full Decimal",
     state: 'TX',
     country: 'USA',
     schoolName: 'Cedar Crest',
@@ -202,7 +209,8 @@ export const levels = [
     id: 3,
     teamType: 'Multi-Player',
     name: 'Jaguar',
-    score: 0.866,
+    score: removeLeadingZeroAndDecimal("0.866"),
+    decimalText: "View Full Decimal",
     state: 'TX',
     country: 'USA',
     schoolName: 'Homeschool',
@@ -211,16 +219,18 @@ export const levels = [
     id: 4,
     teamType: 'Single-Player',
     name: 'Pink Panthers',
-    score: 0.789,
+    score: removeLeadingZeroAndDecimal("0.789"),
+    decimalText: "View Full Decimal",
     state: 'FL',
     country: 'USA',
-    schoolName: 'Easton',
+    schoolName: 'EastonSchool',
   },
   {
     id: 5,
     teamType: 'Multi-Player',
     name: 'Jets',
-    score: 0.89,
+      score: removeLeadingZeroAndDecimal("0.89"),
+      decimalText: "View Full Decimal",
     state: 'PA',
     country: 'USA',
     schoolName: 'Broadbeck',
@@ -229,10 +239,11 @@ export const levels = [
     teamType: 'Single-Player',
     id: 6,
     name: 'Orioles',
-    score: 0.89,
+      score: removeLeadingZeroAndDecimal("0.89"),
+      decimalText: "View Full Decimal",
     state: 'PA',
     country: 'USA',
-    schoolName: 'Camden',
+    schoolName: 'CamdSchool',
   },
 ];
 export const addSuffixToWord = position => {

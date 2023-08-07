@@ -48,6 +48,18 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Medium',
     fontSize: fontSizes.f12,
     color: colors.lightBrown,
+    textAlign:"center"
+  },
+  scoreText2: {
+    fontFamily: 'Oswald-Medium',
+    fontSize: fontSizes.f12,
+    color: colors.purple,
+
+  },
+  scoreText1: {
+    fontFamily: 'Oswald-Medium',
+    fontSize: fontSizes.f12,
+    color: colors.green ,
   },
   outerCircle: {
     height: vh * 6,
@@ -70,5 +82,15 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: vh * 2,
   },
+  textRank: {
+    fontFamily: 'Oswald-Medium',
+  },
+  row:{
+    flexDirection:"row",
+    paddingHorizontal: vw * 4,
+    justifyContent:"space-evenly",
+    marginTop: vh * 1,
+
+  }
 });
 export default styles;
