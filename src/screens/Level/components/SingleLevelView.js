@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import images from '../../../assets/images';
 import {Text} from '../../../components';
 import {addSuffixToWord} from '../../../config';
 import {colors} from '../../../utils/theme';
 import styles from '../styles';
-
-
-
 
 const SingleLevelView = ({
   position,
@@ -20,14 +17,18 @@ const SingleLevelView = ({
   schoolName,
   teamType,
   decimalText,
+  onPressDecimalDetail
 }) => {
+  // function removeLeadingZeroAndDecimal(numberString) {
+  //   return numberString.replace(/^0+(\\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+  // }
 
   function removeLeadingZeroAndDecimal(numberString) {
-    return numberString.replace(/^0+(\.\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+    return numberString.replace(/^0+(\.\d+)?$/, (match, group) =>
+      group ? group : '0',
+    );
   }
-  
 
-  
   return (
     <TouchableOpacity onPress={onPressContainer} style={styles.levelContainer}>
       <View style={styles.levelSubContainer}>
@@ -45,33 +46,37 @@ const SingleLevelView = ({
           />
         </View>
         <View>
-        <Text style={styles.scoreText} text={removeLeadingZeroAndDecimal(score.toString())} />
-        <Text style={styles.scoreText1} text={decimalText} />
+          <Text
+            style={styles.scoreText}
+            text={removeLeadingZeroAndDecimal(score.toString())}
+          />
+          <TouchableOpacity
+            onPress={onPressDecimalDetail}
+            >
+            <Text style={styles.scoreText1} text={decimalText} />
+          </TouchableOpacity>
         </View>
         {listType === 'school' && (
           <View>
-     <Text style={styles.positionText} text={schoolName} />
+            <Text style={styles.positionText} text={schoolName} />
             <Text
               style={[styles.positionText, {color: colors.purple}]}
               text={`${state}, ${country}`}
             />
           </View>
         )}
-      
-          <>
+
+        <>
           <View>
-        <Text style={styles.positionText} text={schoolName} />
+            <Text style={styles.positionText} text={schoolName} />
             <Text
               style={[styles.positionText, {color: colors.purple}]}
               text={`${state}, ${country}`}
             />
-            </View>
-         
-          </>
-        
-
- 
+          </View>
+        </>
       </View>
+
     </TouchableOpacity>
   );
 };

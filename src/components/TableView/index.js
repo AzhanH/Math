@@ -19,7 +19,7 @@ const TableView = ({array, editable = false}) => {
             <Text style={styles.rowText} text={v?.label} />
             <TouchableOpacity disabled={!editable} style={styles.row}>
               <Text style={styles.rowText} text={v?.value} />
-              {editable && (
+              { (v?.editable || editable) && (
                 <Image style={styles.dropDown} source={images.dropDownWhite} />
               )}
             </TouchableOpacity>

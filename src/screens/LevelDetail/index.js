@@ -19,12 +19,15 @@ const LevelDetail = ({route}) => {
           : data?.type == 'state'
           ? 'State Level'
           : 'NATIONAL MATH BEE®',
+      
     },
+    
     {
       label: 'Mode:',
       value: data?.type === 'national' ? 'Division' : 'Addition',
+      editable : true,
     },
-    {label: 'Grade:', value: 'First'},
+    {label: 'Grade:', value: 'First'                        },
     {label: 'State:', value: data?.state},
     {label: 'Country:', value: data?.country},
     {label: 'Last Date of Play:', value: '06/22/2022'},

@@ -162,9 +162,14 @@ export const myTeams = [
   },
 ];
 
+
 function removeLeadingZeroAndDecimal(numberString) {
-  return numberString.replace(/^0+(\.\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+  return numberString.replace(/^0+(\.\d+)?$/, (match, group) => group ? group : '0');
 }
+
+// function removeLeadingZeroAndDecimal(numberString) {
+//   return numberString.replace(/^0+(\.\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+// }
 
 export const scoreBoardButtonList = [
   {id: 1, name: 'CLASSROOM LEVEL', to: 'Levels', params: 'class'},
@@ -172,6 +177,7 @@ export const scoreBoardButtonList = [
   {id: 3, name: 'STATE LEVEL', to: 'Levels', params: 'state'},
   {id: 4, name: 'NATIONAL MATHBEE®', to: 'Levels', params: 'national'},
   {id: 5, name: 'INTERNATONAL MATHBEE®', to: 'Levels', params: 'international'},
+  {id: 6, name: 'PRIVATE ', to: 'Levels', params: 'private'},
 ];
 
 export const options = [
