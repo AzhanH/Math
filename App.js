@@ -23,6 +23,7 @@ const App = () => {
         <RootStack.Navigator screenOptions={{headerShown: false}}>
           <RootStack.Screen name="AuthStack" component={AuthStack} />
           <RootStack.Screen name="MainNavigator" component={DrawerNavigator} />
+        {/* ======================================================================== */}
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
