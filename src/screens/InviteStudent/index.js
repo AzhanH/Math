@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+     import React, {useEffect, useRef} from 'react';
 import {View, Image, Platform} from 'react-native';
 import {
   BackgroundWrapper,
@@ -36,12 +36,12 @@ const InviteStudent = () => {
           placeholder="Last Name"
           retunKeyType="next"
         />
-        <InputField
+        {/* <InputField
           placeholder="User Name"
           viewStyle={styles.input}
           retunKeyType="next"
-        />
-        <View style={styles.row}>
+        /> */}
+        {/* <View style={styles.row}>
           <Image style={styles.infoImage} source={images.info} />
           <Text
             style={styles.warningText}
@@ -49,13 +49,13 @@ const InviteStudent = () => {
               "No more than two consecutive characters from the student's first or last name may be used in the student's Username."
             }
           />
-        </View>
+        </View> */}
         <InputField
           viewStyle={styles.input}
           placeholder="Email Address"
           retunKeyType="next"
         />
-        <ValuePicker
+        {/* <ValuePicker
           placeholder="Choose Class Grade"
           containerStyle={styles.input}
         />
@@ -73,7 +73,7 @@ const InviteStudent = () => {
           containerStyle={styles.input}
           placeholder={'DOB'}
           mode={'date'}
-        />
+        /> */}
         <Button
           onPress={() => inviteSuccessRef.current.show()}
           btnText={'SEND INVITE'}

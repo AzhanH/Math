@@ -95,7 +95,7 @@ const SubscriptionPlans = ({navigation}) => {
               ? 'The standard monthly plan is an automatic-renewal of the monthly subscription price at $1.47 per month. This makes the plan cost $8.82 for a 6-month period, but it renews automatically every month, until the subscription is cancelled.'
               : selecetdType === 'Pro Plan'
               ? 'The Pro-Player plan provides a discount to parents who sign-up for an automatic-renewal of the 6-month subscription at $7.77 for six months. The parent saves $1.05 for buying six months at a time.'
-              : 'No tournament participation.'
+              : 'Begin your 2-week free trial by signing up for FreeTrial. Your card will not be charged during the trial period. Your subscription will automatically renew after the trial period ends.'
           }
         />
       </View>

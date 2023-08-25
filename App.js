@@ -20,7 +20,7 @@ const App = () => {
           translucent
           backgroundColor={'transparent'}
         />
-        {/* code push */}
+        {/* code push         */}
         <RootStack.Navigator screenOptions={{headerShown: false}}>
           <RootStack.Screen name="AuthStack" component={AuthStack} />
           <RootStack.Screen name="MainNavigator" component={DrawerNavigator} />
