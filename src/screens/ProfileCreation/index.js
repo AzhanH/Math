@@ -40,14 +40,15 @@ const ProfileCreation = ({navigation}) => {
           viewStyle={styles.input}
           placeholder="Email Address"
         />
-        <ValuePicker
-          containerStyle={styles.input}
-          placeholder="Chosose Class Grade"
-        />
+   
         <ValuePicker
           containerStyle={styles.input}
           placeholder="Chosose a School"
         />
+        {/* <ValuePicker
+          containerStyle={styles.input}
+          placeholder="Chosose Class Grade"
+        /> */}
         <InputField
           returnKeyType="next"
           viewStyle={styles.input}
