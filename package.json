@@ -8,7 +8,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.11",
@@ -22,7 +23,7 @@
     "@react-navigation/stack": "^6.3.9",
     "@reduxjs/toolkit": "^1.9.3",
     "moment": "^2.29.4",
-    "patch-package": "^6.5.1",
+    "patch-package": "^8.0.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-android-keyboard-adjust": "^1.2.0",

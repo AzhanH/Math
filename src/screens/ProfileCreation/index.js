@@ -210,6 +210,10 @@ const ProfileCreation = ({navigation, route}) => {
           containerStyle={styles.input}
           placeholder="Chosose a School"
         />
+        {/* <ValuePicker
+          containerStyle={styles.input}
+          placeholder="Chosose Class Grade"
+        /> */}
         <InputField
           value={profileData?.add_another_school_name}
           maxLength={40}

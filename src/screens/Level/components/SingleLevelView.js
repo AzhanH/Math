@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import images from '../../../assets/images';
 import {Text} from '../../../components';
@@ -16,7 +16,19 @@ const SingleLevelView = ({
   listType,
   schoolName,
   teamType,
+  decimalText,
+  onPressDecimalDetail
 }) => {
+  // function removeLeadingZeroAndDecimal(numberString) {
+  //   return numberString.replace(/^0+(\\d+)?$/, (match, group) => group ? group.substring(1) : '0');
+  // }
+
+  function removeLeadingZeroAndDecimal(numberString) {
+    return numberString.replace(/^0+(\.\d+)?$/, (match, group) =>
+      group ? group : '0',
+    );
+  }
+
   return (
     <TouchableOpacity onPress={onPressContainer} style={styles.levelContainer}>
       <View style={styles.levelSubContainer}>
@@ -27,35 +39,44 @@ const SingleLevelView = ({
             style={[
               styles.playerType,
               {
-                color: teamType === 'Single-Player' ? colors.green : colors.red,
+                color: teamType === 'Single-Player' ? colors.red : colors.red,
               },
             ]}
             text={teamType}
           />
         </View>
-        <Text style={styles.scoreText} text={score} />
+        <View>
+          <Text
+            style={styles.scoreText}
+            text={removeLeadingZeroAndDecimal(score.toString())}
+          />
+          <TouchableOpacity
+            onPress={onPressDecimalDetail}
+            >
+            <Text style={styles.scoreText1} text={decimalText} />
+          </TouchableOpacity>
+        </View>
         {listType === 'school' && (
           <View>
             <Text style={styles.positionText} text={schoolName} />
             <Text
               style={[styles.positionText, {color: colors.purple}]}
-              text={`${state},${country}`}
+              text={`${state}, ${country}`}
             />
           </View>
         )}
-        {listType === 'class' && (
-          <>
-            <Text style={styles.scoreText} text={state} />
-            <Text style={styles.scoreText} text={country} />
-          </>
-        )}
 
-        <View style={styles.outerCircle}>
-          <TouchableOpacity style={styles.innerCircle}>
-            <Image source={images.eyePeach} />
-          </TouchableOpacity>
-        </View>
+        <>
+          <View>
+            <Text style={styles.positionText} text={schoolName} />
+            <Text
+              style={[styles.positionText, {color: colors.purple}]}
+              text={`${state}, ${country}`}
+            />
+          </View>
+        </>
       </View>
+
     </TouchableOpacity>
   );
 };
