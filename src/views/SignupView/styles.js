@@ -4,7 +4,6 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    marginTop: vh * 2,
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 3,
   },
@@ -12,16 +11,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 
-  forgotView: {
-    alignSelf: 'flex-end',
-  },
-  forgotText: {
-    marginTop: vh,
-    textDecorationLine: 'underline',
-    color: colors.purple,
-    fontSize: fontSizes.f12,
-    fontFamily: 'Renner-it-Book',
-  },
   buttonView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -33,24 +22,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Regular',
     bottom: vh * 5,
   },
-  row: {
+  backText: {
     marginTop: vh,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  dontText: {
-    fontSize: fontSizes.f15,
     fontFamily: 'Renner-it-Book',
-  },
-  signUpText: {
-    fontSize: fontSizes.f15,
-    fontFamily: 'Renner-it-Book',
-    color: colors.purple,
+    fontSize: fontSizes.f12,
+    textAlign: 'center',
     textDecorationLine: 'underline',
-  },
-  marginLeft: {
-    marginLeft: vw,
+    color: colors.purple,
   },
 });
 export default styles;

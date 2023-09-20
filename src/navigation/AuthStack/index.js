@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createStackNavigator} from '@react-navigation/stack';
 import Welcome from '../../screens/Welcome';
 import Login from '../../screens/Login';

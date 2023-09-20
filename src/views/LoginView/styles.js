@@ -1,17 +1,26 @@
 import {StyleSheet} from 'react-native';
-import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
+import {colors} from '../../utils/theme';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    // marginTop: vh * 2,
+    marginTop: vh * 2,
     paddingHorizontal: vw * 3,
     paddingBottom: vh * 3,
   },
   input: {
     width: '100%',
   },
-
+  forgotView: {
+    alignSelf: 'flex-end',
+  },
+  forgotText: {
+    marginTop: vh,
+    textDecorationLine: 'underline',
+    color: colors.purple,
+    fontSize: fontSizes.f12,
+    fontFamily: 'Renner-it-Book',
+  },
   buttonView: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,13 +32,24 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Regular',
     bottom: vh * 5,
   },
-  backText: {
+  row: {
     marginTop: vh,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dontText: {
+    fontSize: fontSizes.f15,
     fontFamily: 'Renner-it-Book',
-    fontSize: fontSizes.f12,
-    textAlign: 'center',
-    textDecorationLine: 'underline',
+  },
+  signUpText: {
+    fontSize: fontSizes.f15,
+    fontFamily: 'Renner-it-Book',
     color: colors.purple,
+    textDecorationLine: 'underline',
+  },
+  marginLeft: {
+    marginLeft: vw,
   },
 });
 export default styles;

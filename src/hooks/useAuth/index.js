@@ -18,7 +18,6 @@ const useAuth = () => {
     try {
       let apiData = validateEmptyInputs(data);
       const res = await dispatch(AuthenticateTeacher(apiData)).unwrap();
-
       dispatch(setUser(res?.data));
       dispatch(setToken(res?.token));
       return res;

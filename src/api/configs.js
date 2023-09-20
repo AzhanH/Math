@@ -1,15 +1,15 @@
 export const urls = {
-  v1: `https://dev74.onlinetestingserver.com/mathbee/api`,
+  v1: `https://custom-dev.onlinetestingserver.com/mathbee_backend/api`,
 };
 export const base_url = urls.v1;
 export const endpoints = {
   auth: {
     signup: '/teacher/register',
     login: '/teacher/login',
-    logout: '/teacher/profile/logout',
-    forgotPassword: '/teacher/forgot-password',
-    verifyCode: '/teacher/email-verification',
-    resetPassword: '/teacher/reset-password',
+    logout: '/teacher/logout',
+    forgotPassword: '/teacher/forget/password',
+    verifyCode: '/teacher/verification',
+    resetPassword: '/teacher/reset/password',
   },
   teacher: {
     register: '/teacher/student/register',
@@ -41,6 +41,7 @@ export const endpoints = {
     getContestDetail: id => `/teacher/contest/details/${id}`,
   },
 };
+
 export default {
   endpoints: endpoints,
   base_url: base_url,
