@@ -1,48 +1,53 @@
 import {useNavigation} from '@react-navigation/core';
-import {useRef, useState} from 'react';
+import {useRef} from 'react';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {useAuthenticateUserMutation} from '../../api/authApis';
-import {validateEmptyInputs} from '../../utils/helperFunctions';
+import * as yup from 'yup';
+import {useDispatch} from 'react-redux';
+import {setToken, setUser} from '../../state/auth';
 
-const useAuthViewModel = () => {
+const useLoginViewModel = () => {
+  const dispatch = useDispatch();
   const [authenticateUser, {isLoading}] = useAuthenticateUserMutation();
   const navigation = useNavigation();
   const passwordRef = useRef(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
 
-  const onChangeEmail = text => setEmail(text);
-  const onChangePassword = text => setPassword(text);
   const onPressForgotPassword = () => navigation.navigate('ForgotPassword');
   const onSubmitEmail = () => passwordRef.current.focus();
+
   const onPressSignup = () => navigation.navigate('Signup');
 
-  const onPressLogin = async () => {
+  const onPressLogin = async apiData => {
     try {
-      const apiData = validateEmptyInputs([
-        {label: 'Email', email},
-        {label: 'Password', password},
-      ]);
       const res = await authenticateUser(apiData).unwrap();
-      console.log('RESSSSS', res);
+      dispatch(setToken(res?.api_token));
+      dispatch(setUser(res));
     } catch (e) {
       console.log('Error', e);
       Toast.error(getMessage(e));
     }
   };
 
+  const validationSchema = yup.object().shape({
+    email: yup.string().email('Invalid Email').required('Email is required'),
+    password: yup.string().required('Passowrd is required'),
+  });
+
+  const initialValues = {
+    email: '',
+    password: '',
+  };
+
   return {
     functions: {
-      onChangeEmail,
-      onChangePassword,
       onSubmitEmail,
       onPressForgotPassword,
       onPressSignup,
       onPressLogin,
     },
     states: {
-      email,
-      password,
+      validationSchema,
+      initialValues,
       loading: isLoading,
     },
     refs: {
@@ -51,4 +56,4 @@ const useAuthViewModel = () => {
   };
 };
 
-export default useAuthViewModel;
+export default useLoginViewModel;

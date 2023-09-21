@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
     height: vh * 3,
     resizeMode: 'contain',
   },
+  errorText: {
+    fontFamily: 'Oswald-Regular',
+    marginLeft: vw * 2,
+    color: colors.red,
+  },
 });
 
 export default styles;

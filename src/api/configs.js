@@ -23,7 +23,7 @@ export const endpoints = {
     privacy: '/privacy-policy',
   },
   profile: {
-    getProfile: '/teacher/profile/index',
+    getProfile: '/teacher/profile',
     createProfile: '/teacher/profile/add',
     getStudentProfile: id => `/teacher/student/details/${id}`,
   },

@@ -12,23 +12,27 @@ const ValuePicker = ({
   placeHolderStyle,
   onPress,
   icon,
+  error,
 }) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={[styles.container, containerStyle]}>
-      <Text
-        style={[
-          styles.placeholder,
-          placeHolderStyle,
-          value && {color: colors.black},
-        ]}
-        text={value ? value : placeholder}
-      />
-      <View style={styles.iconView}>
-        <Image style={styles.icon} source={icon ? icon : images.dropDown} />
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        onPress={onPress}
+        style={[styles.container, containerStyle]}>
+        <Text
+          style={[
+            styles.placeholder,
+            placeHolderStyle,
+            value && {color: colors.black},
+          ]}
+          text={value ? value : placeholder}
+        />
+        <View style={styles.iconView}>
+          <Image style={styles.icon} source={icon ? icon : images.dropDown} />
+        </View>
+      </TouchableOpacity>
+      {error && <Text style={styles.errorText} text={error} />}
+    </View>
   );
 };
 

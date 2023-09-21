@@ -9,7 +9,7 @@ const logRequestUrlMiddleware =
     return baseQuery(args, api, extraOptions);
   };
 export const authApi = createApi({
-  reducerPath: 'auth',
+  reducerPath: 'authApi',
   baseQuery: logRequestUrlMiddleware(fetchBaseQuery({baseUrl: base_url})),
   endpoints: builder => ({
     authenticateUser: builder.mutation({
