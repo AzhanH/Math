@@ -4,14 +4,20 @@ import images from '../../assets/images';
 import {BackgroundWrapper, Button, Loader, Text} from '../../components';
 import styles from './styles';
 
-const ProfileView = ({data, student, loading}) => {
-  //   const renderFields = () =>
-  //     data?.map((v, i) => (
-  //       <View key={i} style={styles.renderFieldsContainerStyle}>
-  //         <Text style={styles.label} text={v?.title} />
-  //         <Text numberOfLines={1} style={styles.value} text={v?.value} />
-  //       </View>
-  //     ));
+const ProfileView = ({
+  dataArray,
+  student,
+  onPressChangePassword,
+  onPressEditProfile,
+  loading = false,
+}) => {
+  const renderFields = () =>
+    dataArray?.map((v, i) => (
+      <View key={i} style={styles.renderFieldsContainerStyle}>
+        <Text style={styles.label} text={v?.title} />
+        <Text numberOfLines={1} style={styles.value} text={v?.value} />
+      </View>
+    ));
 
   return (
     <BackgroundWrapper>
@@ -25,10 +31,10 @@ const ProfileView = ({data, student, loading}) => {
               style={styles.image}
             />
           </View>
-          {/* <View style={styles.fieldsContainer}>{renderFields()}</View> */}
+          <View style={styles.fieldsContainer}>{renderFields()}</View>
           <View style={styles.btnContainer}>
-            <Button btnText={'EDIT PROFILE'} />
-            <TouchableOpacity>
+            <Button onPress={onPressEditProfile} btnText={'EDIT PROFILE'} />
+            <TouchableOpacity onPress={onPressChangePassword}>
               <Text style={styles.changePassword} text={'Change Password'} />
             </TouchableOpacity>
           </View>

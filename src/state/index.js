@@ -7,6 +7,8 @@ import general from './general';
 import auth from './auth';
 import {authApi} from '../api/authApis';
 import {profileApi} from '../api/profileApis';
+import {teacherApi} from '../api/teacherApis';
+import {generalApi} from '../api/generalApis';
 const persistedConfig = {
   key: 'MathBee',
   storage: AsyncStorage,
@@ -14,6 +16,7 @@ const persistedConfig = {
 const reducers = combineReducers({
   authApi: authApi.reducer,
   profileApi: profileApi.reducer,
+  teacherApi: teacherApi.reducer,
   auth,
   general,
 });
@@ -26,6 +29,7 @@ export const store = configureStore({
       thunk,
       authApi.middleware,
       profileApi.middleware,
+      teacherApi.middleware,
     ]);
   },
   devTools: process.env.NODE_ENV !== 'production',

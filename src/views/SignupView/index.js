@@ -49,7 +49,11 @@ const Signup = ({
                 viewStyle={styles.input}
                 returnKeyType="next"
                 placeholder="First Name"
-                error={errors?.first_name}
+                error={
+                  touched?.first_name &&
+                  errors?.first_name &&
+                  errors?.first_name
+                }
                 onSubmitEditing={onSubmitFirstName}
               />
               <InputField

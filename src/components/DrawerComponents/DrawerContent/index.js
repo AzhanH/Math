@@ -9,6 +9,7 @@ import Text from '../../Text';
 import Button from '../../Button';
 import CustomModal from '../../CustomModal';
 import {useAuth} from '../../../hooks';
+import {useSelector} from 'react-redux';
 
 const drawerRoutes = [
   {
@@ -61,7 +62,7 @@ const DrawerContent = props => {
     }
   }, [isCollapsed]);
 
-  const {logoutUser, user} = useAuth();
+  const {logoutUser, user} = useSelector(state => state.auth);
   const [loading, setLoading] = useState(false);
 
   return (
@@ -74,7 +75,11 @@ const DrawerContent = props => {
           <Text style={styles.hello} text={'HELLO'} />
           <Text
             style={styles.userNameText}
-            text={user?.full_name?.toUpperCase()}
+            text={
+              user?.first_name?.toUpperCase() +
+              ' ' +
+              user?.last_name?.toUpperCase()
+            }
           />
         </View>
 

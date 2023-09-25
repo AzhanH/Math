@@ -3,9 +3,16 @@ import ProfileView from '../../views/ProfileView';
 import useProfileModelView from '../../viewmodels/useProfileModelView';
 
 const Profile = () => {
-  const {states} = useProfileModelView();
-
-  const {data, isLoading} = states;
-  return <ProfileView loading={isLoading} userData={data} />;
+  const {states, functions} = useProfileModelView();
+  const {isLoading, dataArray} = states;
+  const {onPressChangePassword, onPressEditProfile} = functions;
+  return (
+    <ProfileView
+      onPressChangePassword={onPressChangePassword}
+      onPressEditProfile={onPressEditProfile}
+      dataArray={dataArray}
+      loading={isLoading}
+    />
+  );
 };
 export default Profile;

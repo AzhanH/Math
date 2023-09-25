@@ -13,26 +13,29 @@ const DatePicker = ({
   mode,
   onPressConfirm,
   min,
+  error,
 }) => {
   const [show, setShow] = useState(false);
   return (
-    <TouchableOpacity
-      onPress={() => setShow(true)}
-      style={[styles.container, containerStyle]}>
-      <Text
-        style={[
-          styles.placeholder,
-          placeHolderStyle,
-          value && {color: colors.black},
-        ]}
-        text={value ? value : placeholder}
-      />
-      <View style={styles.iconView}>
-        <Image
-          style={styles.icon}
-          source={mode == 'date' ? images.calender : images.timeBlue}
+    <View>
+      <TouchableOpacity
+        onPress={() => setShow(true)}
+        style={[styles.container, containerStyle]}>
+        <Text
+          style={[
+            styles.placeholder,
+            placeHolderStyle,
+            value && {color: colors.black},
+          ]}
+          text={value ? value : placeholder}
         />
-      </View>
+        <View style={styles.iconView}>
+          <Image
+            style={styles.icon}
+            source={mode == 'date' ? images.calender : images.timeBlue}
+          />
+        </View>
+      </TouchableOpacity>
       <DateTimePickerModal
         minimumDate={min ? min : null}
         onConfirm={date => {
@@ -43,7 +46,8 @@ const DatePicker = ({
         isVisible={show}
         mode={mode}
       />
-    </TouchableOpacity>
+      {error && <Text style={styles.errorText} text={error} />}
+    </View>
   );
 };
 

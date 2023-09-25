@@ -2,8 +2,8 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {base_url, endpoints} from './configs';
 
 const getToken = state => state.auth.token;
-export const profileApi = createApi({
-  reducerPath: 'profileApi',
+export const teacherApi = createApi({
+  reducerPath: 'teacherApi',
   baseQuery: fetchBaseQuery({
     baseUrl: base_url,
     prepareHeaders: (headers, {getState}) => {
@@ -15,27 +15,27 @@ export const profileApi = createApi({
     },
   }),
   endpoints: builder => ({
-    getProfile: builder.query({
-      query: () => {
-        const requestUrl = `GET====>${base_url}${endpoints.profile.getProfile}`;
-        console.log(requestUrl);
-        return endpoints.profile.getProfile;
-      },
-      transformResponse: response => response?.data,
-    }),
-    updatePassword: builder.mutation({
+    sendInvite: builder.mutation({
       query: data => {
-        const requestUrl = `POST====>${base_url}${endpoints.profile.changePassword}`;
+        const requestUrl = `POST====>${base_url}${endpoints.teacher.sendStudentInvite}`;
         console.log(requestUrl);
         return {
-          url: endpoints.profile.changePassword,
+          url: endpoints.teacher.sendStudentInvite,
           method: 'POST',
           body: data,
         };
       },
       transformErrorResponse: response => response?.data,
     }),
+    getMyStudents: builder.query({
+      query: () => {
+        const requestUrl = `GET====>${base_url}${endpoints.teacher.getMyStudents}`;
+        console.log(requestUrl);
+        return endpoints.teacher.getMyStudents;
+      },
+      transformResponse: response => response?.data,
+    }),
   }),
 });
 
-export const {useGetProfileQuery, useUpdatePasswordMutation} = profileApi;
+export const {useSendInviteMutation, useGetMyStudentsQuery} = teacherApi;

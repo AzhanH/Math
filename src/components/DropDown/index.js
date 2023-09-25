@@ -39,16 +39,15 @@ const DropDown = ({
       />
     </TouchableOpacity>
   );
-  const ListHeaderComponent = (
-    <Text style={styles.placeholder} text={placeholder} />
-  );
+
   return (
     <Modal transparent visible={visible}>
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={styles.mainView}>
           <View style={styles.subView}>
+            <Text style={styles.placeholder} text={placeholder} />
             <FlatList
-              ListHeaderComponent={ListHeaderComponent}
+              showsVerticalScrollIndicator={false}
               style={{marginTop: vh * 2}}
               key="dropdownlist"
               renderItem={renderItem}

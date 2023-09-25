@@ -1,30 +1,26 @@
 import React from 'react';
-import {View} from 'react-native';
-import {BackgroundWrapper, Button, InputField} from '../../components';
-import styles from './styles';
+import ChangePasswordView from '../../views/ChangePassowordView';
+import useChangePasswordModelView from '../../viewmodels/useChangePasswordModelView';
 
-const ChangePassword = ({navigation}) => {
+const ChangePassword = () => {
+  const {functions, refs, states} = useChangePasswordModelView();
+  const {onSubmitCurrentPasswrod, onSubmitNewPassword, onPressUpdate} =
+    functions;
+  const {confimrPasswordRef, newPassworRef} = refs;
+
+  const {initialValues, validationSchema, isLoading} = states;
+
   return (
-    <BackgroundWrapper>
-      <View style={styles.mainView}>
-        <InputField
-          placeholder="Current Password"
-          viewStyle={styles.inputView}
-          secureTextEntry
-        />
-        <InputField
-          placeholder="New Password"
-          viewStyle={styles.inputView}
-          secureTextEntry
-        />
-        <InputField
-          placeholder="Confirm Password"
-          viewStyle={styles.inputView}
-          secureTextEntry
-        />
-        <Button btnText={'UPDATE'} />
-      </View>
-    </BackgroundWrapper>
+    <ChangePasswordView
+      updatePassword={onPressUpdate}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      confimrPasswordRef={confimrPasswordRef}
+      newPassworRef={newPassworRef}
+      onSubmitCurrentPasswrod={onSubmitCurrentPasswrod}
+      onSubmitNewPassword={onSubmitNewPassword}
+      isLoading={isLoading}
+    />
   );
 };
 export default ChangePassword;

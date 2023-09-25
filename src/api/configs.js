@@ -12,7 +12,8 @@ export const endpoints = {
     resetPassword: '/teacher/reset/password',
   },
   teacher: {
-    register: '/teacher/student/register',
+    sendStudentInvite: '/teacher/student/send_invite',
+    getMyStudents: '/teacher/student/list',
   },
   general: {
     getGeneralData: '/general',
@@ -23,9 +24,17 @@ export const endpoints = {
     privacy: '/privacy-policy',
   },
   profile: {
+    changePassword: '/teacher/change/password',
     getProfile: '/teacher/profile',
     createProfile: '/teacher/profile/add',
     getStudentProfile: id => `/teacher/student/details/${id}`,
+  },
+  general: {
+    allClasess: '/general/class',
+    allCountries: '/general/countries',
+    allLevels: '/general/competition_levels',
+    allModes: '/general/modes',
+    allSchools: '/general/schools',
   },
   teams: {
     createTeam: '/teacher/team/create-team',
