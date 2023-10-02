@@ -1,12 +1,15 @@
 import {useRef} from 'react';
 import * as yup from 'yup';
-import {useUpdatePasswordMutation} from '../../api/profileApis';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {useNavigation} from '@react-navigation/native';
+import {UpdatePassword} from '../../state/profile';
+import {useDispatch} from 'react-redux';
+import {useState} from 'react';
 
 const useChangePasswordModelView = () => {
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [updatePassword, {isLoading}] = useUpdatePasswordMutation();
   const newPassworRef = useRef(null);
   const confimrPasswordRef = useRef(null);
 
@@ -17,12 +20,15 @@ const useChangePasswordModelView = () => {
 
   const onPressUpdate = async apiData => {
     try {
-      const res = await updatePassword(apiData).unwrap();
+      setLoading(true);
+      const res = await dispatch(UpdatePassword(apiData)).unwrap();
       if (res?.message) {
         Toast.success(res?.message);
       }
+      setLoading(false);
       goBack();
     } catch (e) {
+      setLoading(false);
       Toast.error(getMessage(e));
       console.log('Error', e);
     }
@@ -59,7 +65,7 @@ const useChangePasswordModelView = () => {
       confimrPasswordRef,
     },
     states: {
-      isLoading,
+      loading,
       initialValues,
       validationSchema,
     },

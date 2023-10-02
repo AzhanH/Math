@@ -24,7 +24,9 @@ const ProfileView = ({
       {loading ? (
         <Loader />
       ) : (
-        <ScrollView contentContainerStyle={styles.btnContainer}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.btnContainer}>
           <View style={styles.imageContainer}>
             <Image
               source={student?.image ? student?.image : images.childImage1}

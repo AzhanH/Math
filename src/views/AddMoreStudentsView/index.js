@@ -1,10 +1,9 @@
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {SearchBar} from 'react-native-screens';
-import {BackgroundWrapper, SinglePlayerView} from '../../components';
+import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
 import styles from './styles';
 
-const RegisteredStudentsView = ({
+const AddMoreStudents = ({
   data,
   loading,
   backgroundColors,
@@ -18,24 +17,20 @@ const RegisteredStudentsView = ({
       playerName={item?.first_name + ' ' + item?.last_name}
       playerId={item?.username}
       grade={item?.class_grade?.class_grade}
-      btnName="VIEW PROFILE"
+      btnName="ADD"
       image={item?.image_path}
       color={backgroundColors[index]}
       key={index}
     />
   );
 
-  const listHeaderComponet = (
-    <SearchBar style={styles.searchView} placeholder="Search a name" />
-  );
-
   return (
     <BackgroundWrapper>
+      <SearchBar style={styles.searchView} placeholder="Search a name" />
       <FlatList
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
-        ListHeaderComponent={listHeaderComponet}
         data={data}
         contentContainerStyle={styles.contentContainer}
         style={styles.container}
@@ -45,4 +40,4 @@ const RegisteredStudentsView = ({
     </BackgroundWrapper>
   );
 };
-export default RegisteredStudentsView;
+export default AddMoreStudents;

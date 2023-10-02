@@ -1,75 +1,22 @@
-import React, {useRef} from 'react';
-import {FlatList, Image, TouchableOpacity, View} from 'react-native';
-import images from '../../assets/images';
-import {
-  BackgroundWrapper,
-  CustomModal,
-  SinglePlayerView,
-  Text,
-} from '../../components';
-import {classes} from '../../config';
-import styles from './styles';
+import React from 'react';
+import TeamDetailView from '../../views/TeamDetailView';
+import useTeamDetailView from '../../viewmodels/useTeamDetailView';
 
-const TeamDetail = ({navigation, route}) => {
-  const {data} = route?.params;
-
-  const modalRef = useRef(null);
-  const renderItem = ({item, index}) => (
-    <SinglePlayerView
-      playerName={item?.name}
-      playerId={item?.playerId}
-      grade={item?.grade}
-      onPressViewDetail={() =>
-        navigation.navigate('ProfileStack', {
-          screen: 'Profile',
-          params: {data: item},
-        })
-      }
-      btnName="VIEW DETAIL"
-      image={item?.image}
-      color={item?.color}
-      key={index}
-    />
-  );
-
-  const listHeaderComponet = (
-    <View style={styles.row}>
-      <View>
-        <Text style={styles.teamName} text={data?.name?.toUpperCase()} />
-        <Text
-          style={styles.updatedText}
-          text={`Last Updated On: ${'Aug 4, 2022'}`}
-        />
-      </View>
-
-      <TouchableOpacity
-        onPress={() => {
-          //uncomment to opent modal
-          // modalRef.current.show();
-          navigation.navigate('CreateAndEditTeam', {type: 'Edit'});
-        }}>
-        <Image source={images.edit} />
-      </TouchableOpacity>
-    </View>
-  );
+const TeamDetail = ({route}) => {
+  const {functions, states, ref} = useTeamDetailView({route});
+  const {loadData, onPressViewDetail, onPressEdit} = functions;
+  const {loading, data, backgroundColor} = states;
+  const {modalRef} = ref;
   return (
-    <BackgroundWrapper>
-      <FlatList
-        ListHeaderComponent={listHeaderComponet}
-        data={classes}
-        contentContainerStyle={styles.contentContainer}
-        style={styles.container}
-        renderItem={renderItem}
-      />
-      <CustomModal
-        ref={modalRef}
-        heading={'oops!!'}
-        subHeading={
-          "You can't edit team because the contest is already underway"
-        }
-        image={images.danger}
-      />
-    </BackgroundWrapper>
+    <TeamDetailView
+      onPressViewDetail={onPressViewDetail}
+      data={data}
+      onPressEdit={onPressEdit}
+      loadData={loadData}
+      loading={loading}
+      backgroundColor={backgroundColor}
+      modalRef={modalRef}
+    />
   );
 };
 export default TeamDetail;

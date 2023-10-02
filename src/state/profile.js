@@ -1,10 +1,10 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-import {get} from '../api';
+import {get, post} from '../api';
 import {endpoints} from '../api/configs';
 
 export const GetStudentProfile = createAsyncThunk(
-  '/teacher/auth/login',
+  '/teacher/student/profile',
   async id => {
     try {
       let response = await get(endpoints.profile.getStudentProfile(id));
@@ -14,7 +14,7 @@ export const GetStudentProfile = createAsyncThunk(
     }
   },
 );
-export const GetProfile = createAsyncThunk('/teacher/auth/login', async () => {
+export const GetProfile = createAsyncThunk('/teacher/profile', async () => {
   try {
     let response = await get(endpoints.profile.getProfile);
     return response;
@@ -22,3 +22,14 @@ export const GetProfile = createAsyncThunk('/teacher/auth/login', async () => {
     throw new Error(error);
   }
 });
+export const UpdatePassword = createAsyncThunk(
+  '/teacher/update-password',
+  async data => {
+    try {
+      let response = await post(endpoints.profile.changePassword, data, false);
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);

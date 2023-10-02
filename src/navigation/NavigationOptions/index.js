@@ -21,6 +21,7 @@ const titles = {
   MyTeams: 'My Teams',
   TeamDetail: 'Team Detail',
   CreateAndEditTeam: 'Create Team',
+  AddMoreStudents: 'Add Students',
   //ScoreBoard
   ScoreBoardList: 'ScoreBoard List',
   ScoreBoardList: 'ScoreBoard List',
@@ -40,6 +41,7 @@ const titles = {
 };
 
 const backBtnRoutes = {
+  AddMoreStudents: true,
   InviteStudent: true,
   ContestDetail: true,
   InviteParents: true,

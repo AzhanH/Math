@@ -4,15 +4,17 @@ import useRegisteredStudentsModelView from '../../viewmodels/useRegisteredStuden
 
 const RegisteredStudents = () => {
   const {states, functions} = useRegisteredStudentsModelView();
-  const {isLoading, data, backgroundColors} = states;
-  const {onPressViewDetail} = functions;
+  const {loading, data, backgroundColors} = states;
+  const {onPressViewDetail, loadData, onEndReached} = functions;
 
   return (
     <RegisteredStudentsView
       onPressViewDetail={onPressViewDetail}
       backgroundColors={backgroundColors}
+      onEndReached={onEndReached}
       data={data?.data}
-      loading={isLoading}
+      loadData={loadData}
+      loading={loading}
     />
   );
 };

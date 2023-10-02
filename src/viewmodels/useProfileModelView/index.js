@@ -1,8 +1,35 @@
-import {useNavigation} from '@react-navigation/native';
-import {useGetProfileQuery} from '../../api/profileApis';
-const useProfileModelView = () => {
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useCallback, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {GetProfile, GetStudentProfile} from '../../state/profile';
+import {Toast, getMessage} from '../../api/APIHelpers';
+const useProfileModelView = ({route}) => {
+  const id = route?.params?.id;
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(null);
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, [id]),
+  );
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      const res = await dispatch(
+        id ? GetStudentProfile(id) : GetProfile(),
+      ).unwrap();
+      setData(res?.data);
+      setLoading(false);
+      return res;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      setLoading(false);
+      console.log('Error', e);
+    }
+  };
+
   const navigation = useNavigation();
-  const {data, isLoading} = useGetProfileQuery();
   const dataArray = [
     {
       title: 'First Name:',
@@ -51,7 +78,7 @@ const useProfileModelView = () => {
   return {
     states: {
       data,
-      isLoading,
+      loading,
       dataArray,
     },
     functions: {

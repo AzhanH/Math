@@ -8,7 +8,7 @@ const ChangePassword = () => {
     functions;
   const {confimrPasswordRef, newPassworRef} = refs;
 
-  const {initialValues, validationSchema, isLoading} = states;
+  const {initialValues, validationSchema, loading} = states;
 
   return (
     <ChangePasswordView
@@ -19,7 +19,7 @@ const ChangePassword = () => {
       newPassworRef={newPassworRef}
       onSubmitCurrentPasswrod={onSubmitCurrentPasswrod}
       onSubmitNewPassword={onSubmitNewPassword}
-      isLoading={isLoading}
+      isLoading={loading}
     />
   );
 };

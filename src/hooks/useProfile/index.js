@@ -69,10 +69,12 @@ const useProfile = () => {
       throw new Error(e);
     }
   };
+
   return {
     getProfile,
     createProfile,
     getStudentProfile,
+    changePassword,
   };
 };
 

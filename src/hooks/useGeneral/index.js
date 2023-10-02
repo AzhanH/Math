@@ -54,7 +54,6 @@ const useGeneral = () => {
       throw new Error(e);
     }
   };
-
   const getAllStudents = async () => {
     try {
       let res = await dispatch(GetAllStudents()).unwrap();
@@ -76,7 +75,6 @@ const useGeneral = () => {
       throw new Error(e);
     }
   };
-
   const getGeneralData = async () => {
     try {
       let res = await dispatch(GetGeneralData()).unwrap();
@@ -86,6 +84,7 @@ const useGeneral = () => {
       throw new Error(e);
     }
   };
+
   return {
     getTerms,
     contactUs,

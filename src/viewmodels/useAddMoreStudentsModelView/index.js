@@ -4,7 +4,8 @@ import {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {GetAllRegisteredStudents} from '../../state/teacher';
 
-const useRegisteredStudentsModelView = () => {
+const useAddMoreStudentsModelView = ({route}) => {
+  const players = route?.params?.players;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,9 +25,9 @@ const useRegisteredStudentsModelView = () => {
       const res = await dispatch(GetAllRegisteredStudents({page})).unwrap();
       setLastPage(res?.lastPage);
       if (page > 1 && res?.lastPage <= page) {
-        setData([...data, ...res?.data]);
+        setData([...data, ...res?.data?.data]);
       } else {
-        setData(res?.data);
+        setData(res?.data?.data);
       }
       setLoading(false);
     } catch (e) {
@@ -53,6 +54,23 @@ const useRegisteredStudentsModelView = () => {
       params: {id},
     });
   };
+
+  const returnUniquePlayers = () => {
+    let array = [];
+    if (data?.length > 0 && players?.length > 0) {
+      data?.forEach(element => {
+        let isUnique = players?.every(
+          _element => _element?.user_id !== element?.id,
+        );
+        if (isUnique) {
+          array.push(element);
+        }
+      });
+    }
+    console.log('array', array.length);
+  };
+  returnUniquePlayers();
+
   return {
     functions: {
       onPressViewDetail,
@@ -61,10 +79,10 @@ const useRegisteredStudentsModelView = () => {
     },
     states: {
       loading,
-      data,
+      data: data,
       backgroundColors,
     },
   };
 };
 
-export default useRegisteredStudentsModelView;
+export default useAddMoreStudentsModelView;

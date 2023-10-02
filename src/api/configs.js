@@ -15,19 +15,11 @@ export const endpoints = {
     sendStudentInvite: '/teacher/student/send_invite',
     getMyStudents: '/teacher/student/list',
   },
-  general: {
-    getGeneralData: '/general',
-    getAllStudents: '/teacher/student/index',
-    getAllTeachers: '/teacher/contest/teachers',
-    contactUs: '/contact-us',
-    terms: '/terms-and-conditons',
-    privacy: '/privacy-policy',
-  },
   profile: {
     changePassword: '/teacher/change/password',
     getProfile: '/teacher/profile',
     createProfile: '/teacher/profile/add',
-    getStudentProfile: id => `/teacher/student/details/${id}`,
+    getStudentProfile: id => `/teacher/student/profile/${id}`,
   },
   general: {
     allClasess: '/general/class',
@@ -39,6 +31,7 @@ export const endpoints = {
   teams: {
     createTeam: '/teacher/team/create-team',
     getAllTeams: '/teacher/team/index',
+    getTeamDetail: id => `/teacher/team/details/${id}`,
   },
   plans: {
     subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,

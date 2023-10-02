@@ -2,16 +2,16 @@ import React from 'react';
 import ProfileView from '../../views/ProfileView';
 import useProfileModelView from '../../viewmodels/useProfileModelView';
 
-const Profile = () => {
-  const {states, functions} = useProfileModelView();
-  const {isLoading, dataArray} = states;
+const Profile = ({route}) => {
+  const {states, functions} = useProfileModelView({route});
+  const {loading, dataArray} = states;
   const {onPressChangePassword, onPressEditProfile} = functions;
   return (
     <ProfileView
       onPressChangePassword={onPressChangePassword}
       onPressEditProfile={onPressEditProfile}
       dataArray={dataArray}
-      loading={isLoading}
+      loading={loading}
     />
   );
 };

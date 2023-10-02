@@ -19,8 +19,18 @@ export const GetAllTeams = createAsyncThunk(
   async data => {
     try {
       let response = await get(endpoints.teams.getAllTeams, data);
-
-      return response;
+      return response?.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
+export const GetTeamDetail = createAsyncThunk(
+  '/teacher/team/detail',
+  async id => {
+    try {
+      let response = await get(endpoints.teams.getTeamDetail(id));
+      return response?.data;
     } catch (error) {
       throw new Error(error);
     }

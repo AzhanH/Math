@@ -6,16 +6,13 @@ import thunk from 'redux-thunk';
 import general from './general';
 import auth from './auth';
 import {authApi} from '../api/authApis';
-import {profileApi} from '../api/profileApis';
 import {teacherApi} from '../api/teacherApis';
-import {generalApi} from '../api/generalApis';
 const persistedConfig = {
   key: 'MathBee',
   storage: AsyncStorage,
 };
 const reducers = combineReducers({
   authApi: authApi.reducer,
-  profileApi: profileApi.reducer,
   teacherApi: teacherApi.reducer,
   auth,
   general,
@@ -28,7 +25,6 @@ export const store = configureStore({
     return getDefaultMiddleware({serializableCheck: false}).concat([
       thunk,
       authApi.middleware,
-      profileApi.middleware,
       teacherApi.middleware,
     ]);
   },
