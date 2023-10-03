@@ -2,25 +2,33 @@ import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
 import styles from './styles';
-
 const AddMoreStudents = ({
   data,
   loading,
   backgroundColors,
-  onPressViewDetail,
   loadData,
   onEndReached,
+  selectedIndex,
+  addLoading,
+  onPressAdd,
 }) => {
   const renderItem = ({item, index}) => (
     <SinglePlayerView
-      onPressViewDetail={() => onPressViewDetail(item?.id)}
+      key={index}
+      onPressButton={() => {
+        if (!item?.added) {
+          onPressAdd(index, item);
+        }
+      }}
+      selectedIndex={selectedIndex}
+      loading={addLoading}
+      index={index}
       playerName={item?.first_name + ' ' + item?.last_name}
-      playerId={item?.username}
+      playerId={item?.id}
       grade={item?.class_grade?.class_grade}
-      btnName="ADD"
+      btnName={item?.added ? 'ADDED' : 'ADD'}
       image={item?.image_path}
       color={backgroundColors[index]}
-      key={index}
     />
   );
 

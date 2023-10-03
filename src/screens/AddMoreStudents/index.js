@@ -3,14 +3,16 @@ import AddMoreStudentsView from '../../views/AddMoreStudentsView';
 import useAddMoreStudentsModelView from '../../viewmodels/useAddMoreStudentsModelView';
 const AddMoreStudents = ({route}) => {
   const {states, functions} = useAddMoreStudentsModelView({route});
-  const {loading, data, backgroundColors} = states;
-  const {onPressViewDetail, loadData, onEndReached} = functions;
+  const {loading, data, backgroundColors, selectedIndex, addLoading} = states;
+  const {loadData, onEndReached, onPressAdd} = functions;
 
   return (
     <AddMoreStudentsView
-      onPressViewDetail={onPressViewDetail}
+      selectedIndex={selectedIndex}
+      addLoading={addLoading}
       backgroundColors={backgroundColors}
       onEndReached={onEndReached}
+      onPressAdd={onPressAdd}
       data={data}
       loadData={loadData}
       loading={loading}

@@ -5,6 +5,7 @@ import Text from '../Text';
 import Button from '../Button';
 import images from '../../assets/images';
 import {vh, vw} from '../../utils/units';
+import Loader from '../Loader';
 const SinglePlayerView = ({
   image,
   color,
@@ -15,6 +16,9 @@ const SinglePlayerView = ({
   playerId,
   playerName,
   grade,
+  selectedIndex,
+  index,
+  loading,
 }) => {
   return (
     <View style={[styles.mainView, {backgroundColor: color}]}>
@@ -32,14 +36,18 @@ const SinglePlayerView = ({
             />
             <Text style={styles.player} text={playerName} />
             <Text style={[styles.player, styles.grade]} text={grade} />
-            <Button
-              onPress={onPressButton}
-              containerStyle={{marginTop: vw * 2}}
-              style={{height: vh * 4}}
-              textStyle={styles.btnText}
-              btnText={btnName ? btnName : 'EDIT PROFILE'}
-              reducedSize
-            />
+            {selectedIndex === index && loading ? (
+              <Loader />
+            ) : (
+              <Button
+                onPress={onPressButton}
+                containerStyle={{marginTop: vw * 2}}
+                style={{height: vh * 4}}
+                textStyle={styles.btnText}
+                btnText={btnName ? btnName : 'EDIT PROFILE'}
+                reducedSize
+              />
+            )}
           </View>
           <View style={{width: '45%'}}>
             {showBin && (

@@ -1,17 +1,22 @@
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
 import {colors} from '../../utils/theme';
 import {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {GetAllRegisteredStudents} from '../../state/teacher';
+import {Toast, getMessage} from '../../api/APIHelpers';
+import {AddStudentsToTeam} from '../../state/teams';
 
 const useAddMoreStudentsModelView = ({route}) => {
   const players = route?.params?.players;
+  const teamId = route?.params?.teamId;
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [lastPage, setLastPage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [addLoading, setAddLoading] = useState(false);
+
   const [page, setPage] = useState(1);
-  const navigation = useNavigation();
 
   useFocusEffect(
     useCallback(() => {
@@ -25,9 +30,11 @@ const useAddMoreStudentsModelView = ({route}) => {
       const res = await dispatch(GetAllRegisteredStudents({page})).unwrap();
       setLastPage(res?.lastPage);
       if (page > 1 && res?.lastPage <= page) {
-        setData([...data, ...res?.data?.data]);
+        const _data = returnUniquePlayers([...data, ...res?.data?.data]);
+        setData(_data);
       } else {
-        setData(res?.data?.data);
+        const _data = returnUniquePlayers(res?.data?.data);
+        setData(_data);
       }
       setLoading(false);
     } catch (e) {
@@ -48,14 +55,7 @@ const useAddMoreStudentsModelView = ({route}) => {
     3: colors.sky,
   };
 
-  const onPressViewDetail = id => {
-    navigation.navigate('ProfileStack', {
-      screen: 'Profile',
-      params: {id},
-    });
-  };
-
-  const returnUniquePlayers = () => {
+  const returnUniquePlayers = data => {
     let array = [];
     if (data?.length > 0 && players?.length > 0) {
       data?.forEach(element => {
@@ -66,18 +66,44 @@ const useAddMoreStudentsModelView = ({route}) => {
           array.push(element);
         }
       });
+      return array;
     }
-    console.log('array', array.length);
   };
-  returnUniquePlayers();
+
+  const onPressAdd = async (index, item) => {
+    try {
+      let apiData = {
+        user_id: item?.id,
+        team_id: teamId,
+      };
+      if (players?.length < 4) {
+        setSelectedIndex(index);
+        setAddLoading(true);
+        await dispatch(AddStudentsToTeam(apiData)).unwrap();
+        setAddLoading(false);
+        setSelectedIndex(null);
+        let temp = [...data];
+        temp[index].added = true;
+        setData(temp);
+      } else {
+        throw new Error('Only 4 Players can be added');
+      }
+    } catch (e) {
+      setAddLoading(false);
+      setSelectedIndex(null);
+      Toast.error(getMessage(e));
+    }
+  };
 
   return {
     functions: {
-      onPressViewDetail,
       loadData,
       onEndReached,
+      onPressAdd,
     },
     states: {
+      selectedIndex,
+      addLoading,
       loading,
       data: data,
       backgroundColors,

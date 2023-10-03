@@ -41,7 +41,7 @@ const useTeamDetailView = ({route}) => {
     navigation.navigate('CreateAndEditTeam', {
       type: 'Edit',
       teamTitle: data?.title,
-      players: data?.students,
+      id,
     });
   };
 

@@ -11,8 +11,9 @@ const CreateAndEditTeam = ({route}) => {
     type,
     page,
     teamName,
+    deleteLoading,
     addEditLoading,
-    players,
+    selectedDeleteIndex,
   } = states;
   const {
     loadData,
@@ -35,9 +36,10 @@ const CreateAndEditTeam = ({route}) => {
       loading={loading}
       data={data}
       type={type}
-      players={players}
+      selectedDeleteIndex={selectedDeleteIndex}
       onPressRemove={onPressRemove}
       page={page}
+      deleteLoading={deleteLoading}
       onPressAdd={onPressAdd}
       onPressAddMore={onPressAddMore}
       onPressCreateTeam={onPressCreateTeam}

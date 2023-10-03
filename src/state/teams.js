@@ -14,6 +14,17 @@ export const CreateTeam = createAsyncThunk(
     }
   },
 );
+export const AddStudentsToTeam = createAsyncThunk(
+  '/teacher/add/student',
+  async data => {
+    try {
+      let response = await post(endpoints.teams.addStudentToTeam, data, true);
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
 export const GetAllTeams = createAsyncThunk(
   '/teacher/teams/all',
   async data => {
@@ -30,6 +41,17 @@ export const GetTeamDetail = createAsyncThunk(
   async id => {
     try {
       let response = await get(endpoints.teams.getTeamDetail(id));
+      return response?.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
+export const DeleteStudent = createAsyncThunk(
+  '/teacher/team/delete',
+  async id => {
+    try {
+      let response = await get(endpoints.teams.removePlayerFromTeam(id));
       return response?.data;
     } catch (error) {
       throw new Error(error);

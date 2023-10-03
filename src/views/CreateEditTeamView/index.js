@@ -18,7 +18,6 @@ const CreateEditTeamView = ({
   loading,
   data,
   type,
-  players,
   onPressOk,
   backgroundColors,
   onPressAdd,
@@ -30,9 +29,14 @@ const CreateEditTeamView = ({
   addEditLoading,
   onChangeTeamName,
   onPressAddMore,
+  selectedDeleteIndex,
+  deleteLoading,
 }) => {
   const renderItem = ({item, index}) => (
     <SinglePlayerView
+      selectedIndex={selectedDeleteIndex}
+      index={index}
+      loading={deleteLoading}
       playerName={
         type == 'Edit'
           ? item?.user?.first_name + ' ' + item?.user?.last_name
@@ -42,7 +46,7 @@ const CreateEditTeamView = ({
       grade={type === 'Edit' ? item?.user?.class_grade : item?.class_grade}
       onPressButton={() => {
         if (type === 'Edit') {
-          onPressRemove(index);
+          onPressRemove(item, index);
         } else {
           onPressAdd(index);
         }
@@ -93,7 +97,7 @@ const CreateEditTeamView = ({
         }
         ListFooterComponent={ListFooterComponent}
         ListHeaderComponent={listHeaderComponent}
-        data={type == 'Edit' ? players : data?.data}
+        data={data}
         contentContainerStyle={styles.contentContainer}
         style={styles.container}
         renderItem={renderItem}

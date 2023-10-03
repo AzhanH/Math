@@ -1,33 +1,36 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {GetAllRegisteredStudents} from '../../state/teacher';
-import {useCallback, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {colors} from '../../utils/theme';
 import {useDispatch} from 'react-redux';
 import {useRef} from 'react';
 import {Toast, getMessage} from '../../api/APIHelpers';
-import {CreateTeam} from '../../state/teams';
+import {CreateTeam, DeleteStudent, GetTeamDetail} from '../../state/teams';
 
 const useCreateEditTeam = ({route}) => {
   const type = route?.params?.type;
   const teamTitle = route?.params?.teamTitle;
+  const id = route?.params?.id;
   const navigation = useNavigation();
   const modalRef = useRef(null);
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
-  const [players, setPlayers] = useState(route?.params?.players);
   const [loading, setLoading] = useState(false);
   const [addEditLoading, setAddEditLoading] = useState(false);
-  const [deletedIds, setDeletedIds] = useState([]);
   const [lastPage, setLastPage] = useState(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
   const [teamName, setTeamName] = useState(teamTitle ? teamTitle : null);
+  const [selectedDeleteIndex, setSelectedDeleteIndex] = useState(null);
   const [page, setPage] = useState(1);
 
   useFocusEffect(
     useCallback(() => {
-      if (!players) {
-        loadData(1);
+      if (id) {
+        loadTeamDetails();
+      } else {
+        loadData();
       }
-    }, []),
+    }, [id]),
   );
   const loadData = async (page = 1) => {
     try {
@@ -46,6 +49,18 @@ const useCreateEditTeam = ({route}) => {
     }
   };
 
+  const loadTeamDetails = async () => {
+    try {
+      setLoading(true);
+      const res = await dispatch(GetTeamDetail(id)).unwrap();
+      setData(res?.students);
+      setLoading(false);
+    } catch (e) {
+      Toast.error(getMessage(e));
+      setLoading(false);
+    }
+  };
+
   const onEndReached = () => {
     if (page < lastPage && !loading) {
       loadData(page + 1);
@@ -61,17 +76,26 @@ const useCreateEditTeam = ({route}) => {
 
   const onPressAddMore = () =>
     navigation.navigate('AddMoreStudents', {
-      players,
+      teamId: id,
+      players: data,
     });
 
-  const onPressRemove = index => {
-    let temp = [...players];
-    if (temp?.length > 1) {
-      setDeletedIds([...deletedIds, temp[index].user.id]);
-      temp.splice(index, 1);
-      setPlayers(temp);
-    } else {
-      Toast.error('Cannot Delete All Players');
+  const onPressRemove = async (item, index) => {
+    try {
+      if (data?.length > 1) {
+        setDeleteLoading(true);
+        setSelectedDeleteIndex(index);
+        await dispatch(DeleteStudent(item?.id)).unwrap();
+        setDeleteLoading(false);
+        setSelectedDeleteIndex(null);
+        loadTeamDetails();
+      } else {
+        Toast.error('Cannot Delete All Players');
+      }
+    } catch (e) {
+      setSelectedDeleteIndex(null);
+      setDeleteLoading(false);
+      Toast.error(getMessage(e));
     }
   };
 
@@ -136,13 +160,14 @@ const useCreateEditTeam = ({route}) => {
     states: {
       teamName,
       type,
-      players,
       loading,
-      data,
+      data: type === 'Edit' ? data : data?.data,
       page,
       addEditLoading,
       backgroundColors,
       addEditLoading,
+      deleteLoading,
+      selectedDeleteIndex,
     },
     refs: {
       modalRef,

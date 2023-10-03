@@ -29,9 +29,11 @@ export const endpoints = {
     allSchools: '/general/schools',
   },
   teams: {
+    removePlayerFromTeam: id => `/teacher/team/remove-student/${id}`,
     createTeam: '/teacher/team/create-team',
     getAllTeams: '/teacher/team/index',
     getTeamDetail: id => `/teacher/team/details/${id}`,
+    addStudentToTeam: '/teacher/team/add-student',
   },
   plans: {
     subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,
