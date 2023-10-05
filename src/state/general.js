@@ -55,6 +55,18 @@ export const GetGeneralData = createAsyncThunk('/general', async () => {
   }
 });
 
+export const GetStateViaCountry = createAsyncThunk(
+  '/state/country',
+  async data => {
+    try {
+      let response = await get(endpoints.general.state, data);
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
+
 export const generalSlice = createSlice({
   name: initial.general.name,
   initialState: initial.general.state,

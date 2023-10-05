@@ -22,6 +22,7 @@ export const endpoints = {
     getStudentProfile: id => `/teacher/student/profile/${id}`,
   },
   general: {
+    state: '/general/state',
     allClasess: '/general/class',
     allCountries: '/general/countries',
     allLevels: '/general/competition_levels',
@@ -41,7 +42,7 @@ export const endpoints = {
   },
   contest: {
     getAllContests: '/teacher/contest/index',
-    createContest: '/teacher/contest/create',
+    createContest: '/teacher/contest',
     getContestDetail: id => `/teacher/contest/details/${id}`,
   },
 };

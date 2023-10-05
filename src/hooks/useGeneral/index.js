@@ -6,6 +6,7 @@ import {
   GetAllTeachers,
   GetGeneralData,
   GetPrivacyPolicy,
+  GetStateViaCountry,
   GetTerms,
   setGeneralData,
 } from '../../state/general';
@@ -84,6 +85,15 @@ const useGeneral = () => {
       throw new Error(e);
     }
   };
+  const getStateViaCountry = async data => {
+    try {
+      let res = await dispatch(GetStateViaCountry(data)).unwrap();
+      return res;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      throw new Error(e);
+    }
+  };
 
   return {
     getTerms,
@@ -93,6 +103,7 @@ const useGeneral = () => {
     getAllStudents,
     getGeneralData,
     general,
+    getStateViaCountry,
   };
 };
 export default useGeneral;

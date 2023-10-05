@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: vw * 6,
   },
   contestImage: {
-    width: vw * 25,
+    width: vw * 55,
     height: vw * 25,
   },
   removeView: {
@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: vw * 45,
+  },
+  alignCenter: {
+    alignItems: 'center',
   },
 });
 export default styles;

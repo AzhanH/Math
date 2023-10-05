@@ -14,7 +14,7 @@ import {colors} from '../../utils/theme';
 const DropDown = ({
   visible,
   array,
-  selectedValue,
+  selectedValue = null,
   onPressItem,
   closeModal,
   placeholder,
@@ -41,7 +41,11 @@ const DropDown = ({
   );
 
   return (
-    <Modal transparent visible={visible}>
+    <Modal
+      animationType="slide"
+      onRequestClose={closeModal}
+      transparent
+      visible={visible}>
       <TouchableWithoutFeedback onPress={closeModal}>
         <View style={styles.mainView}>
           <View style={styles.subView}>
