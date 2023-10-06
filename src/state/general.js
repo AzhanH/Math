@@ -38,14 +38,7 @@ export const GetAllStudents = createAsyncThunk('/all-students', async data => {
     throw new Error(error);
   }
 });
-export const GetAllTeachers = createAsyncThunk('/all-teachers', async data => {
-  try {
-    let response = await get(endpoints.general.getAllTeachers, data);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-});
+
 export const GetGeneralData = createAsyncThunk('/general', async () => {
   try {
     let response = await get(endpoints.general.getGeneralData);
@@ -66,6 +59,14 @@ export const GetStateViaCountry = createAsyncThunk(
     }
   },
 );
+export const GetAllTeachers = createAsyncThunk('/all-teachers', async data => {
+  try {
+    let response = await get(endpoints.general.allTeachers, data);
+    return response?.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 
 export const generalSlice = createSlice({
   name: initial.general.name,

@@ -39,7 +39,7 @@ const SingleInvitaionView = ({
         },
       ]}>
       <View style={styles.contentView}>
-        <Image style={styles.avatarImage} source={{uri: image}} />
+        <Image style={styles.avatarImage} source={image} />
         <View style={{right: vw * 5}}>
           <Text style={styles.nameText} text={name} />
           <Text style={styles.nameText} text={grade} />

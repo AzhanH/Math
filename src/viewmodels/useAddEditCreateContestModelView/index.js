@@ -5,29 +5,83 @@ import {useDispatch, useSelector} from 'react-redux';
 import {GetStateViaCountry} from '../../state/general';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {validateEmptyInputs} from '../../utils/helperFunctions';
-import {CreateContest} from '../../state/contest';
-const useAddEditCreateContestModelView = () => {
-  const [title, setTitle] = useState(null);
+import {CreateContest, UpdateContest} from '../../state/contest';
+import {useNavigation} from '@react-navigation/native';
+const useAddEditCreateContestModelView = ({route}) => {
+  const navigation = useNavigation();
+  const details = route?.params?.details;
+  const [title, setTitle] = useState(details ? details?.title : null);
   const dispatch = useDispatch();
   const {general} = useSelector(state => state.general);
-  const [description, setDescription] = useState(null);
-  const [image, setImage] = useState(null);
-  const [contestStartDate, setContestStartDate] = useState(null);
-  const [contestEndDate, setContestEndDate] = useState(null);
+  const [description, setDescription] = useState(
+    details ? details?.description : null,
+  );
+  const [image, setImage] = useState(details ? details?.image : null);
+  const [contestStartDate, setContestStartDate] = useState(
+    details ? moment(details?.start_date).format('YYYY-MM-DD') : null,
+  );
+  const [contestEndDate, setContestEndDate] = useState(
+    details ? moment(details?.end_date).format('YYYY-MM-DD') : null,
+  );
   const [showDropDown, setShowDropDown] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(null);
-  const [contestStartTime, setContestStartTime] = useState(null);
-  const [contestEndTime, setContestEndTime] = useState(null);
+  const [contestStartTime, setContestStartTime] = useState(
+    details ? details?.start_time : null,
+  );
+  const [contestEndTime, setContestEndTime] = useState(
+    details ? details?.end_time : null,
+  );
+  const [status, setStatus] = useState(details ? details?.status : null);
   const [stateLoading, setStateLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [dropDownFor, setDropDownFor] = useState(null);
   const [states, setStates] = useState([]);
   const [options, setOptions] = useState([
-    {label: 'Level of Play', value: null},
-    {label: 'Mode', value: null},
-    {label: 'Grade', value: null},
-    {label: 'Country', value: null},
-    {label: 'State', value: null},
+    {
+      label: 'Level of Play',
+      value: details
+        ? {
+            value: details?.competition_level?.id,
+            name: details?.competition_level?.name,
+          }
+        : null,
+    },
+    {
+      label: 'Mode',
+      value: details
+        ? {
+            value: details?.mode?.id,
+            name: details?.mode?.name,
+          }
+        : null,
+    },
+    {
+      label: 'Grade',
+      value: details
+        ? {
+            value: details?.class_grade?.id,
+            name: details?.class_grade?.name,
+          }
+        : null,
+    },
+    {
+      label: 'Country',
+      value: details
+        ? {
+            value: details?.country?.id,
+            name: details?.country?.name,
+          }
+        : null,
+    },
+    {
+      label: 'State',
+      value: details
+        ? {
+            value: details?.state?.id,
+            name: details?.state?.name,
+          }
+        : null,
+    },
   ]);
 
   const onPressImage = async () => {
@@ -77,12 +131,13 @@ const useAddEditCreateContestModelView = () => {
     }
   };
 
+  const clearImage = () => setImage(null);
   const onChangeTitle = text => setTitle(text);
   const onChangeDescription = text => setDescription(text);
   const onConfirmStartTime = time =>
-    setContestStartTime(moment(time).format('hh:mm'));
+    setContestStartTime(moment(time).format('hh:mm a'));
   const onConfirmEndTime = time =>
-    setContestEndTime(moment(time).format('hh:mm'));
+    setContestEndTime(moment(time).format('hh:mm a'));
   const onConfirmStartDate = date =>
     setContestStartDate(moment(date).format('YYYY-MM-DD'));
   const onConfirmEndDate = date =>
@@ -90,17 +145,20 @@ const useAddEditCreateContestModelView = () => {
   const onCloseDropDown = () => setShowDropDown(false);
 
   const onPressDropDownItem = item => {
-    let temp = [...options];
-    temp[focusedIndex].value = {
-      name: item?.name,
-      value: item?.value,
-    };
-    setOptions(temp);
+    if (dropDownFor !== 'Status') {
+      let temp = [...options];
+      temp[focusedIndex].value = {
+        name: item?.name,
+        value: item?.value,
+      };
+      setOptions(temp);
+    } else {
+      setStatus(item?.value);
+    }
   };
-
-  const createContest = async () => {
+  const createOrUpdateContest = async () => {
     try {
-      const data = [
+      let data = [
         {label: 'Title', title},
         {label: 'Contest Image', image: image},
         {label: 'Description', description},
@@ -137,14 +195,37 @@ const useAddEditCreateContestModelView = () => {
           end_date: contestEndDate,
         },
         {
-          label: 'End Date',
+          label: 'End Time',
           end_time: contestEndTime,
         },
+        {
+          label: 'Status',
+          status,
+        },
       ];
+      if (details) {
+        data = [
+          ...data,
+          {label: 'Method', _method: 'put'},
+          {label: 'Id', id: details?.id},
+        ];
+      }
       setLoading(true);
       const apiData = validateEmptyInputs(data);
-      const res = await dispatch(CreateContest(apiData)).unwrap();
-      await setLoading(false);
+
+      if (details) {
+        if (typeof apiData.image == 'string') {
+          delete apiData.image;
+        }
+        res = await dispatch(UpdateContest(apiData)).unwrap();
+      } else {
+        res = await dispatch(CreateContest(apiData)).unwrap();
+      }
+      Toast.success(
+        details ? 'Contest Updated Successfully' : 'Contest Added Successfully',
+      );
+      navigation.goBack();
+      setLoading(false);
     } catch (e) {
       setLoading(false);
       Toast.error(getMessage(e));
@@ -152,7 +233,11 @@ const useAddEditCreateContestModelView = () => {
     }
   };
 
-  console.log(contestEndTime);
+  const onPressValuePicker = () => {
+    setShowDropDown(true);
+    setDropDownFor('Status');
+  };
+
   return {
     functions: {
       onPressImage,
@@ -165,7 +250,9 @@ const useAddEditCreateContestModelView = () => {
       onPressTableItem,
       onCloseDropDown,
       onPressDropDownItem,
-      createContest,
+      createOrUpdateContest,
+      onPressValuePicker,
+      clearImage,
     },
     states: {
       loading,
@@ -179,7 +266,12 @@ const useAddEditCreateContestModelView = () => {
           ? general?.classes?.map(v => ({name: v?.name, value: v?.id}))
           : dropDownFor === 'Country'
           ? general?.countries?.map(v => ({name: v?.name, value: v?.id}))
-          : states,
+          : dropDownFor === 'State'
+          ? states
+          : [
+              {name: 'Active', value: 1},
+              {name: 'In-Active', value: 0},
+            ],
       contestStartDate,
       contestStartTime,
       contestEndTime,
@@ -187,7 +279,9 @@ const useAddEditCreateContestModelView = () => {
       title,
       description,
       image,
+      isUpdate: details ? true : false,
       options,
+      status,
       dropDownFor,
       showDropDown,
     },

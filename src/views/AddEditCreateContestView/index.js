@@ -13,7 +13,6 @@ import {
   DropDown,
   Loader,
 } from '../../components';
-
 import styles from './styles';
 import FullScreenLoader from '../../components/FullScreeLoader';
 const AddEditCreateContestView = ({
@@ -39,8 +38,12 @@ const AddEditCreateContestView = ({
   dropDownArray,
   stateLoading,
   loading,
-  createContest,
   onPressDropDownItem,
+  createOrUpdateContest,
+  clearImage,
+  isUpdate,
+  status,
+  onPressValuePicker,
 }) => {
   return (
     <BackgroundWrapper>
@@ -55,10 +58,15 @@ const AddEditCreateContestView = ({
         <TouchableOpacity onPress={onPressImage} style={styles.uploadContainer}>
           {image ? (
             <View>
-              <Image style={styles.contestImage} source={{uri: image?.uri}} />
-              <TouchableOpacity
-                onPress={() => setImage(null)}
-                style={styles.removeView}>
+              <Image
+                style={styles.contestImage}
+                source={{
+                  uri: image?.uri
+                    ? image?.uri
+                    : image?.includes('http') && image,
+                }}
+              />
+              <TouchableOpacity onPress={clearImage} style={styles.removeView}>
                 <Image style={styles.closeIcon} source={images.close} />
               </TouchableOpacity>
             </View>
@@ -109,14 +117,19 @@ const AddEditCreateContestView = ({
           mode="time"
           placeholder={'Choose Contest End Time'}
         />
-        <ValuePicker containerStyle={styles.input} placeholder={'Active'} />
+        <ValuePicker
+          value={status == null ? '' : status == 0 ? 'In-Active' : 'Active'}
+          onPress={onPressValuePicker}
+          containerStyle={styles.input}
+          placeholder={'Active'}
+        />
         {loading ? (
           <Loader />
         ) : (
           <Button
-            onPress={createContest}
+            onPress={createOrUpdateContest}
             containerStyle={styles.btn}
-            btnText={'CREATE CONTEST'}
+            btnText={isUpdate ? 'UPDATE CONTEST' : 'CREATE CONTEST'}
           />
         )}
         <DropDown

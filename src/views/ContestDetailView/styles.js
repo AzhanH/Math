@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   image: {
-    left: vw * 10,
     height: vh * 12,
     borderRadius: vw * 4,
     width: vw * 22,
@@ -30,7 +29,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingVertical: vh * 3,
   },
-  textView: {right: vw * 4},
+  textView: {
+    width: '90%',
+  },
   contestHeading: {
     fontFamily: 'Oswald-Medium',
     fontSize: fontSizes.f20,

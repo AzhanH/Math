@@ -28,6 +28,7 @@ export const endpoints = {
     allLevels: '/general/competition_levels',
     allModes: '/general/modes',
     allSchools: '/general/schools',
+    allTeachers: '/teacher/get-all-teachers',
   },
   teams: {
     removePlayerFromTeam: id => `/teacher/team/remove-student/${id}`,
@@ -41,9 +42,10 @@ export const endpoints = {
     readPlans: '/teacher/plan/index',
   },
   contest: {
-    getAllContests: '/teacher/contest/index',
+    getAllContests: '/teacher/contest',
     createContest: '/teacher/contest',
-    getContestDetail: id => `/teacher/contest/details/${id}`,
+    updateContest: id => `/teacher/contest/${id}`,
+    getContestDetail: id => `/teacher/contest/${id}`,
   },
 };
 

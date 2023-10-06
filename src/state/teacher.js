@@ -13,7 +13,6 @@ export const GetAllRegisteredStudents = createAsyncThunk(
     }
   },
 );
-
 export const CreateContest = createAsyncThunk('/create-contest', async data => {
   try {
     let response = await post(endpoints.contest.createContest, data, true);

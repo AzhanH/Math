@@ -2,8 +2,8 @@ import React from 'react';
 import AddEditCreateContestView from '../../views/AddEditCreateContestView';
 import useAddEditCreateContestModelView from '../../viewmodels/useAddEditCreateContestModelView';
 
-const CreateAndEditContest = () => {
-  const {states, functions} = useAddEditCreateContestModelView();
+const CreateAndEditContest = ({route}) => {
+  const {states, functions} = useAddEditCreateContestModelView({route});
   const {
     options,
     image,
@@ -18,6 +18,8 @@ const CreateAndEditContest = () => {
     dropDownArray,
     stateLoading,
     loading,
+    isUpdate,
+    status,
   } = states;
   const {
     onPressImage,
@@ -30,7 +32,9 @@ const CreateAndEditContest = () => {
     onPressTableItem,
     onCloseDropDown,
     onPressDropDownItem,
-    createContest,
+    createOrUpdateContest,
+    clearImage,
+    onPressValuePicker,
   } = functions;
   return (
     <AddEditCreateContestView
@@ -56,7 +60,11 @@ const CreateAndEditContest = () => {
       dropDownArray={dropDownArray}
       stateLoading={stateLoading}
       loading={loading}
-      createContest={createContest}
+      clearImage={clearImage}
+      isUpdate={isUpdate}
+      status={status}
+      onPressValuePicker={onPressValuePicker}
+      createOrUpdateContest={createOrUpdateContest}
       onPressDropDownItem={onPressDropDownItem}
     />
   );

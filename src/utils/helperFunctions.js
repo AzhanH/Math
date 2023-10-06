@@ -15,7 +15,9 @@ export const validateEmptyInputs = array => {
       }
     }
     if (
-      !element[newKey] ||
+      (!element[newKey] &&
+        typeof element[newKey] !== 'boolean' &&
+        typeof element[newKey] !== 'number') ||
       (typeof element[newKey] === 'string' && element[newKey]?.trim() === '')
     ) {
       allValid = false;

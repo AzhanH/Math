@@ -21,7 +21,7 @@ const SingleContestView = ({
       style={styles.contestContainer}>
       <Icons name={icons.contestContainer({color: color})} />
       <View style={styles.contentView}>
-        <Image style={styles.playerImage} source={{uri: image}} />
+        <Image style={styles.playerImage} source={image} />
         <View style={styles.marginTop}>
           <Text style={styles.contestHeading} text={name} />
           <View style={styles.row}>
