@@ -11,8 +11,8 @@ const SingleInvitaionView = ({
   image,
   name,
   grade,
-  onPressAdd,
-  isChecked,
+  added,
+  onPressIcon,
 }) => {
   return (
     <Rectangle
@@ -45,14 +45,14 @@ const SingleInvitaionView = ({
           <Text style={styles.nameText} text={grade} />
         </View>
         <TouchableOpacity
-          onPress={() => onPressAdd(isChecked)}
+          onPress={onPressIcon}
           style={[
             styles.actionBtn,
-            isChecked && {backgroundColor: colors.darkGreen},
+            added && {backgroundColor: colors.darkGreen},
           ]}>
           <Image
             style={styles.icons}
-            source={isChecked ? images.check : images.add}
+            source={added ? images.check : images.add}
           />
         </TouchableOpacity>
       </View>

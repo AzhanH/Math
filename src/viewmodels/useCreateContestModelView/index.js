@@ -37,7 +37,8 @@ const useCreateContestModelView = () => {
   const onPressContestDetail = item =>
     navigation.navigate('ContestDetail', {id: item?.id});
 
-  const onPressSendInvite = () => navigation.navigate('InviteParents');
+  const onPressSendInvite = item =>
+    navigation.navigate('InviteParents', {id: item?.id});
 
   const onPressCreateContest = () =>
     navigation.navigate('CreateAndEditContest');

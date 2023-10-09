@@ -18,7 +18,7 @@ const ContestsView = ({
   const renderItem = ({item, index}) => (
     <SingleContestView
       onPressContainer={() => onPressContestDetail(item)}
-      onPressSendInvite={onPressSendInvite}
+      onPressSendInvite={() => onPressSendInvite(item)}
       key={index}
       name={item?.title}
       image={item?.image ? {uri: item?.image} : images.contestPlayer}

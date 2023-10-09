@@ -41,3 +41,18 @@ export const UpdateContest = createAsyncThunk('/contest-update', async data => {
     throw new Error(error);
   }
 });
+export const SendInviteToParents = createAsyncThunk(
+  'contest/send-invite',
+  async data => {
+    try {
+      let response = await post(
+        endpoints.contest.sendInviteToParents,
+        data,
+        true,
+      );
+      return response?.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);

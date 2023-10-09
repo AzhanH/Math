@@ -46,6 +46,7 @@ export const endpoints = {
     createContest: '/teacher/contest',
     updateContest: id => `/teacher/contest/${id}`,
     getContestDetail: id => `/teacher/contest/${id}`,
+    sendInviteToParents: '/teacher/contest/send_invite',
   },
 };
 
