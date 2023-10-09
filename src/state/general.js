@@ -22,14 +22,7 @@ export const GetTerms = createAsyncThunk('/terms-and-conditions', async () => {
     throw new Error(error);
   }
 });
-export const ContactUs = createAsyncThunk('/contact-us', async data => {
-  try {
-    let response = await post(endpoints.general.contactUs, data);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-});
+
 export const GetAllStudents = createAsyncThunk('/all-students', async data => {
   try {
     let response = await get(endpoints.general.getAllStudents, data);
@@ -63,6 +56,14 @@ export const GetAllTeachers = createAsyncThunk('/all-teachers', async data => {
   try {
     let response = await get(endpoints.general.allTeachers, data);
     return response?.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+export const ContactUs = createAsyncThunk('/contact-us', async data => {
+  try {
+    let response = await post(endpoints.general.contactUs, data, true);
+    return response;
   } catch (error) {
     throw new Error(error);
   }

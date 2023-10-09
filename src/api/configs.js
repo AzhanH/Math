@@ -29,6 +29,7 @@ export const endpoints = {
     allModes: '/general/modes',
     allSchools: '/general/schools',
     allTeachers: '/teacher/get-all-teachers',
+    contactUs: '/contact-us',
   },
   teams: {
     removePlayerFromTeam: id => `/teacher/team/remove-student/${id}`,
