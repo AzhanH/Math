@@ -8,12 +8,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: vh,
   },
-  row: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   searchView: {
+    marginLeft: vw * 3,
     width: vw * 94,
   },
 });

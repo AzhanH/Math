@@ -31,6 +31,13 @@ export const endpoints = {
     allTeachers: '/teacher/get-all-teachers',
     contactUs: '/contact-us',
   },
+  classes: {
+    createClass: '/teacher/class/create-class',
+    allClasess: '/teacher/class/index',
+    classDetails: id => `/teacher/class/details/${id}`,
+    removeStudentFromClass: id => `/teacher/class/remove-student/${id}`,
+    addStudentToClass: '/teacher/class/add-students',
+  },
   teams: {
     removePlayerFromTeam: id => `/teacher/team/remove-student/${id}`,
     createTeam: '/teacher/team/create-team',

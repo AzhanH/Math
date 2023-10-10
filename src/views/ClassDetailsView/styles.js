@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {vh, vw} from '../../utils/units';
+import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,8 +13,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  searchView: {
-    width: vw * 94,
+  teamName: {
+    fontFamily: 'Oswald-Medium',
+    fontSize: fontSizes.f16,
+  },
+  updatedText: {
+    fontFamily: 'Oswald-Regular',
+    fontSize: fontSizes.f14,
   },
 });
 export default styles;

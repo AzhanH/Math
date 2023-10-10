@@ -1,4 +1,4 @@
-import {Image, TouchableOpacity, TurboModuleRegistry, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import images from '../../assets/images';
 import {Text} from '../../components';
 import {colors} from '../../utils/theme';
@@ -16,7 +16,10 @@ const titles = {
   PrivacyPolicy: 'Privacy Policy',
   TermsAndCondition: 'Terms & Conditions',
   //My Class
-  MyClass: 'My Class',
+  MyClass: 'My Classes',
+  ClassDetails: 'Class Details',
+  EditClass: 'Edit Class',
+  AddStudentsToClass: 'Add Students',
   //My Teams
   MyTeams: 'My Teams',
   TeamDetail: 'Team Detail',
@@ -52,7 +55,10 @@ const backBtnRoutes = {
   LevelDetail: true,
   EditProfile: true,
   Profile: true,
+  ClassDetails: true,
   ChangePassword: true,
+  EditClass: true,
+  AddStudentsToClass: true,
 };
 const getHeaderLeft = props => {
   if (backBtnRoutes[props?.route?.name]) {
