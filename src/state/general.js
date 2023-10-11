@@ -7,8 +7,8 @@ export const GetPrivacyPolicy = createAsyncThunk(
   '/privacy-policy',
   async () => {
     try {
-      let response = await get(endpoints.general.privacy);
-      return response;
+      let response = await get(endpoints.general.privacyPolicy);
+      return response?.data;
     } catch (error) {
       throw new Error(error);
     }
@@ -16,26 +16,8 @@ export const GetPrivacyPolicy = createAsyncThunk(
 );
 export const GetTerms = createAsyncThunk('/terms-and-conditions', async () => {
   try {
-    let response = await get(endpoints.general.terms);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-});
-
-export const GetAllStudents = createAsyncThunk('/all-students', async data => {
-  try {
-    let response = await get(endpoints.general.getAllStudents, data);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-});
-
-export const GetGeneralData = createAsyncThunk('/general', async () => {
-  try {
-    let response = await get(endpoints.general.getGeneralData);
-    return response;
+    let response = await get(endpoints.general.termsAndConditions);
+    return response?.data;
   } catch (error) {
     throw new Error(error);
   }
@@ -52,6 +34,14 @@ export const GetStateViaCountry = createAsyncThunk(
     }
   },
 );
+export const GetCityViaState = createAsyncThunk('/state/city', async data => {
+  try {
+    let response = await get(endpoints.general.cities, data);
+    return response;
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 export const GetAllTeachers = createAsyncThunk('/all-teachers', async data => {
   try {
     let response = await get(endpoints.general.allTeachers, data);

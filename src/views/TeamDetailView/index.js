@@ -29,15 +29,14 @@ const TeamDetailView = ({
     <SinglePlayerView
       playerName={`${item?.user?.first_name} ${item?.user?.last_name}`}
       playerId={item?.user?.id}
-      grade={item?.user?.class_grade}
+      grade={item?.user?.class_grade?.name}
       onPressButton={() => onPressViewDetail(item)}
       btnName="VIEW DETAIL"
-      image={item?.image}
-      color={backgroundColor[index]}
+      image={item?.user?.image ? {uri: item?.user?.image} : images.childImage3}
+      color={backgroundColor[index % 3]}
       key={index}
     />
   );
-
   const ListHeaderComponent = (
     <View style={styles.row}>
       <View>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {SearchBar} from 'react-native-screens';
-import {BackgroundWrapper, SinglePlayerView} from '../../components';
+import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
 import styles from './styles';
+import images from '../../assets/images';
 
 const RegisteredStudentsView = ({
   data,
@@ -19,8 +19,8 @@ const RegisteredStudentsView = ({
       playerId={item?.username}
       grade={item?.class_grade?.class_grade}
       btnName="VIEW PROFILE"
-      image={item?.image_path}
-      color={backgroundColors[index]}
+      image={item?.image ? {uri: item?.image} : images.childImage2}
+      color={backgroundColors[index % 4]}
       key={index}
     />
   );

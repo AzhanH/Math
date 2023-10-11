@@ -2,6 +2,7 @@ import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
 import styles from './styles';
+import images from '../../assets/images';
 const AddMoreStudents = ({
   data,
   loading,
@@ -25,10 +26,10 @@ const AddMoreStudents = ({
       index={index}
       playerName={item?.first_name + ' ' + item?.last_name}
       playerId={item?.id}
-      grade={item?.class_grade?.class_grade}
+      grade={item?.class_grade?.name}
       btnName={item?.added ? 'ADDED' : 'ADD'}
-      image={item?.image_path}
-      color={backgroundColors[index]}
+      image={item?.image ? {uri: item?.image} : images.childImage3}
+      color={backgroundColors[index % 4]}
     />
   );
 

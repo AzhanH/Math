@@ -15,7 +15,7 @@ const ValuePicker = ({
   error,
 }) => {
   return (
-    <View>
+    <>
       <TouchableOpacity
         onPress={onPress}
         style={[styles.container, containerStyle]}>
@@ -32,7 +32,7 @@ const ValuePicker = ({
         </View>
       </TouchableOpacity>
       {error && <Text style={styles.errorText} text={error} />}
-    </View>
+    </>
   );
 };
 

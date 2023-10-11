@@ -49,7 +49,7 @@ const useProfileModelView = ({route}) => {
     },
     {
       title: 'Class Grade:',
-      value: data?.class_grade,
+      value: data?.class_grade?.name,
     },
     {
       title: 'DOB:',
@@ -57,15 +57,15 @@ const useProfileModelView = ({route}) => {
     },
     {
       title: 'School Name:',
-      value: data?.school,
+      value: data?.school?.name,
     },
     {
       title: 'City:',
-      value: data?.city,
+      value: data?.city?.name,
     },
     {
       title: 'State:',
-      value: data?.state,
+      value: data?.state?.name,
     },
     {
       title: 'Gender:',

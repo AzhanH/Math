@@ -38,7 +38,7 @@ const ContestsView = ({
   );
 
   const listFooterComponet = (
-    <Button onPress={onPressCreateContest} btnText={'CREATE CONTEST'} />
+    <Button onPress={onPressCreateContest} btnText={'CREATE CONTEST'} asd />
   );
   return (
     <BackgroundWrapper>

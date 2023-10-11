@@ -9,7 +9,7 @@ import {Text} from '../index';
 const InputField = forwardRef((props, ref) => {
   const [showPassword, setShowPassword] = useState(props?.secureTextEntry);
   return (
-    <View>
+    <>
       <View style={[styles.inputBox, props.viewStyle]}>
         <TextInput
           {...props}
@@ -41,7 +41,7 @@ const InputField = forwardRef((props, ref) => {
         </TouchableOpacity>
       </View>
       {props?.error && <Text style={styles.errorText} text={props?.error} />}
-    </View>
+    </>
   );
 });
 

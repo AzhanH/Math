@@ -43,7 +43,11 @@ const CreateEditTeamView = ({
           : item?.first_name + ' ' + item?.last_name
       }
       playerId={type === 'Edit' ? item?.user?.id : item?.id}
-      grade={type === 'Edit' ? item?.user?.class_grade : item?.class_grade}
+      grade={
+        type === 'Edit'
+          ? item?.user?.class_grade?.name
+          : item?.class_grade?.name
+      }
       onPressButton={() => {
         if (type === 'Edit') {
           onPressRemove(item, index);
@@ -52,8 +56,16 @@ const CreateEditTeamView = ({
         }
       }}
       btnName={type == 'Edit' ? 'REMOVE' : item?.added ? 'REMOVE' : 'ADD'}
-      image={item?.image}
-      color={backgroundColors[index]}
+      image={
+        type == 'Edit'
+          ? item?.user?.image
+            ? {uri: item?.user?.image}
+            : images.childImage3
+          : item?.image
+          ? {uri: item?.image}
+          : images.childImage3
+      }
+      color={backgroundColors[index % 4]}
       key={index}
     />
   );

@@ -19,6 +19,7 @@ export const endpoints = {
     changePassword: '/teacher/change/password',
     getProfile: '/teacher/profile',
     createProfile: '/teacher/profile/add',
+
     getStudentProfile: id => `/teacher/student/profile/${id}`,
   },
   general: {
@@ -29,7 +30,10 @@ export const endpoints = {
     allModes: '/general/modes',
     allSchools: '/general/schools',
     allTeachers: '/teacher/get-all-teachers',
+    cities: '/general/city',
     contactUs: '/contact-us',
+    termsAndConditions: '/terms-and-conditons',
+    privacyPolicy: '/privacy-policy',
   },
   classes: {
     createClass: '/teacher/class/create-class',

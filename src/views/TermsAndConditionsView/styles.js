@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
-import {fontSizes, vw} from '../../utils/units';
+import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   text: {
-    textAlign: 'center',
+    marginTop: vh * 2,
     color: colors.lightBlack,
     fontFamily: 'Renner-it-Book',
     fontSize: fontSizes.f15,
