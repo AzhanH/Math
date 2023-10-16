@@ -16,7 +16,8 @@ const CustomModal = forwardRef(
       btn1Text,
       btn2Text,
       onPressOk,
-      loading,
+      onPressCancel,
+      loading = false,
     },
     ref,
   ) => {
@@ -38,6 +39,13 @@ const CustomModal = forwardRef(
     const _onPressOk = () => {
       if (onPressOk) {
         onPressOk();
+      }
+      hideModal();
+    };
+
+    const _onPressCancel = () => {
+      if (onPressCancel) {
+        onPressCancel();
       }
       hideModal();
     };
@@ -65,6 +73,7 @@ const CustomModal = forwardRef(
               />
               {multipleButtons && (
                 <Button
+                  onPress={_onPressCancel}
                   containerStyle={{width: '50%'}}
                   style={styles.marginLeft}
                   black

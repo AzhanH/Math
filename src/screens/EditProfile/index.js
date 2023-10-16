@@ -13,21 +13,21 @@ const EditProfile = () => {
     city,
     classGrade,
     country,
+    state,
+    gender,
     school,
     dropDownFor,
     showDropDown,
     dropDownList,
+    dropDownValue,
+    loading,
+    isStudent,
+    zipCode,
+    dob,
+    anotherSchool,
+    updateLoading,
   } = states;
-  const {
-    anotherRef,
-    cityRef,
-    emailRef,
-    lastNameRef,
-    modalRef,
-    phoneRef,
-    stateRef,
-    userNameRef,
-  } = refs;
+  const {emailRef, lastNameRef, modalRef, phoneRef, userNameRef} = refs;
   const {
     onChangeEmail,
     onChangeFirstName,
@@ -36,6 +36,15 @@ const EditProfile = () => {
     onChangeUserName,
     onPressValuePicker,
     closeDropDown,
+    onPressDropDownItem,
+    onSubmitFirstName,
+    onSubmitLastName,
+    onSubmitUserName,
+    onChangeZip,
+    onChangeAnotherSchool,
+    onPressConfirmDate,
+    onPressUpdate,
+    onPressOk,
   } = functions;
 
   return (
@@ -45,28 +54,43 @@ const EditProfile = () => {
       onChangeUserName={onChangeUserName}
       onChangeFirstName={onChangeFirstName}
       onChangeEmail={onChangeEmail}
-      anotherRef={anotherRef}
-      cityRef={cityRef}
       email={email}
       emailRef={emailRef}
       lastNameRef={lastNameRef}
       modalRef={modalRef}
       phoneRef={phoneRef}
-      stateRef={stateRef}
+      state={state}
       userNameRef={userNameRef}
       firstName={firstName}
       lastName={lastName}
       phone={phone}
       userName={userName}
       city={city}
+      gender={gender}
       onPressValuePicker={onPressValuePicker}
       classGrade={classGrade}
       country={country}
+      isStudent={isStudent}
       school={school}
       dropDownFor={dropDownFor}
       showDropDown={showDropDown}
       closeDropDown={closeDropDown}
       dropDownList={dropDownList}
+      onPressDropDownItem={onPressDropDownItem}
+      loading={loading}
+      onSubmitFirstName={onSubmitFirstName}
+      onSubmitLastName={onSubmitLastName}
+      onSubmitUserName={onSubmitUserName}
+      dropDownValue={dropDownValue}
+      zipCode={zipCode}
+      onChangeZip={onChangeZip}
+      dob={dob}
+      onChangeAnotherSchool={onChangeAnotherSchool}
+      anotherSchool={anotherSchool}
+      onPressConfirmDate={onPressConfirmDate}
+      onPressUpdate={onPressUpdate}
+      updateLoading={updateLoading}
+      onPressOk={onPressOk}
     />
   );
 };

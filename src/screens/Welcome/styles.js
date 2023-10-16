@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   introImage: {
-    // marginTop: vh * 7,
     width: vw * 100,
     height: vh * 40,
   },

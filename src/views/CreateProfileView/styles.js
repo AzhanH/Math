@@ -4,7 +4,6 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    // marginTop: vh * 2,
     paddingBottom: vh * 2,
     paddingHorizontal: vw * 3,
   },
@@ -29,6 +28,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
     color: colors.purple,
+  },
+  datePicker: {
+    width: '100%',
   },
 });
 export default styles;

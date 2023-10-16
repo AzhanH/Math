@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import styles from './styles';
 import DrawerButton from '../DrawerButton';
 import {Image, View, ImageBackground} from 'react-native';
@@ -8,8 +8,8 @@ import images from '../../../assets/images';
 import Text from '../../Text';
 import Button from '../../Button';
 import CustomModal from '../../CustomModal';
-import {useAuth} from '../../../hooks';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {Logout, setToken, setUser} from '../../../state/auth';
 
 const drawerRoutes = [
   {
@@ -45,6 +45,7 @@ const drawerRoutes = [
 ];
 
 const DrawerContent = props => {
+  const dispatch = useDispatch();
   const modalRef = useRef();
   let isCollapsed = true;
   const rotateAnim = new Animated.Value(0);
@@ -62,14 +63,16 @@ const DrawerContent = props => {
     }
   }, [isCollapsed]);
 
-  const {logoutUser, user} = useSelector(state => state.auth);
-  const [loading, setLoading] = useState(false);
+  const {user} = useSelector(state => state.auth);
 
   return (
     <ImageBackground
       style={[styles.container]}
       source={images.scoreboardBackground}>
-      <DrawerContentScrollView style={styles.drawercontainer} bounces={false}>
+      <DrawerContentScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.drawercontainer}
+        bounces={false}>
         <View style={styles.userInfo}>
           <Image style={styles.image} source={images.childImage1} />
           <Text style={styles.hello} text={'HELLO'} />
@@ -104,16 +107,10 @@ const DrawerContent = props => {
         <Button onPress={() => modalRef.current.show()} btnText={'SIGNOUT'} />
       </DrawerContentScrollView>
       <CustomModal
-        loading={loading}
         onPressOk={async () => {
-          try {
-            setLoading(true);
-            await logoutUser();
-
-            setLoading(false);
-          } catch (e) {
-            setLoading(false);
-          }
+          dispatch(Logout());
+          dispatch(setUser(null));
+          dispatch(setToken(null));
         }}
         heading="Alert"
         subHeading="Are you sure you want to logout?"

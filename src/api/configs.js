@@ -10,6 +10,7 @@ export const endpoints = {
     forgotPassword: '/teacher/forget/password',
     verifyCode: '/teacher/verification',
     resetPassword: '/teacher/reset/password',
+    logout: '/teacher/logout',
   },
   teacher: {
     sendStudentInvite: '/teacher/student/send_invite',
@@ -19,7 +20,8 @@ export const endpoints = {
     changePassword: '/teacher/change/password',
     getProfile: '/teacher/profile',
     createProfile: '/teacher/profile/add',
-
+    updateProfile: '/teacher/profile',
+    updateStudentProfile: id => `/teacher/student/profile/${id}`,
     getStudentProfile: id => `/teacher/student/profile/${id}`,
   },
   general: {

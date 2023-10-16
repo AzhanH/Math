@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: vw * 3,
-    height: vh * 15,
+    height: vh * 12,
     width: '100%',
   },
   noDataText: {

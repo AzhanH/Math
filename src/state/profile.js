@@ -22,6 +22,18 @@ export const GetProfile = createAsyncThunk('/teacher/profile', async () => {
     throw new Error(error);
   }
 });
+export const UpdateProfile = createAsyncThunk(
+  '/teacher/profile/update',
+  async data => {
+    try {
+      let response = await post(endpoints.profile.updateProfile, data, true);
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
+
 export const UpdatePassword = createAsyncThunk(
   '/teacher/update-password',
   async data => {

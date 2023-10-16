@@ -53,6 +53,7 @@ const useInviteStudentModalView = () => {
       apiData.class_grade_id = JSON.parse(apiData.class_grade_id)?.value;
       apiData.school_id = JSON.parse(apiData.school_id)?.value;
       apiData.gender = JSON.parse(apiData.gender)?.value;
+      console.log(apiData);
       await sendInvite(apiData).unwrap();
       modalRef.current.show();
     } catch (e) {

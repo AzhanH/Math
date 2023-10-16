@@ -3,18 +3,20 @@ import {Platform} from 'react-native';
 import AndroidKeyboardAdjust from 'react-native-android-keyboard-adjust';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {useNavigation} from '@react-navigation/core';
-import {useRegisterUserMutation} from '../../api/authApis';
 import * as yup from 'yup';
+import {useDispatch} from 'react-redux';
+import {RegisterUser} from '../../state/auth';
 
 const useSignupModelView = () => {
-  const [registerUser, {isLoading: loading}] = useRegisterUserMutation();
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   useEffect(() => {
     if (Platform.OS == 'android') {
       AndroidKeyboardAdjust.setAdjustPan();
     }
   }, []);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const lastNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -40,7 +42,7 @@ const useSignupModelView = () => {
     first_name: yup.string().required('First Name is required').trim(),
     last_name: yup.string().required('Last Name is required'),
     email: yup.string().email('Invalid Email').required('Email is required'),
-    role: yup.string().required('Role is Required'),
+    role: yup.string().required('Role is required'),
     password: yup.string().required('Passowrd is required'),
     confirm_password: yup.string().required('Confirm Password is required'),
   });
@@ -56,17 +58,21 @@ const useSignupModelView = () => {
 
   const onPressRegister = async data => {
     try {
+      setLoading(true);
       let apiData = {...data};
       apiData.role_id = JSON.parse(apiData.role)?.value;
       if (apiData?.password !== apiData?.confirm_password) {
         throw new Error('Password & Confirm Password should be same');
       }
-      const res = await registerUser(apiData).unwrap();
-      console.log('RESSSSSSSSS', res);
-      // navigation.replace('ProfileCreation', {token: res?.token});
+      const res = await dispatch(RegisterUser(apiData)).unwrap();
+      navigation.replace('ProfileCreation', {
+        email: res?.data?.email,
+        token: res?.data?.api_token,
+      });
     } catch (e) {
       Toast.error(getMessage(e));
-      console.log('Error', e);
+    } finally {
+      setLoading(false);
     }
   };
 

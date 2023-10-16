@@ -10,6 +10,7 @@ import styles from './styles';
 import Text from '../Text';
 import {vh} from '../../utils/units';
 import {colors} from '../../utils/theme';
+import NoDataView from '../NoDataView';
 
 const DropDown = ({
   visible,
@@ -51,6 +52,7 @@ const DropDown = ({
           <View style={styles.subView}>
             <Text style={styles.placeholder} text={placeholder} />
             <FlatList
+              ListEmptyComponent={NoDataView}
               showsVerticalScrollIndicator={false}
               style={{marginTop: vh * 2}}
               key="dropdownlist"

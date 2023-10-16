@@ -21,15 +21,6 @@ export const authApi = createApi({
       transformResponse: response => response?.data,
       transformErrorResponse: response => response?.data,
     }),
-    registerUser: builder.mutation({
-      query: data => ({
-        url: endpoints.auth.signup,
-        method: 'POST',
-        body: data,
-      }),
-      transformResponse: response => response?.data,
-      transformErrorResponse: response => response?.data,
-    }),
     forgotPassword: builder.mutation({
       query: data => ({
         url: endpoints.auth.forgotPassword,
@@ -59,7 +50,6 @@ export const authApi = createApi({
 
 export const {
   useAuthenticateUserMutation,
-  useRegisterUserMutation,
   useForgotPasswordMutation,
   useVerifyCodeMutation,
   useResetPasswordMutation,

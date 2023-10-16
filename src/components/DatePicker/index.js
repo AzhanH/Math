@@ -13,11 +13,12 @@ const DatePicker = ({
   mode,
   onPressConfirm,
   min,
+  max,
   error,
 }) => {
   const [show, setShow] = useState(false);
   return (
-    <View>
+    <>
       <TouchableOpacity
         onPress={() => setShow(true)}
         style={[styles.container, containerStyle]}>
@@ -38,6 +39,7 @@ const DatePicker = ({
       </TouchableOpacity>
       <DateTimePickerModal
         minimumDate={min ? min : null}
+        maximumDate={max ? max : null}
         onConfirm={date => {
           onPressConfirm(date);
           setShow(false);
@@ -47,7 +49,7 @@ const DatePicker = ({
         mode={mode}
       />
       {error && <Text style={styles.errorText} text={error} />}
-    </View>
+    </>
   );
 };
 

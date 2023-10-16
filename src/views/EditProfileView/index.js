@@ -9,9 +9,12 @@ import {
   Button,
   CustomModal,
   DropDown,
+  DatePicker,
+  Loader,
 } from '../../components';
 import {capitalize} from '../../utils/helperFunctions';
 import styles from './styles';
+import FullScreenLoader from '../../components/FullScreeLoader';
 
 const EditProfileView = ({
   firstName,
@@ -24,14 +27,12 @@ const EditProfileView = ({
   city,
   classGrade,
   country,
+  state,
   school,
-  anotherRef,
-  cityRef,
   emailRef,
   lastNameRef,
   modalRef,
   phoneRef,
-  stateRef,
   userNameRef,
   onChangeEmail,
   onChangeFirstName,
@@ -41,6 +42,23 @@ const EditProfileView = ({
   onPressValuePicker,
   closeDropDown,
   dropDownList,
+  onPressDropDownItem,
+  dropDownValue,
+  loading,
+  gender,
+  onSubmitFirstName,
+  onSubmitLastName,
+  onSubmitUserName,
+  isStudent,
+  onChangeZip,
+  zipCode,
+  dob,
+  anotherSchool,
+  onChangeAnotherSchool,
+  onPressConfirmDate,
+  onPressUpdate,
+  onPressOk,
+  updateLoading,
 }) => {
   return (
     <BackgroundWrapper>
@@ -60,7 +78,7 @@ const EditProfileView = ({
               viewStyle={styles.reducedInput}
               placeholder="First Name"
               returnKeyType="next"
-              onSubmitEditing={() => lastNameRef.current.focus()}
+              onSubmitEditing={onSubmitFirstName}
             />
             <InputField
               maxLength={15}
@@ -70,19 +88,21 @@ const EditProfileView = ({
               viewStyle={[styles.reducedInput, styles.inputSeprator]}
               placeholder="Last Name"
               returnKeyType="next"
-              onSubmitEditing={() => userNameRef.current.focus()}
+              onSubmitEditing={onSubmitLastName}
             />
           </View>
-          <InputField
-            maxLength={10}
-            ref={userNameRef}
-            onChangeText={onChangeUserName}
-            value={userName}
-            placeholder="User Name"
-            viewStyle={styles.input}
-            returnKeyType="next"
-            onSubmitEditing={() => phoneRef.current.focus()}
-          />
+          {isStudent && (
+            <InputField
+              maxLength={10}
+              ref={userNameRef}
+              onChangeText={onChangeUserName}
+              value={userName}
+              placeholder="User Name"
+              viewStyle={styles.input}
+              returnKeyType="next"
+              onSubmitEditing={onSubmitUserName}
+            />
+          )}
           <View style={styles.row}>
             <InputField
               maxLength={13}
@@ -103,17 +123,17 @@ const EditProfileView = ({
               viewStyle={[styles.reducedInput, styles.inputSeprator]}
               placeholder="Email"
               returnKeyType="next"
-              onSubmitEditing={() => setGradeModal(true)}
             />
           </View>
           <View style={styles.row}>
             <ValuePicker
-              value={classGrade?.name && capitalize(classGrade?.name)}
+              value={classGrade && capitalize(classGrade?.name)}
               onPress={() => onPressValuePicker('Grade')}
               containerStyle={styles.reducedInput}
               placeholder="Class Grade"
             />
             <ValuePicker
+              value={school && capitalize(school?.name)}
               onPress={() => onPressValuePicker('Schools')}
               containerStyle={[styles.reducedInput, styles.inputSeprator]}
               placeholder="School Name"
@@ -121,15 +141,16 @@ const EditProfileView = ({
           </View>
           <View style={styles.row}>
             <InputField
-              ref={anotherRef}
+              value={anotherSchool}
+              onChangeText={onChangeAnotherSchool}
               maxLength={20}
               viewStyle={styles.reducedInput}
               placeholder="Add Another School"
               returnKeyType="next"
-              onSubmitEditing={() => cityRef.current.focus()}
             />
 
             <ValuePicker
+              value={country && capitalize(country?.name)}
               onPress={() => onPressValuePicker('Country')}
               containerStyle={[styles.reducedInput, styles.inputSeprator]}
               placeholder="Country"
@@ -137,11 +158,13 @@ const EditProfileView = ({
           </View>
           <View style={styles.row}>
             <ValuePicker
+              value={state && capitalize(state?.name)}
               onPress={() => onPressValuePicker('State')}
               containerStyle={[styles.reducedInput]}
               placeholder="State"
             />
             <ValuePicker
+              value={city && capitalize(city?.name)}
               onPress={() => onPressValuePicker('City')}
               containerStyle={[styles.reducedInput, styles.inputSeprator]}
               placeholder="City"
@@ -149,46 +172,51 @@ const EditProfileView = ({
           </View>
           <View style={styles.row}>
             <InputField
-              ref={anotherRef}
+              value={zipCode}
+              onChangeText={onChangeZip}
               maxLength={20}
               viewStyle={styles.reducedInput}
               placeholder="Zip Code"
               returnKeyType="next"
-              onSubmitEditing={() => cityRef.current.focus()}
             />
 
-            <InputField
-              viewStyle={[styles.reducedInput, styles.inputSeprator]}
+            <DatePicker
+              onPressConfirm={onPressConfirmDate}
+              value={dob}
+              max={new Date()}
               placeholder="DOB"
+              containerStyle={[styles.reducedInput, styles.inputSeprator]}
             />
           </View>
           <ValuePicker
+            value={gender && capitalize(gender)}
+            onPress={() => onPressValuePicker('Gender')}
             containerStyle={styles.reducedInput}
             placeholder="Choose Your Gender"
           />
-          <Button onPress={() => modalRef.current.show()} btnText={'UPDATE'} />
+          {updateLoading ? (
+            <Loader />
+          ) : (
+            <Button onPress={onPressUpdate} btnText={'UPDATE'} />
+          )}
         </View>
 
         <DropDown
-          // selectedValue={schoolName?.id}
-          // onPressItem={item => {
-          //   setSchoolName({name: item?.name, id: item?.value});
-          //   setTimeout(() => {
-          //     anotherRef.current.focus();
-          //   }, 200);
-          // }}
-
+          selectedValue={dropDownValue}
+          onPressItem={onPressDropDownItem}
           array={dropDownList}
           placeholder={dropDownFor}
           closeModal={closeDropDown}
           visible={showDropDown}
         />
         <CustomModal
+          onPressOk={onPressOk}
           ref={modalRef}
           heading={'Update Alert'}
           subHeading={'Student account details have been updated '}
           image={images.success}
         />
+        <FullScreenLoader visible={loading} />
       </KeyboardAwareScrollView>
     </BackgroundWrapper>
   );
