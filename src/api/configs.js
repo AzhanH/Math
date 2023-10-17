@@ -24,6 +24,10 @@ export const endpoints = {
     updateStudentProfile: id => `/teacher/student/profile/${id}`,
     getStudentProfile: id => `/teacher/student/profile/${id}`,
   },
+  notifications: {
+    allNotifications: '/teacher/notification/',
+    readNotification: id => `/teacher/notification/read?notification_id=${id}`,
+  },
   general: {
     state: '/general/state',
     allClasess: '/general/class',
@@ -53,14 +57,14 @@ export const endpoints = {
   },
   plans: {
     subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,
-    readPlans: '/teacher/plan/index',
+    readPlans: '/plans',
   },
   contest: {
     getAllContests: '/teacher/contest',
     createContest: '/teacher/contest',
     updateContest: id => `/teacher/contest/${id}`,
     getContestDetail: id => `/teacher/contest/${id}`,
-    sendInviteToParents: '/teacher/contest/send_invite',
+    sendInviteToParents: '/teacher/contests/send_invite',
   },
 };
 

@@ -1,10 +1,9 @@
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../utils/theme';
 import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   mainView: {
-    // marginTop: StatusBar.currentHeight || vh * 6,
     paddingHorizontal: vw * 3,
   },
   notificationView: {
@@ -37,6 +36,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: '20%',
     height: vh * 2.5,
+  },
+  markAsRead: {
+    color: colors.red,
+    textDecorationLine: 'underline',
+    marginTop: vh * 2,
+    fontFamily: 'Renner-it-Book',
+  },
+  loader: {
+    width: '20%',
   },
 });
 export default styles;

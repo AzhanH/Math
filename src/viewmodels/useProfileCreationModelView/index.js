@@ -10,10 +10,12 @@ import {
   performNetworkRequest,
 } from '../../api/APIHelpers';
 import moment from 'moment/moment';
-import {endpoints} from '../../api/configs';
+import {base_url, endpoints} from '../../api/configs';
+import {useNavigation} from '@react-navigation/native';
 
 const useProfileCreationModelView = ({route}) => {
   const token = route?.params?.token;
+  const navigation = useNavigation();
   const email = route?.params?.email;
   const {general} = useSelector(state => state.general);
   const dispatch = useDispatch();
@@ -134,39 +136,41 @@ const useProfileCreationModelView = ({route}) => {
   };
 
   const onPressCreate = async data => {
-    console.log(data);
-    // try {
-    //   setCreateLoading(true);
-    //   let apiData = {...data};
-    //   apiData.city_id = JSON.parse(apiData.city_id)?.value;
-    //   apiData.class_grade_id = JSON.parse(apiData.class_grade_id)?.value;
-    //   apiData.school_id = JSON.parse(apiData.school_id)?.value;
-    //   apiData.state_id = JSON.parse(apiData.state_id)?.value;
-    //   apiData.gender = JSON.parse(apiData.gender)?.value;
-    //   let headers = {
-    //     Accept: 'application/json',
-    //     'X-Requested-With': 'XMLHttpRequest',
-    //     'Content-Type': 'multipart/form-data',
-    //     redirect: 'follow',
-    //     Authorization: `Bearer ${token}`,
-    //   };
-    //   let configs = {
-    //     method: 'POST',
-    //     headers: headers,
-    //     body: jsonToFormdata(apiData),
-    //   };
-    //   const networkResult = await performNetworkRequest(
-    //     base_url + endpoints.profile.updateProfile,
-    //     configs,
-    //   );
-    //   const result = await handleResponse(networkResult);
-    //   console.log('RESSS', result);
-    // } catch (e) {
-    //   console.log('Error', e);
-    // } finally {
-    //   setCreateLoading(false);
-    // }
+    try {
+      setCreateLoading(true);
+      let apiData = {...data};
+      apiData.country_id = JSON.parse(apiData.country_id)?.value;
+      apiData.state_id = JSON.parse(apiData.state_id)?.value;
+      apiData.city_id = JSON.parse(apiData.city_id)?.value;
+      apiData.class_grade_id = JSON.parse(apiData.class_grade_id)?.value;
+      apiData.school_id = JSON.parse(apiData.school_id)?.value;
+      apiData.gender = JSON.parse(apiData.gender)?.value;
+      let headers = {
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'multipart/form-data',
+        redirect: 'follow',
+        Authorization: `Bearer ${token}`,
+      };
+      let configs = {
+        method: 'POST',
+        headers: headers,
+        body: jsonToFormdata(apiData),
+      };
+      const networkResult = await performNetworkRequest(
+        base_url + endpoints.profile.updateProfile,
+        configs,
+      );
+      await handleResponse(networkResult);
+      goToPlans();
+    } catch (e) {
+      console.log('Error', e);
+    } finally {
+      setCreateLoading(false);
+    }
   };
+
+  const goToPlans = () => navigation.replace('SubscriptionPlans', {token});
 
   return {
     functions: {
@@ -175,6 +179,7 @@ const useProfileCreationModelView = ({route}) => {
       onPressConfirmDate,
       onPressDropDownItem,
       onPressCreate,
+      goToPlans,
     },
     states: {
       loading,

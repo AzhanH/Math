@@ -27,10 +27,6 @@ export const ReadPlans = createAsyncThunk('plans/read', async token => {
       const result = await handleResponse(networkResult);
       return result;
     }
-    // else {
-    //   let response = await get(endpoints.plans.readPlans);
-    //   return response;
-    // }
   } catch (error) {
     Toast.error(getMessage(error));
     throw new Error(error);

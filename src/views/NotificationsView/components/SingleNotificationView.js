@@ -1,11 +1,20 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import images from '../../../assets/images';
-import {Text} from '../../../components';
+import {Loader, Text} from '../../../components';
 import {colors} from '../../../utils/theme';
 import styles from '../styles';
 
-const SingleNotificationView = ({desc, date, time, seen}) => {
+const SingleNotificationView = ({
+  desc,
+  date,
+  time,
+  seen,
+  id,
+  selectedId,
+  loading,
+  onPressMarkAsRead,
+}) => {
   return (
     <View
       style={[
@@ -24,8 +33,17 @@ const SingleNotificationView = ({desc, date, time, seen}) => {
           <Text style={styles.dateText} text={' Time:'} />
           <Text style={styles.dateText} text={time} />
         </View>
+
         {seen && <Image style={styles.checked} source={images.checked} />}
       </View>
+      {!seen &&
+        (id == selectedId && loading ? (
+          <Loader style={styles.loader} size={'small'} />
+        ) : (
+          <TouchableOpacity onPress={onPressMarkAsRead}>
+            <Text style={styles.markAsRead} text={'Mark As Read'} />
+          </TouchableOpacity>
+        ))}
     </View>
   );
 };

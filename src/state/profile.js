@@ -33,6 +33,22 @@ export const UpdateProfile = createAsyncThunk(
     }
   },
 );
+export const UpdateStudentProfile = createAsyncThunk(
+  '/teacher/update/studen-profile',
+  async data => {
+    console.log(data);
+    try {
+      let response = await post(
+        endpoints.profile.updateStudentProfile(data?.id),
+        data,
+        true,
+      );
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
 
 export const UpdatePassword = createAsyncThunk(
   '/teacher/update-password',

@@ -1,62 +1,96 @@
 import useAuth from '../../hooks/useAuth';
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 import {useRef} from 'react';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetCityViaState, GetStateViaCountry} from '../../state/general';
 import moment from 'moment/moment';
-import {UpdateProfile} from '../../state/profile';
-import {useNavigation} from '@react-navigation/native';
+import {
+  GetProfile,
+  GetStudentProfile,
+  UpdateProfile,
+  UpdateStudentProfile,
+} from '../../state/profile';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
-const useEditProfileModelView = () => {
+const useEditProfileModelView = ({route}) => {
+  const id = route?.params?.id;
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const {user} = useAuth();
+  const [roleId, setRoleId] = useState(null);
   const {general} = useSelector(state => state.general);
 
+  useFocusEffect(
+    useCallback(() => {
+      loadData();
+    }, []),
+  );
+
+  const loadData = async () => {
+    try {
+      setGetLoading(true);
+      const res = await dispatch(
+        id ? GetStudentProfile(id) : GetProfile(),
+      ).unwrap();
+      setterFunction(res?.data);
+      return res;
+    } catch (e) {
+      Toast.error(getMessage(e));
+      console.log('Error', e);
+    } finally {
+      setGetLoading(false);
+    }
+  };
   const modalRef = useRef(null);
   const lastNameRef = useRef(null);
   const userNameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
 
-  const [firstName, setFirstName] = useState(user?.first_name);
-  const [lastName, setLastName] = useState(user?.last_name);
-  const [userName, setUserName] = useState(user?.user_name);
-  const [phone, setPhone] = useState(user?.phone_number);
-  const [email, setEmail] = useState(user?.email);
-  const [dob, setDob] = useState(user?.date_of_birth);
+  const setterFunction = data => {
+    setFirstName(data?.first_name);
+    setLastName(data?.last_name);
+    setUserName(data?.user_name);
+    setPhone(data?.phone_number);
+    setEmail(data?.email);
+    setState({id: data?.state?.id, name: data?.state?.name});
+    setClassGrade({id: data?.class_grade?.id, name: data?.class_grade?.name});
+    setDob(data?.date_of_birth);
+    setGender(data?.gender);
+    setZipCode(data?.zip_code);
+    setCountry({id: data?.country?.id, name: data?.country?.name});
+    setSchool({
+      id: data?.school?.id,
+      name: data?.school?.name,
+    });
+    setCity({
+      id: data?.city?.id,
+      name: data?.city?.name,
+    });
+    setRoleId(data?.role_id);
+  };
+
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [userName, setUserName] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [dob, setDob] = useState(null);
   const [showDropDown, setShowDropDown] = useState(false);
-  const [state, setState] = useState({
-    id: user?.state?.id,
-    name: user?.state?.name,
-  });
+  const [state, setState] = useState(null);
   const [loading, setLoading] = useState(false);
   const [dropDownFor, setDropDownFor] = useState(null);
-  const [classGrade, setClassGrade] = useState({
-    id: user?.class_grade?.id,
-    name: user?.class_grade?.name,
-  });
-  const [country, setCountry] = useState({
-    id: user?.country?.id,
-    name: user?.country?.name,
-  });
-  const [school, setSchool] = useState({
-    id: user?.school?.id,
-    name: user?.school?.name,
-  });
-
-  const [city, setCity] = useState({
-    id: user?.city?.id,
-    name: user?.city?.name,
-  });
-
+  const [classGrade, setClassGrade] = useState(null);
+  const [country, setCountry] = useState(null);
+  const [school, setSchool] = useState(null);
+  const [city, setCity] = useState(null);
   const [allStates, setAllStates] = useState([]);
   const [allCities, setAllCities] = useState([]);
-  const [gender, setGender] = useState(user?.gender);
-  const [zipCode, setZipCode] = useState(user?.zip_code);
+  const [gender, setGender] = useState(null);
+  const [zipCode, setZipCode] = useState(null);
   const [anotherSchool, setAnotherSchool] = useState('');
   const [updateLoading, setUpdateLoading] = useState(false);
+  const [getLoading, setGetLoading] = useState(false);
 
   const onPressValuePicker = async type => {
     try {
@@ -114,7 +148,7 @@ const useEditProfileModelView = () => {
   };
 
   const onSubmitLastName = () => {
-    if (user?.role_id == 4) {
+    if (roleId == 4) {
       userNameRef.current.focus();
     } else {
       phoneRef.current.focus();
@@ -165,7 +199,12 @@ const useEditProfileModelView = () => {
         school_id: school?.id,
         school_name: anotherSchool,
       };
-      await dispatch(UpdateProfile(apiData)).unwrap();
+      if (id) {
+        apiData = {...apiData, id};
+        await dispatch(UpdateStudentProfile(apiData)).unwrap();
+      } else {
+        await dispatch(UpdateProfile(apiData)).unwrap();
+      }
       showSuccessModal();
     } catch (e) {
       Toast.error(getMessage(e));
@@ -201,6 +240,7 @@ const useEditProfileModelView = () => {
       onPressOk,
     },
     states: {
+      getLoading,
       email,
       classGrade,
       school,
@@ -217,7 +257,7 @@ const useEditProfileModelView = () => {
       city,
       updateLoading,
       anotherSchool,
-      isStudent: user?.role_id == 4,
+      isStudent: roleId == 4,
       dropDownValue:
         dropDownFor === 'Country'
           ? country?.id

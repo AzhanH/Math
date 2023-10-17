@@ -4,11 +4,12 @@ import images from '../../assets/images';
 import {colors} from '../../utils/theme';
 import styles from './styles';
 
-const SearchBar = ({style, inputstyle}) => {
+const SearchBar = ({style, inputstyle, onChangeSearch}) => {
   return (
     <View style={[styles.mainView, style]}>
       <Image style={styles.icon} source={images.search} />
       <TextInput
+        onChangeText={onChangeSearch}
         placeholder="Search here..."
         placeholderTextColor={colors.black + '66'}
         underlineColorAndroid="rgba(0,0,0,0)"

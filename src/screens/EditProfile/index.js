@@ -2,8 +2,8 @@ import React from 'react';
 import EditProfileView from '../../views/EditProfileView';
 import useEditProfileModelView from '../../viewmodels/useEditProfileModelView';
 
-const EditProfile = () => {
-  const {states, functions, refs} = useEditProfileModelView();
+const EditProfile = ({route}) => {
+  const {states, functions, refs} = useEditProfileModelView({route});
   const {
     firstName,
     lastName,
@@ -26,6 +26,7 @@ const EditProfile = () => {
     dob,
     anotherSchool,
     updateLoading,
+    getLoading,
   } = states;
   const {emailRef, lastNameRef, modalRef, phoneRef, userNameRef} = refs;
   const {
@@ -91,6 +92,7 @@ const EditProfile = () => {
       onPressUpdate={onPressUpdate}
       updateLoading={updateLoading}
       onPressOk={onPressOk}
+      getLoading={getLoading}
     />
   );
 };

@@ -4,7 +4,7 @@ import useProfileModelView from '../../viewmodels/useProfileModelView';
 
 const Profile = ({route}) => {
   const {states, functions} = useProfileModelView({route});
-  const {loading, dataArray} = states;
+  const {loading, dataArray, isStudent} = states;
   const {onPressChangePassword, onPressEditProfile} = functions;
   return (
     <ProfileView
@@ -12,6 +12,7 @@ const Profile = ({route}) => {
       onPressEditProfile={onPressEditProfile}
       dataArray={dataArray}
       loading={loading}
+      isStudent={isStudent}
     />
   );
 };

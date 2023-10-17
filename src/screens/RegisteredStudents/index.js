@@ -5,10 +5,11 @@ import useRegisteredStudentsModelView from '../../viewmodels/useRegisteredStuden
 const RegisteredStudents = () => {
   const {states, functions} = useRegisteredStudentsModelView();
   const {loading, data, backgroundColors} = states;
-  const {onPressViewDetail, loadData, onEndReached} = functions;
+  const {onPressViewDetail, loadData, onEndReached, onChangeSearch} = functions;
 
   return (
     <RegisteredStudentsView
+      onChangeSearch={onChangeSearch}
       onPressViewDetail={onPressViewDetail}
       backgroundColors={backgroundColors}
       onEndReached={onEndReached}

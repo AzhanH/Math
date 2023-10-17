@@ -29,15 +29,15 @@ const CreateProfileView = ({
   onPressConfirmDate,
   onPressDropDownItem,
   createLoading,
+  onPressCreate,
+  onPressSkip,
 }) => {
   return (
     <BackgroundWrapper>
       <Formik
         validationSchema={validationSchema}
         initialValues={initialValues}
-        onSubmit={e => {
-          console.log('E', e);
-        }}>
+        onSubmit={onPressCreate}>
         {({values, handleChange, errors, touched, handleSubmit}) => (
           <KeyboardAwareScrollView
             contentContainerStyle={styles.contentContainer}
@@ -144,7 +144,6 @@ const CreateProfileView = ({
               placeholder="Choose your gender"
               error={touched?.gender && errors?.gender && errors?.gender}
             />
-            {/* {console.log('values', values)} */}
             <Field name={'date_of_birth'}>
               {({form}) => (
                 <DatePicker
@@ -167,7 +166,7 @@ const CreateProfileView = ({
             ) : (
               <Button onPress={handleSubmit} btnText={'CREATE PROFILE'} />
             )}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPressSkip}>
               <Text style={styles.skipText} text={'Skip Now'} />
             </TouchableOpacity>
 

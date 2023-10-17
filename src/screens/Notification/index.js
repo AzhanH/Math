@@ -1,28 +1,21 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import {BackgroundWrapper} from '../../components';
-import {notifications} from '../../config';
-import {SingleNotificationView} from './components';
-import styles from './styles';
+import NotificationView from '../../views/NotificationsView';
+import useNotificaitonsModelView from '../../viewmodels/useNotificationsModelView';
 
 const Notifications = () => {
-  const renderItem = ({item, index}) => (
-    <SingleNotificationView
-      seen={item?.isSeen}
-      time={item?.time}
-      date={item?.date}
-      desc={item?.desc}
-      key={index}
-    />
-  );
+  const {functions, states} = useNotificaitonsModelView();
+  const {loading, data, markLoading, selectedId} = states;
+  const {loadData, onEndReached, readNotification} = functions;
   return (
-    <BackgroundWrapper>
-      <FlatList
-        renderItem={renderItem}
-        style={styles.mainView}
-        data={notifications}
-      />
-    </BackgroundWrapper>
+    <NotificationView
+      onEndReached={onEndReached}
+      loadData={loadData}
+      data={data}
+      markLoading={markLoading}
+      selectedId={selectedId}
+      loading={loading}
+      readNotification={readNotification}
+    />
   );
 };
 export default Notifications;

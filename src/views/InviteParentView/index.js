@@ -1,10 +1,17 @@
 import React, {useRef} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import images from '../../assets/images';
-import {BackgroundWrapper, SearchBar, Button} from '../../components';
+import {
+  BackgroundWrapper,
+  SearchBar,
+  Button,
+  Loader,
+  CustomModal,
+} from '../../components';
 import {vh} from '../../utils/units';
 import SingleInvitaionView from './components/SingleInvitationView';
 import styles from './styles';
+import NoDataView from '../../components/NoDataView';
 
 const InviteParentView = ({
   loadData,
@@ -12,7 +19,10 @@ const InviteParentView = ({
   backgroundColor,
   loading,
   onPressSendInvite,
+  createContestLoading,
   onPressIcon,
+  modalRef,
+  onPressOk,
 }) => {
   const renderItem = ({item, index}) => (
     <SingleInvitaionView
@@ -26,7 +36,9 @@ const InviteParentView = ({
     />
   );
   const listHeaderComponent = <SearchBar style={styles.searchBar} />;
-  const listFooterComponent = (
+  const listFooterComponent = createContestLoading ? (
+    <Loader />
+  ) : (
     <Button onPress={onPressSendInvite} btnText={'SEND INVITE'} />
   );
   return (
@@ -38,20 +50,20 @@ const InviteParentView = ({
         contentContainerStyle={{paddingBottom: vh}}
         renderItem={renderItem}
         style={styles.container}
+        ListEmptyComponent={!loading && NoDataView}
         ListHeaderComponent={listHeaderComponent}
         ListFooterComponent={listFooterComponent}
         data={data}
       />
-      {/* <CustomModal
-        image={checked ? images.danger : images.success}
-        heading={checked ? 'oops!!' : 'Invitation Sent'}
+      <CustomModal
+        onPressOk={onPressOk}
+        image={images.success}
+        heading={'Invitation Sent'}
         subHeading={
-          checked
-            ? "You can't create more contests, because you've already created 3 contests under your account."
-            : "The invitation has been sent to the Parent(s)/Teacher(s). You'll be notified once it is accepted or declined."
+          "The invitation has been sent to the Parent(s)/Teacher(s). You'll be notified once it is accepted or declined."
         }
         ref={modalRef}
-      /> */}
+      />
     </BackgroundWrapper>
   );
 };

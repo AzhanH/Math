@@ -4,14 +4,15 @@ import {fontSizes, vh, vw} from '../../utils/units';
 
 const styles = StyleSheet.create({
   contentContainer: {
-    paddingBottom: vh * 2,
+    marginTop: vh * 2,
+  },
+  list: {
+    flexGrow: 0,
   },
   planTypeView: {
-    width: '31%',
-    marginLeft: '2%',
-    alignItems: 'center',
+    marginLeft: vw * 6,
+    width: vw * 20,
   },
-
   planTypeText: {
     fontFamily: 'Oswald-Regular',
     color: colors.gray,

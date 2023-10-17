@@ -1,19 +1,22 @@
 import {useDispatch} from 'react-redux';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {GetAllTeachers} from '../../state/general';
-import {useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
+import {useRef, useState} from 'react';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {SendInviteToParents} from '../../state/contest';
 
 const useInviteParentModelView = ({route}) => {
+  const navigation = useNavigation();
   const id = route?.params?.id;
   const dispatch = useDispatch();
-
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [createContestLoading, setCreateContestLoading] = useState(false);
   const [lastPage, setLastPage] = useState(null);
+
+  const modalRef = useRef(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -56,17 +59,23 @@ const useInviteParentModelView = ({route}) => {
       };
       const filteredData = data?.filter(v => v?.added);
       filteredData?.forEach((item, index) => {
-        apiData[`teacher_id[${index}]`] = item?.id;
+        apiData[`teacher_ids[${index}]`] = item?.id;
       });
       if (!filteredData?.length > 0) {
         throw new Error('Please Select Atleast One Teacher');
       }
-      await SendInviteToParents(apiData).unwrap();
+      setCreateContestLoading(true);
+      await dispatch(SendInviteToParents(apiData)).unwrap();
+      showModal();
     } catch (e) {
       Toast.error(getMessage(e));
+    } finally {
+      setCreateContestLoading(false);
     }
   };
 
+  const onPressOk = () => navigation.goBack();
+  const showModal = () => modalRef.current.show();
   const backgroundColor = {
     0: 'darkOrange',
     1: 'yellow',
@@ -78,9 +87,14 @@ const useInviteParentModelView = ({route}) => {
       onEndReached,
       onPressIcon,
       loadData,
+      onPressOk,
       onPressSendInvite,
     },
-    states: {data, loading, backgroundColor},
+    states: {createContestLoading, data, loading, backgroundColor},
+
+    ref: {
+      modalRef,
+    },
   };
 };
 

@@ -19,7 +19,7 @@ const ContestsView = ({
     <SingleContestView
       onPressContainer={() => onPressContestDetail(item)}
       onPressSendInvite={() => onPressSendInvite(item)}
-      key={item?.id}
+      key={index}
       name={item?.title}
       image={item?.image ? {uri: item?.image} : images.contestPlayer}
       date={moment(item?.start_date).format('MMM DD, YYYY')}

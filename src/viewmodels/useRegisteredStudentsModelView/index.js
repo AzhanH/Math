@@ -1,6 +1,6 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {colors} from '../../utils/theme';
-import {useCallback, useState} from 'react';
+import {useCallback, useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {GetAllRegisteredStudents} from '../../state/teacher';
 
@@ -9,6 +9,7 @@ const useRegisteredStudentsModelView = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [lastPage, setLastPage] = useState(null);
+  const [search, setSearch] = useState(null);
   const [page, setPage] = useState(1);
   const navigation = useNavigation();
 
@@ -18,10 +19,25 @@ const useRegisteredStudentsModelView = () => {
     }, []),
   );
 
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (search !== null) {
+        loadData(1);
+      }
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
+
   const loadData = async (page = 1) => {
     try {
       setLoading(true);
-      const res = await dispatch(GetAllRegisteredStudents({page})).unwrap();
+      let apiData = {
+        page,
+      };
+      if (search) {
+        apiData = {...apiData, search};
+      }
+      const res = await dispatch(GetAllRegisteredStudents(apiData)).unwrap();
       setLastPage(res?.lastPage);
       if (page > 1 && res?.lastPage <= page) {
         setData([...data, ...res?.data]);
@@ -34,6 +50,8 @@ const useRegisteredStudentsModelView = () => {
       console.log('Error', e);
     }
   };
+
+  const onChangeSearch = text => setSearch(text);
   const onEndReached = () => {
     if (page < lastPage && !loading) {
       loadData(page + 1);
@@ -48,16 +66,14 @@ const useRegisteredStudentsModelView = () => {
   };
 
   const onPressViewDetail = id => {
-    navigation.navigate('ProfileStack', {
-      screen: 'Profile',
-      params: {id},
-    });
+    navigation.navigate('Profile', {id});
   };
   return {
     functions: {
       onPressViewDetail,
       loadData,
       onEndReached,
+      onChangeSearch,
     },
     states: {
       loading,

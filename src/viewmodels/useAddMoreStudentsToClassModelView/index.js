@@ -1,6 +1,6 @@
 import {useFocusEffect} from '@react-navigation/native';
 import {colors} from '../../utils/theme';
-import {useCallback, useState} from 'react';
+import {useCallback, useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {GetAllRegisteredStudents} from '../../state/teacher';
 import {Toast, getMessage} from '../../api/APIHelpers';
@@ -15,18 +15,33 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
   const [lastPage, setLastPage] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [addLoading, setAddLoading] = useState(false);
-
+  const [search, setSearch] = useState(null);
   const [page, setPage] = useState(1);
-
   useFocusEffect(
     useCallback(() => {
       loadData(1);
     }, []),
   );
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (search !== null) {
+        loadData(1);
+      }
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
+
   const loadData = async (page = 1) => {
     try {
       setLoading(true);
-      const res = await dispatch(GetAllRegisteredStudents({page})).unwrap();
+      let apiData = {
+        page,
+      };
+      if (search) {
+        apiData = {...apiData, search};
+      }
+      const res = await dispatch(GetAllRegisteredStudents(apiData)).unwrap();
       setLastPage(res?.lastPage);
       if (page > 1 && res?.lastPage <= page) {
         const _data = returnUniquePlayers([...data, ...res?.data?.data]);
@@ -47,6 +62,9 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
       setPage(page + 1);
     }
   };
+
+  const onChangeSearch = text => setSearch(text);
+
   const backgroundColors = {
     0: colors.darkPeach,
     1: colors.yellow,
@@ -67,6 +85,7 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
       });
       return array;
     }
+    return data;
   };
 
   const onPressAdd = async (index, item) => {
@@ -95,6 +114,7 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
       loadData,
       onEndReached,
       onPressAdd,
+      onChangeSearch,
     },
     states: {
       selectedIndex,

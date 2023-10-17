@@ -20,6 +20,7 @@ const ProfileCreation = ({route}) => {
     onPressDropDownItem,
     onPressConfirmDate,
     onPressCreate,
+    goToPlans,
   } = functions;
   return (
     <CreateProfileView
@@ -35,6 +36,7 @@ const ProfileCreation = ({route}) => {
       closeDropDown={closeDropDown}
       createLoading={createLoading}
       onPressCreate={onPressCreate}
+      onPressSkip={goToPlans}
       onPressConfirmDate={onPressConfirmDate}
     />
   );

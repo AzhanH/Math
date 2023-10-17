@@ -4,10 +4,11 @@ import useAddMoreStudentsToClassModeView from '../../viewmodels/useAddMoreStuden
 const AddMoreStudents = ({route}) => {
   const {states, functions} = useAddMoreStudentsToClassModeView({route});
   const {loading, data, backgroundColors, selectedIndex, addLoading} = states;
-  const {loadData, onEndReached, onPressAdd} = functions;
+  const {loadData, onEndReached, onPressAdd, onChangeSearch} = functions;
 
   return (
     <AddStudentsToClassView
+      onChangeSearch={onChangeSearch}
       selectedIndex={selectedIndex}
       addLoading={addLoading}
       backgroundColors={backgroundColors}

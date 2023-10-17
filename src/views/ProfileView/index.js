@@ -3,12 +3,12 @@ import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
 import images from '../../assets/images';
 import {BackgroundWrapper, Button, Loader, Text} from '../../components';
 import styles from './styles';
-
 const ProfileView = ({
   dataArray,
   student,
   onPressChangePassword,
   onPressEditProfile,
+  isStudent,
   loading = false,
 }) => {
   const renderFields = () =>
@@ -36,9 +36,11 @@ const ProfileView = ({
           <View style={styles.fieldsContainer}>{renderFields()}</View>
           <View style={styles.btnContainer}>
             <Button onPress={onPressEditProfile} btnText={'EDIT PROFILE'} />
-            <TouchableOpacity onPress={onPressChangePassword}>
-              <Text style={styles.changePassword} text={'Change Password'} />
-            </TouchableOpacity>
+            {!isStudent && (
+              <TouchableOpacity onPress={onPressChangePassword}>
+                <Text style={styles.changePassword} text={'Change Password'} />
+              </TouchableOpacity>
+            )}
           </View>
         </ScrollView>
       )}

@@ -35,11 +35,15 @@ const useClassDetailsModelView = ({route}) => {
     2: colors.green,
   };
 
+  const onPressViewDetail = id => {
+    navigation.navigate('Profile', {id});
+  };
   const onPressEditClass = () => navigation.navigate('EditClass', {id});
 
   return {
     functions: {
       onPressEditClass,
+      onPressViewDetail,
     },
     states: {
       loading,

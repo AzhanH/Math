@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  container: {
+    paddingHorizontal: vw * 4,
+  },
   btnText: {
     fontSize: fontSizes.f16,
   },

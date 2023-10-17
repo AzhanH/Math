@@ -4,6 +4,7 @@ import {BackgroundWrapper, Button} from '../../components';
 import styles from './styles';
 import {AddClassModal} from './components';
 import SingleClassView from './components/SingleClassView';
+import NoDataView from '../../components/NoDataView';
 const MyClassesView = ({
   onChangeClassName,
   showAddClassModal,
@@ -47,6 +48,8 @@ const MyClassesView = ({
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={!loading && NoDataView}
         ListFooterComponent={listFooterComponent}
         contentContainerStyle={styles.contentContainer}
         style={styles.container}

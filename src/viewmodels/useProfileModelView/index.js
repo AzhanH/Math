@@ -74,10 +74,11 @@ const useProfileModelView = ({route}) => {
   ];
 
   const onPressChangePassword = () => navigation.navigate('ChangePassword');
-  const onPressEditProfile = () => navigation.navigate('EditProfile');
+  const onPressEditProfile = () => navigation.navigate('EditProfile', {id});
   return {
     states: {
       data,
+      isStudent: id ? true : false,
       loading,
       dataArray,
     },

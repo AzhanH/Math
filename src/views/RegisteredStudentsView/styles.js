@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingBottom: vh,
   },
   searchView: {
-    width: vw * 94,
+    width: '100%',
   },
 });
 export default styles;

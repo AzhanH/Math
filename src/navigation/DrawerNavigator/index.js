@@ -60,6 +60,16 @@ const AnimatedRegisteredStack = () => {
           options={NavigationOptions}
           name="RegisteredStd"
         />
+        <Stack.Screen
+          component={Profile}
+          options={NavigationOptions}
+          name="Profile"
+        />
+        <Stack.Screen
+          component={EditProfile}
+          options={NavigationOptions}
+          name="EditProfile"
+        />
       </Stack.Navigator>
     </DrawerScreenWrapper>
   );

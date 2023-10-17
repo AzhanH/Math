@@ -6,6 +6,8 @@ import NavigationOptions from '../NavigationOptions';
 import ClassDetails from '../../screens/ClassDetails';
 import EditClass from '../../screens/EditClass';
 import AddStudentsToClass from '../../screens/AddStudentsToClass';
+import Profile from '../../screens/Profile';
+import EditProfile from '../../screens/EditProfile';
 const ClassStack = () => {
   const Stack = createStackNavigator();
   return (
@@ -16,6 +18,8 @@ const ClassStack = () => {
       <Stack.Screen name="ClassDetails" component={ClassDetails} />
       <Stack.Screen name="EditClass" component={EditClass} />
       <Stack.Screen name="AddStudentsToClass" component={AddStudentsToClass} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="EditProfile" component={EditProfile} />
     </Stack.Navigator>
   );
 };

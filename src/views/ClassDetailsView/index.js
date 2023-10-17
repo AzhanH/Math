@@ -25,7 +25,7 @@ const ClassDetailsView = ({
       playerName={`${item?.student?.first_name} ${item?.student?.last_name}`}
       playerId={item?.user_id}
       grade={item?.user?.class_grade}
-      onPressButton={() => onPressViewDetail(item)}
+      onPressButton={() => onPressViewDetail(item?.student?.id)}
       btnName="VIEW DETAIL"
       image={
         item?.student?.image ? {uri: item?.student?.image} : images.childImage1
@@ -58,7 +58,7 @@ const ClassDetailsView = ({
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
-        ListEmptyComponent={NoDataView}
+        ListEmptyComponent={!loading && NoDataView}
         ListHeaderComponent={!loading && ListHeaderComponent}
         data={data?.classhasstudents}
         contentContainerStyle={styles.contentContainer}
