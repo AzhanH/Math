@@ -124,6 +124,7 @@ const ContestDetailView = ({
               <Button onPress={onPressEdit} btnText={'EDIT'} />
             )}
             {isInvited == 1 &&
+              details?.contest_status?.status === 'pending' &&
               (inviteStatusLoading ? (
                 <Loader />
               ) : (
