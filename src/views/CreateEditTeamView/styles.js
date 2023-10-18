@@ -16,5 +16,8 @@ const styles = StyleSheet.create({
   searchView: {
     width: vw * 94,
   },
+  inputView: {
+    width: '100%',
+  },
 });
 export default styles;

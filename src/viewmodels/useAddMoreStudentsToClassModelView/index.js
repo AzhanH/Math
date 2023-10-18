@@ -20,6 +20,10 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
   useFocusEffect(
     useCallback(() => {
       loadData(1);
+      return () => {
+        setPage(1);
+        setLastPage(null);
+      };
     }, []),
   );
 
@@ -42,8 +46,8 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
         apiData = {...apiData, search};
       }
       const res = await dispatch(GetAllRegisteredStudents(apiData)).unwrap();
-      setLastPage(res?.lastPage);
-      if (page > 1 && res?.lastPage <= page) {
+      setLastPage(res?.last_page);
+      if (page > 1 && res?.last_page <= page) {
         const _data = returnUniquePlayers([...data, ...res?.data?.data]);
         setData(_data);
       } else {
@@ -114,9 +118,11 @@ const useAddMoreStudentsToClassModeView = ({route}) => {
       loadData,
       onEndReached,
       onPressAdd,
+      page,
       onChangeSearch,
     },
     states: {
+      page,
       selectedIndex,
       addLoading,
       loading,

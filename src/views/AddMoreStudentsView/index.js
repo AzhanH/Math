@@ -1,8 +1,14 @@
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
+import {
+  BackgroundWrapper,
+  SinglePlayerView,
+  SearchBar,
+  Loader,
+} from '../../components';
 import styles from './styles';
 import images from '../../assets/images';
+import NoDataView from '../../components/NoDataView';
 const AddMoreStudents = ({
   data,
   loading,
@@ -11,7 +17,9 @@ const AddMoreStudents = ({
   onEndReached,
   selectedIndex,
   addLoading,
+  onChangeSearch,
   onPressAdd,
+  page,
 }) => {
   const renderItem = ({item, index}) => (
     <SinglePlayerView
@@ -33,14 +41,23 @@ const AddMoreStudents = ({
     />
   );
 
+  const ListFooterComponent = loading && page > 1 && <Loader />;
+
   return (
     <BackgroundWrapper>
-      <SearchBar style={styles.searchView} placeholder="Search a name" />
+      <SearchBar
+        onChangeSearch={onChangeSearch}
+        style={styles.searchView}
+        placeholder="Search a name"
+      />
       <FlatList
+        showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
         data={data}
+        ListEmptyComponent={!loading && NoDataView}
+        ListFooterComponent={ListFooterComponent}
         contentContainerStyle={styles.contentContainer}
         style={styles.container}
         renderItem={renderItem}

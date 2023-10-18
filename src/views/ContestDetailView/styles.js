@@ -117,5 +117,8 @@ const styles = StyleSheet.create({
   midView: {
     width: '60%',
   },
+  button: {
+    marginTop: 0,
+  },
 });
 export default styles;

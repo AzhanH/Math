@@ -4,14 +4,17 @@ import useContestDetailsModelView from '../../viewmodels/useContenetDetailsModel
 
 const ContestDetail = ({route}) => {
   const {functions, states} = useContestDetailsModelView({route});
-  const {onPressEdit} = functions;
-  const {loading, details, options} = states;
+  const {onPressEdit, updateContestInviteStatus} = functions;
+  const {loading, details, options, isInvited, inviteStatusLoading} = states;
   return (
     <ContestDetailView
+      isInvited={isInvited}
       onPressEdit={onPressEdit}
       options={options}
       details={details}
       loading={loading}
+      updateContestInviteStatus={updateContestInviteStatus}
+      inviteStatusLoading={inviteStatusLoading}
     />
   );
 };

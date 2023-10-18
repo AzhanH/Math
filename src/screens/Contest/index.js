@@ -11,7 +11,7 @@ const Contest = () => {
     onPressSendInvite,
     onPressCreateContest,
   } = functions;
-  const {backgroundColor, data, loading} = states;
+  const {backgroundColor, data, loading, page} = states;
   return (
     <ContestsView
       loadData={loadData}
@@ -21,6 +21,7 @@ const Contest = () => {
       onPressCreateContest={onPressCreateContest}
       onPressContestDetail={onPressContestDetail}
       data={data}
+      page={page}
       backgroundColor={backgroundColor}
     />
   );

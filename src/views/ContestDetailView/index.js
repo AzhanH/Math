@@ -13,13 +13,23 @@ import {vh, vw} from '../../utils/units';
 import images from '../../assets/images';
 import {colors} from '../../utils/theme';
 import moment from 'moment';
-const ContestDetailView = ({options, details, loading, onPressEdit}) => {
+const ContestDetailView = ({
+  options,
+  details,
+  loading,
+  onPressEdit,
+  isInvited,
+  updateContestInviteStatus,
+  inviteStatusLoading,
+}) => {
   return (
     <BackgroundWrapper>
       {loading ? (
         <Loader />
       ) : (
-        <ScrollView style={styles.mainView}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.mainView}>
           <Rectangle
             rightSideStyle={styles.rightSide}
             midViewStyle={styles.midView}>
@@ -110,7 +120,26 @@ const ContestDetailView = ({options, details, loading, onPressEdit}) => {
               }
             />
             <TableView array={options} />
-            <Button onPress={onPressEdit} btnText={'EDIT'} />
+            {isInvited == 0 && (
+              <Button onPress={onPressEdit} btnText={'EDIT'} />
+            )}
+            {isInvited == 1 &&
+              (inviteStatusLoading ? (
+                <Loader />
+              ) : (
+                <>
+                  <Button
+                    onPress={() => updateContestInviteStatus(0)}
+                    btnText={'REJECT'}
+                  />
+                  <Button
+                    onPress={() => updateContestInviteStatus(1)}
+                    containerStyle={styles.button}
+                    black
+                    btnText={'ACCEPT'}
+                  />
+                </>
+              ))}
           </View>
         </ScrollView>
       )}

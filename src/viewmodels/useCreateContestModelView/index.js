@@ -14,7 +14,6 @@ const useCreateContestModelView = () => {
   useFocusEffect(
     useCallback(() => {
       loadData(1);
-
       return () => {
         setPage(1);
         setLastPage(null);
@@ -25,7 +24,10 @@ const useCreateContestModelView = () => {
   const loadData = async (page = 1) => {
     try {
       setLoading(true);
-      const res = await dispatch(GetAllContests({page})).unwrap();
+      let apiData = {
+        page,
+      };
+      const res = await dispatch(GetAllContests(apiData)).unwrap();
       setLastPage(res?.last_page);
       if (page > 1 && res?.last_page <= page) {
         setData([...data, ...res?.data]);
@@ -40,7 +42,10 @@ const useCreateContestModelView = () => {
   };
 
   const onPressContestDetail = item =>
-    navigation.navigate('ContestDetail', {id: item?.id});
+    navigation.navigate('ContestDetail', {
+      id: item?.id,
+      isInvited: item?.is_invited,
+    });
 
   const onPressSendInvite = item =>
     navigation.navigate('InviteParents', {id: item?.id});
@@ -71,6 +76,7 @@ const useCreateContestModelView = () => {
       onPressCreateContest,
     },
     states: {
+      page,
       loading,
       backgroundColor,
       data,

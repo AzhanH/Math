@@ -1,5 +1,5 @@
-import React, {useRef} from 'react';
-import {FlatList, RefreshControl} from 'react-native';
+import React from 'react';
+import {FlatList, RefreshControl, View} from 'react-native';
 import images from '../../assets/images';
 import {
   BackgroundWrapper,
@@ -21,7 +21,10 @@ const InviteParentView = ({
   onPressSendInvite,
   createContestLoading,
   onPressIcon,
+  onEndReached,
   modalRef,
+  page,
+  onChangeSearch,
   onPressOk,
 }) => {
   const renderItem = ({item, index}) => (
@@ -35,18 +38,27 @@ const InviteParentView = ({
       grade={item?.class_grade?.name}
     />
   );
-  const listHeaderComponent = <SearchBar style={styles.searchBar} />;
-  const listFooterComponent = createContestLoading ? (
-    <Loader />
-  ) : (
-    <Button onPress={onPressSendInvite} btnText={'SEND INVITE'} />
+  const listHeaderComponent = (
+    <SearchBar onChangeSearch={onChangeSearch} style={styles.searchBar} />
   );
+  const listFooterComponent = (
+    <View>
+      {createContestLoading ? (
+        <Loader />
+      ) : (
+        <Button onPress={onPressSendInvite} btnText={'SEND INVITE'} />
+      )}
+      {loading && page > 1 && <Loader />}
+    </View>
+  );
+
   return (
     <BackgroundWrapper>
       <FlatList
         refreshControl={
           <RefreshControl refreshing={loading} onRefresh={loadData} />
         }
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: vh}}
         renderItem={renderItem}
         style={styles.container}
@@ -54,6 +66,7 @@ const InviteParentView = ({
         ListHeaderComponent={listHeaderComponent}
         ListFooterComponent={listFooterComponent}
         data={data}
+        onEndReached={onEndReached}
       />
       <CustomModal
         onPressOk={onPressOk}

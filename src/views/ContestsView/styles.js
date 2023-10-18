@@ -72,5 +72,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Light',
     fontSize: fontSizes.f14,
   },
+  search: {
+    width: '100%',
+  },
 });
 export default styles;

@@ -21,6 +21,7 @@ const MyClasses = () => {
     className,
     avatarImage,
     backgroundColor,
+    page,
   } = states;
   return (
     <MyClassesView
@@ -34,6 +35,7 @@ const MyClasses = () => {
       loading={loading}
       createLoading={createLoading}
       data={data}
+      page={page}
       onPressViewDetail={onPressViewDetail}
       avatarImage={avatarImage}
       backgroundColor={backgroundColor}

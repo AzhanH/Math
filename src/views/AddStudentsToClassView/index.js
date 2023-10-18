@@ -1,6 +1,11 @@
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {BackgroundWrapper, SinglePlayerView, SearchBar} from '../../components';
+import {
+  BackgroundWrapper,
+  SinglePlayerView,
+  SearchBar,
+  Loader,
+} from '../../components';
 import styles from './styles';
 import images from '../../assets/images';
 import NoDataView from '../../components/NoDataView';
@@ -13,6 +18,7 @@ const AddStudentsToClassView = ({
   selectedIndex,
   addLoading,
   onPressAdd,
+  page,
   onChangeSearch,
 }) => {
   const renderItem = ({item, index}) => (
@@ -35,6 +41,7 @@ const AddStudentsToClassView = ({
     />
   );
 
+  const ListFooterComponent = page > 1 && loading && <Loader />;
   return (
     <BackgroundWrapper>
       <SearchBar
@@ -51,6 +58,7 @@ const AddStudentsToClassView = ({
         ListEmptyComponent={!loading && NoDataView}
         contentContainerStyle={styles.contentContainer}
         style={styles.container}
+        ListFooterComponent={ListFooterComponent}
         renderItem={renderItem}
         onEndReached={onEndReached}
       />

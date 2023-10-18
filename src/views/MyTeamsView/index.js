@@ -4,6 +4,7 @@ import {BackgroundWrapper, Button, Loader} from '../../components';
 import {vw} from '../../utils/units';
 import {SingleTeamView} from './components';
 import styles from './styles';
+import NoDataView from '../../components/NoDataView';
 
 const MyTeamView = ({
   onPressTeamDetail,
@@ -40,8 +41,10 @@ const MyTeamView = ({
   return (
     <BackgroundWrapper>
       <FlatList
+        showsVerticalScrollIndicator={false}
         refreshing={loading}
         onRefresh={onRefresh}
+        ListEmptyComponent={!loading && NoDataView}
         ListFooterComponent={ListFooterComponent}
         data={data}
         renderItem={renderItem}

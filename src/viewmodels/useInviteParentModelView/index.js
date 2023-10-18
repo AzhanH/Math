@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {Toast, getMessage} from '../../api/APIHelpers';
 import {GetAllTeachers} from '../../state/general';
-import {useRef, useState} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {SendInviteToParents} from '../../state/contest';
@@ -13,6 +13,7 @@ const useInviteParentModelView = ({route}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState(null);
   const [createContestLoading, setCreateContestLoading] = useState(false);
   const [lastPage, setLastPage] = useState(null);
 
@@ -21,14 +22,33 @@ const useInviteParentModelView = ({route}) => {
   useFocusEffect(
     useCallback(() => {
       loadData(1);
+      return () => {
+        setPage(1);
+        setLastPage(null);
+      };
     }, []),
   );
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (search !== null) {
+        loadData(1);
+      }
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
   const loadData = async (page = 1) => {
     try {
+      let apiData = {
+        page,
+      };
+      if (search) {
+        apiData = {...apiData, search};
+      }
       setLoading(true);
-      const res = await dispatch(GetAllTeachers({page})).unwrap();
-      setLastPage(res?.lastPage);
-      if (page > 1 && res?.lastPage <= page) {
+      const res = await dispatch(GetAllTeachers(apiData)).unwrap();
+      setLastPage(res?.last_page);
+      if (page > 1 && res?.last_page <= page) {
         setData([...data, ...res?.data]);
       } else {
         setData(res?.data);
@@ -74,6 +94,7 @@ const useInviteParentModelView = ({route}) => {
     }
   };
 
+  const onChangeSearch = text => setSearch(text);
   const onPressOk = () => navigation.goBack();
   const showModal = () => modalRef.current.show();
   const backgroundColor = {
@@ -88,9 +109,10 @@ const useInviteParentModelView = ({route}) => {
       onPressIcon,
       loadData,
       onPressOk,
+      onChangeSearch,
       onPressSendInvite,
     },
-    states: {createContestLoading, data, loading, backgroundColor},
+    states: {page, createContestLoading, data, loading, backgroundColor},
 
     ref: {
       modalRef,

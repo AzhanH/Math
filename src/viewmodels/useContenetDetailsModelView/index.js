@@ -1,16 +1,18 @@
 import {useDispatch} from 'react-redux';
 import {Toast, getMessage} from '../../api/APIHelpers';
-import {GetContestDetail} from '../../state/contest';
+import {GetContestDetail, UpdateContestInviteStatus} from '../../state/contest';
 import {useCallback, useState} from 'react';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 const useContestDetailsModelView = ({route}) => {
   const navigation = useNavigation();
   const id = route?.params?.id;
+  const isInvited = route?.params?.isInvited;
   const dispatch = useDispatch();
 
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [inviteStatusLoading, setInviteStatusLoading] = useState(false);
   const loadData = async () => {
     try {
       setLoading(true);
@@ -31,6 +33,22 @@ const useContestDetailsModelView = ({route}) => {
     {label: 'Country:', value: details?.country?.name},
   ];
 
+  const updateContestInviteStatus = async status => {
+    try {
+      setInviteStatusLoading(true);
+      const apiData = {
+        contest_id: id,
+        status,
+      };
+      const res = await dispatch(UpdateContestInviteStatus(apiData)).unwrap();
+      Toast.success(res?.message);
+      navigation.goBack();
+    } catch (e) {
+      Toast.error(getMessage(e));
+    } finally {
+      setInviteStatusLoading(false);
+    }
+  };
   const onPressEdit = () =>
     navigation.navigate('CreateAndEditContest', {details});
 
@@ -43,11 +61,14 @@ const useContestDetailsModelView = ({route}) => {
     functions: {
       loadData,
       onPressEdit,
+      updateContestInviteStatus,
     },
     states: {
       details,
+      isInvited,
       loading,
       options,
+      inviteStatusLoading,
     },
   };
 };

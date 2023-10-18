@@ -11,6 +11,7 @@ import {
   Button,
 } from '../../components';
 import styles from './styles';
+import NoDataView from '../../components/NoDataView';
 
 const CreateEditTeamView = ({
   onEndReached,
@@ -72,10 +73,10 @@ const CreateEditTeamView = ({
 
   const listHeaderComponent = (
     <View>
-      <SearchBar style={styles.searchView} />
       <InputField
+        viewStyle={styles.inputView}
+        editable={type !== 'Edit'}
         value={teamName}
-        maxLength={25}
         onChangeText={onChangeTeamName}
         placeholder="Team Name"
       />
@@ -107,7 +108,9 @@ const CreateEditTeamView = ({
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
+        showsVerticalScrollIndicator={false}
         ListFooterComponent={ListFooterComponent}
+        ListEmptyComponent={!loading && NoDataView}
         ListHeaderComponent={listHeaderComponent}
         data={data}
         contentContainerStyle={styles.contentContainer}

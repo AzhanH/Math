@@ -220,7 +220,9 @@ const EditProfileView = ({
             onPressOk={onPressOk}
             ref={modalRef}
             heading={'Update Alert'}
-            subHeading={'Student account details have been updated '}
+            subHeading={`${
+              isStudent ? 'Student' : 'Your'
+            } account details have been updated`}
             image={images.success}
           />
           <FullScreenLoader visible={loading} />

@@ -58,10 +58,11 @@ const TeamDetailView = ({
   return (
     <BackgroundWrapper>
       <FlatList
+        showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
-        ListEmptyComponent={NoDataView}
+        ListEmptyComponent={!loading && NoDataView}
         ListHeaderComponent={!loading && ListHeaderComponent}
         data={data?.students}
         contentContainerStyle={styles.contentContainer}

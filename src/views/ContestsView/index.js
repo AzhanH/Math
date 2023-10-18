@@ -1,7 +1,7 @@
 import React from 'react';
-import {Image, View, FlatList, RefreshControl} from 'react-native';
+import {View, FlatList, RefreshControl} from 'react-native';
 import images from '../../assets/images';
-import {BackgroundWrapper, SearchBar, Button} from '../../components';
+import {BackgroundWrapper, SearchBar, Button, Loader} from '../../components';
 import styles from './styles';
 import {SingleContestView} from './components';
 import moment from 'moment';
@@ -14,6 +14,7 @@ const ContestsView = ({
   onPressSendInvite,
   onPressContestDetail,
   data,
+  page,
 }) => {
   const renderItem = ({item, index}) => (
     <SingleContestView
@@ -30,15 +31,18 @@ const ContestsView = ({
 
   const listHeaderComponent = (
     <View style={styles.row}>
-      <SearchBar />
-      <View style={styles.sortView}>
+      <SearchBar style={styles.search} />
+      {/* <View style={styles.sortView}>
         <Image style={styles.filterIcon} source={images.filter} />
-      </View>
+      </View> */}
     </View>
   );
 
   const listFooterComponet = (
-    <Button onPress={onPressCreateContest} btnText={'CREATE CONTEST'} asd />
+    <View>
+      <Button onPress={onPressCreateContest} btnText={'CREATE CONTEST'} />
+      {page > 1 && loading && <Loader />}
+    </View>
   );
   return (
     <BackgroundWrapper>
@@ -46,6 +50,7 @@ const ContestsView = ({
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
+        showsVerticalScrollIndicator={false}
         data={data}
         style={styles.contanier}
         ListHeaderComponent={listHeaderComponent}

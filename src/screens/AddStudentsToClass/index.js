@@ -3,7 +3,8 @@ import AddStudentsToClassView from '../../views/AddStudentsToClassView';
 import useAddMoreStudentsToClassModeView from '../../viewmodels/useAddMoreStudentsToClassModelView';
 const AddMoreStudents = ({route}) => {
   const {states, functions} = useAddMoreStudentsToClassModeView({route});
-  const {loading, data, backgroundColors, selectedIndex, addLoading} = states;
+  const {loading, data, backgroundColors, selectedIndex, addLoading, page} =
+    states;
   const {loadData, onEndReached, onPressAdd, onChangeSearch} = functions;
 
   return (
@@ -15,6 +16,7 @@ const AddMoreStudents = ({route}) => {
       onEndReached={onEndReached}
       onPressAdd={onPressAdd}
       data={data}
+      page={page}
       loadData={loadData}
       loading={loading}
     />

@@ -56,3 +56,19 @@ export const SendInviteToParents = createAsyncThunk(
     }
   },
 );
+
+export const UpdateContestInviteStatus = createAsyncThunk(
+  'contest/invite/update-status',
+  async data => {
+    try {
+      const res = await post(
+        endpoints.contest.updateContestInviteStatus,
+        data,
+        true,
+      );
+      return res;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);

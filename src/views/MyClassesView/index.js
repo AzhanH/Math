@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, RefreshControl, View} from 'react-native';
-import {BackgroundWrapper, Button} from '../../components';
+import {BackgroundWrapper, Button, Loader} from '../../components';
 import styles from './styles';
 import {AddClassModal} from './components';
 import SingleClassView from './components/SingleClassView';
@@ -19,6 +19,7 @@ const MyClassesView = ({
   avatarImage,
   onPressViewDetail,
   onEndReached,
+  page,
   onPressCreateClass,
 }) => {
   const renderItem = ({item, index}) => (
@@ -39,6 +40,7 @@ const MyClassesView = ({
         textStyle={styles.btnText}
         btnText={'ADD CLASS'}
       />
+      {page > 1 && loading && <Loader />}
     </View>
   );
 

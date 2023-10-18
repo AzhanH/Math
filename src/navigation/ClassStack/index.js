@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
 import MyClass from '../../screens/MyClass';
 import NavigationOptions from '../NavigationOptions';
 import ClassDetails from '../../screens/ClassDetails';
