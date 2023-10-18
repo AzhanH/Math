@@ -56,7 +56,7 @@ export const endpoints = {
     addStudentToTeam: '/teacher/team/add-student',
   },
   plans: {
-    subscribePlan: id => `/teacher/plan/subscribe-plan/${id}`,
+    subscribePlan: id => `/teacher/subscriptions/${id}`,
     readPlans: '/plans',
   },
   contest: {

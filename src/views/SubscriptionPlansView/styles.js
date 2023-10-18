@@ -67,5 +67,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Oswald-Regular',
     bottom: vh * 5,
   },
+  loader: {
+    height: vh * 15,
+  },
 });
 export default styles;

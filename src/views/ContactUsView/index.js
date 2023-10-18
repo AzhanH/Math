@@ -27,7 +27,10 @@ const ContactUsView = ({
         initialValues={initialValues}
         onSubmit={onPressSendFeedback}>
         {({values, handleChange, errors, touched, handleSubmit}) => (
-          <KeyboardAwareScrollView enableOnAndroid style={styles.mainView}>
+          <KeyboardAwareScrollView
+            showsVerticalScrollIndicator={false}
+            enableOnAndroid
+            style={styles.mainView}>
             <InputField
               onChangeText={handleChange('first_name')}
               maxLength={30}

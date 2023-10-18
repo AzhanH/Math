@@ -1,5 +1,5 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {useCallback, useState} from 'react';
+import {useCallback, useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {GetAllContests} from '../../state/contest';
 
@@ -9,6 +9,7 @@ const useCreateContestModelView = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [lastPage, setLastPage] = useState(null);
+  const [search, setSearch] = useState(null);
   const [page, setPage] = useState(1);
 
   useFocusEffect(
@@ -21,12 +22,24 @@ const useCreateContestModelView = () => {
     }, []),
   );
 
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (search !== null) {
+        loadData(1);
+      }
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
+
   const loadData = async (page = 1) => {
     try {
       setLoading(true);
       let apiData = {
         page,
       };
+      if (search) {
+        apiData = {...apiData, search};
+      }
       const res = await dispatch(GetAllContests(apiData)).unwrap();
       setLastPage(res?.last_page);
       if (page > 1 && res?.last_page <= page) {
@@ -60,6 +73,8 @@ const useCreateContestModelView = () => {
     }
   };
 
+  const onChangeSearch = text => setSearch(text);
+
   const backgroundColor = {
     0: 'orange',
     1: 'red',
@@ -74,6 +89,7 @@ const useCreateContestModelView = () => {
       onPressSendInvite,
       onPressContestDetail,
       onPressCreateContest,
+      onChangeSearch,
     },
     states: {
       page,

@@ -44,6 +44,7 @@ const InviteStudentView = ({
   return (
     <BackgroundWrapper>
       <KeyboardAwareScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
         enableOnAndroid>
         <Formik

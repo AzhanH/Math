@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, ImageBackground, View} from 'react-native';
 import {BackgroundWrapper, Button, Loader, Text} from '../../components';
-import {fontSizes} from '../../utils/units';
+import {fontSizes, vh} from '../../utils/units';
 import {SinglePlanType} from './components';
 import styles from './styles';
 const SubscriptionPlansView = ({
@@ -10,6 +10,7 @@ const SubscriptionPlansView = ({
   planImages,
   selectedPlan,
   onPressSelectedPlan,
+  onPressGetIt,
   selectedIndex,
 }) => {
   const renderPlanType = ({item, index}) => (
@@ -20,7 +21,6 @@ const SubscriptionPlansView = ({
       type={item?.title}
     />
   );
-
   return (
     <BackgroundWrapper>
       <FlatList
@@ -32,7 +32,7 @@ const SubscriptionPlansView = ({
         data={data}
       />
       {loading ? (
-        <Loader />
+        <Loader style={styles.loader} />
       ) : (
         data && (
           <ImageBackground
@@ -83,19 +83,13 @@ const SubscriptionPlansView = ({
           </ImageBackground>
         )
       )}
-      {selectedPlan?.description?.length > 0 && (
+      {!loading && selectedPlan?.description?.length > 0 && (
         <View style={styles.planDescView}>
           <Text style={styles.planDescText} text={selectedPlan?.description} />
         </View>
       )}
-      {selectedPlan && (
-        <Button
-          onPress={() =>
-            navigation.navigate('Payment', {plan: selectedPlan, token})
-          }
-          black
-          btnText={'GET IT'}
-        />
+      {!loading && selectedPlan && (
+        <Button onPress={onPressGetIt} black btnText={'GET IT'} />
       )}
     </BackgroundWrapper>
   );

@@ -14,6 +14,7 @@ const ContestsView = ({
   onPressSendInvite,
   onPressContestDetail,
   data,
+  onChangeSearch,
   page,
 }) => {
   const renderItem = ({item, index}) => (
@@ -31,7 +32,7 @@ const ContestsView = ({
 
   const listHeaderComponent = (
     <View style={styles.row}>
-      <SearchBar style={styles.search} />
+      <SearchBar onChangeSearch={onChangeSearch} style={styles.search} />
       {/* <View style={styles.sortView}>
         <Image style={styles.filterIcon} source={images.filter} />
       </View> */}

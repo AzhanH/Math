@@ -5,7 +5,7 @@ import useSubscriptionPlansModelView from '../../viewmodels/useSubscriptionPlans
 const SubscriptionPlans = ({route}) => {
   const {functions, states} = useSubscriptionPlansModelView({route});
   const {loading, data, planImages, selectedPlan, selectedIndex} = states;
-  const {onPressSelectedPlan} = functions;
+  const {onPressSelectedPlan, onPressGetIt} = functions;
   return (
     <SubscriptionPlansView
       planImages={planImages}
@@ -14,6 +14,7 @@ const SubscriptionPlans = ({route}) => {
       selectedPlan={selectedPlan}
       selectedIndex={selectedIndex}
       loading={loading}
+      onPressGetIt={onPressGetIt}
     />
   );
 };

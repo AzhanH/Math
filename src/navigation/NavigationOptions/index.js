@@ -114,9 +114,9 @@ const getHeaderRight = props => {
             : images.notification
         }
       />
-      <View style={styles.count}>
+      {/* <View style={styles.count}>
         <Text style={styles.textWhite} text={'2'} />
-      </View>
+      </View> */}
     </TouchableOpacity>
   );
 };

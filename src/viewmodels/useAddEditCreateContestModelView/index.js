@@ -135,9 +135,9 @@ const useAddEditCreateContestModelView = ({route}) => {
   const onChangeTitle = text => setTitle(text);
   const onChangeDescription = text => setDescription(text);
   const onConfirmStartTime = time =>
-    setContestStartTime(moment(time).format('hh:mm a'));
+    setContestStartTime(moment(time).format('hh:mm'));
   const onConfirmEndTime = time =>
-    setContestEndTime(moment(time).format('hh:mm a'));
+    setContestEndTime(moment(time).format('hh:mm'));
   const onConfirmStartDate = date =>
     setContestStartDate(moment(date).format('YYYY-MM-DD'));
   const onConfirmEndDate = date =>

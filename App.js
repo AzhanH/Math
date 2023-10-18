@@ -7,25 +7,30 @@ import {persistor, store} from './src/state';
 import {StatusBar} from 'react-native';
 import Toast from 'react-native-toast-message';
 import MainNavigation from './src/navigation/MainNavigator';
+import {StripeProvider} from '@stripe/stripe-react-native';
+import {stripeKey} from './src/config';
+
 const App = () => {
   useEffect(() => {
     AnimatedSplash.hide();
   }, []);
 
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <NavigationContainer>
-          <StatusBar
-            barStyle={'dark-content'}
-            translucent
-            backgroundColor={'transparent'}
-          />
-          <MainNavigation />
-          <Toast />
-        </NavigationContainer>
-      </PersistGate>
-    </Provider>
+    <StripeProvider publishableKey={stripeKey}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <NavigationContainer>
+            <StatusBar
+              barStyle={'dark-content'}
+              translucent
+              backgroundColor={'transparent'}
+            />
+            <MainNavigation />
+            <Toast />
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
+    </StripeProvider>
   );
 };
 export default App;

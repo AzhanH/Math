@@ -10,6 +10,7 @@ const Contest = () => {
     onPressContestDetail,
     onPressSendInvite,
     onPressCreateContest,
+    onChangeSearch,
   } = functions;
   const {backgroundColor, data, loading, page} = states;
   return (
@@ -18,6 +19,7 @@ const Contest = () => {
       onEndReached={onEndReached}
       onPressSendInvite={onPressSendInvite}
       loading={loading}
+      onChangeSearch={onChangeSearch}
       onPressCreateContest={onPressCreateContest}
       onPressContestDetail={onPressContestDetail}
       data={data}

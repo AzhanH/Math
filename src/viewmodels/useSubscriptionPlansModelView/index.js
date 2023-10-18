@@ -1,10 +1,11 @@
 import {useDispatch} from 'react-redux';
 import {ReadPlans} from '../../state/plans';
 import {useCallback, useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import images from '../../assets/images';
 
 const useSubscriptionPlansModelView = ({route}) => {
+  const navigation = useNavigation();
   const token = route?.params?.token;
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
@@ -34,6 +35,11 @@ const useSubscriptionPlansModelView = ({route}) => {
     setSelectedPlan(item);
     setSelectedIndex(index);
   };
+  const onPressGetIt = () =>
+    navigation.navigate('Payment', {
+      plan: selectedPlan,
+      token,
+    });
 
   const planImages = {
     0: images.standardPlan,
@@ -43,6 +49,7 @@ const useSubscriptionPlansModelView = ({route}) => {
 
   return {
     functions: {
+      onPressGetIt,
       onPressSelectedPlan,
     },
     states: {

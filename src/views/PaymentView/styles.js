@@ -103,5 +103,15 @@ const styles = StyleSheet.create({
   inputSeprator: {
     marginLeft: '4%',
   },
+  cardFieldStyle: {
+    borderRadius: vw * 3,
+    backgroundColor: colors.borderLight,
+    textColor: '#000000',
+  },
+  cardContainer: {
+    width: '100%',
+    height: vh * 7,
+    marginVertical: vh * 2,
+  },
 });
 export default styles;
