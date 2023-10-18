@@ -1,9 +1,10 @@
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {BackgroundWrapper} from '../../components';
+import {BackgroundWrapper, Loader} from '../../components';
 import {SingleNotificationView} from './components';
 import styles from './styles';
 import moment from 'moment';
+import NoDataView from '../../components/NoDataView';
 
 const NotificationView = ({
   data,
@@ -12,6 +13,7 @@ const NotificationView = ({
   loading,
   onEndReached,
   loadData,
+  page,
   markLoading,
 }) => {
   const renderItem = ({item, index}) => (
@@ -27,15 +29,20 @@ const NotificationView = ({
       onPressMarkAsRead={() => readNotification(item?.id)}
     />
   );
+
+  const ListFooterComponent = page > 1 && loading && <Loader />;
   return (
     <BackgroundWrapper>
       <FlatList
         refreshControl={
           <RefreshControl onRefresh={loadData} refreshing={loading} />
         }
+        ListFooterComponent={ListFooterComponent}
+        ListEmptyComponent={!loading && NoDataView}
         renderItem={renderItem}
         style={styles.mainView}
         data={data}
+        onEndReached={onEndReached}
       />
     </BackgroundWrapper>
   );

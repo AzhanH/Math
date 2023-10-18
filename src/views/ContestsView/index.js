@@ -5,6 +5,7 @@ import {BackgroundWrapper, SearchBar, Button, Loader} from '../../components';
 import styles from './styles';
 import {SingleContestView} from './components';
 import moment from 'moment';
+import NoDataView from '../../components/NoDataView';
 const ContestsView = ({
   loadData,
   loading,
@@ -53,6 +54,7 @@ const ContestsView = ({
         }
         showsVerticalScrollIndicator={false}
         data={data}
+        ListEmptyComponent={!loading && NoDataView}
         style={styles.contanier}
         ListHeaderComponent={listHeaderComponent}
         ListFooterComponent={listFooterComponet}

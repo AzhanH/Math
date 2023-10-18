@@ -20,8 +20,8 @@ const useNotificaitonsModelView = () => {
     try {
       setLoading(true);
       const res = await dispatch(GetAllNotifications({page})).unwrap();
-      setLastPage(res?.lastPage);
-      if (page > 1 && res?.lastPage <= page) {
+      setLastPage(res?.last_page);
+      if (page > 1 && res?.last_page <= page) {
         setData([...data, ...res?.data]);
       } else {
         setData(res?.data);
@@ -36,6 +36,11 @@ const useNotificaitonsModelView = () => {
   useFocusEffect(
     useCallback(() => {
       loadData(1);
+
+      return () => {
+        setPage(1);
+        setLastPage(null);
+      };
     }, []),
   );
 
@@ -66,6 +71,7 @@ const useNotificaitonsModelView = () => {
       readNotification,
     },
     states: {
+      page,
       selectedId,
       markLoading,
       data,

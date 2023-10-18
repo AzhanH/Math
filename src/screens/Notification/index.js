@@ -4,10 +4,11 @@ import useNotificaitonsModelView from '../../viewmodels/useNotificationsModelVie
 
 const Notifications = () => {
   const {functions, states} = useNotificaitonsModelView();
-  const {loading, data, markLoading, selectedId} = states;
+  const {loading, data, markLoading, selectedId, page} = states;
   const {loadData, onEndReached, readNotification} = functions;
   return (
     <NotificationView
+      page={page}
       onEndReached={onEndReached}
       loadData={loadData}
       data={data}

@@ -67,6 +67,7 @@ const useMyClassesModelView = () => {
       Toast.success(res?.message);
       setCreateLoading(false);
       onCloseClassModal();
+      loadData(1);
     } catch (e) {
       setCreateLoading(false);
       console.log('Error', e);
